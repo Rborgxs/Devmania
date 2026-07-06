@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./images/logo_nome.jpeg" alt="Logo do Devmania" height=300px>
+<img src="./src/app/assets/logo_nome.jpeg" alt="Logo do Devmania" height=300px>
 <h1>Um mundo feito por devs e para devs</h1>
 
 ![Status](https://img.shields.io/badge/Status-Em%20Andamento-8a3503?style=for-the-badge)
