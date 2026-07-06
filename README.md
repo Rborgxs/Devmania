@@ -19,7 +19,7 @@ Home principal com moedas e progresso. Contém três pilares:
 - Após resolver, o mestre dá feedback e recomendações
 
 **Arena**
-Duelos contra outros devs, no modo casual ou rankeado. O mago apresenta 3 problemas e cada jogador resolve no menor tempo possível. O vencedor recebe um baú com moedas e insígnias. Há ligas nos modos Feat, Fix e Style.
+Duelos contra outros devs, no modo casual ou rankeado. O rei apresenta problemas e cada jogador resolve no menor tempo possível. O vencedor recebe um baú com moedas e insígnias. Há ligas nos modos Feat, Fix e Style.
 
 **Academia**
 Seção de treino livre. O usuário escolhe assuntos e trilhas, pratica linguagens e frameworks e acompanha seu desempenho em um dashboard analisado pelo mestre.
