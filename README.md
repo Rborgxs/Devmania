@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./images/logo_nome.jpeg" alt="Logo do Devmania" height=300px>
+<img src="./src/app/assets/logo_nome.jpeg" alt="Logo do Devmania" height=300px>
 <h1>Um mundo feito por devs e para devs</h1>
 
 ![Status](https://img.shields.io/badge/Status-Em%20Andamento-8a3503?style=for-the-badge)
@@ -19,10 +19,10 @@ Home principal com moedas e progresso. Contém três pilares:
 - Após resolver, o mestre dá feedback e recomendações
 
 **Arena**
-Duelos contra outros devs, no modo casual ou rankeado. O mago apresenta 3 problemas e cada jogador resolve no menor tempo possível. O vencedor recebe um baú com moedas e insígnias. Há ligas nos modos Feat, Fix e Style.
+Duelos contra outros devs, no modo casual ou rankeado. O rei apresenta problemas e cada jogador resolve no menor tempo possível. O vencedor recebe um baú com moedas e insígnias. Há ligas nos modos Feat, Fix e Style.
 
 **Academia**
-Seção de treino livre. O usuário escolhe assuntos e trilhas, pratica linguagens e frameworks e acompanha seu desempenho em um dashboard analisado pelo mestre.
+Seção de treino livre. O usuário escolhe assuntos e trilhas, pratica linguagens e frameworks (até o git e o bash) e acompanha seu desempenho em um dashboard analisado pelo mestre.
 
 **Guilda**
 Comunidade com chat público por tópicos, guildas privadas e conversa direta com amigos com eventos e torneios.
