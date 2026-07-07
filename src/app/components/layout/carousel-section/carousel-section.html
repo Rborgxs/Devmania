@@ -1,0 +1,38 @@
+<section class="carousel-section" id="missaoSecao">
+  <h2 class="carousel-section__title">Um mundo feito por devs e para devs</h2>
+
+  <div class="carousel-section__carousel">
+    <img [src]="slides[activeSlide()]" alt="Vantagens da Devmania" class="carousel-section__img">
+    <div class="carousel-section__dots">
+      @for (slide of slides; track slide; let i = $index) {
+        <button
+          class="carousel-section__dot"
+          [class.carousel-section__dot--active]="activeSlide() === i"
+          (click)="setSlide(i)"
+          [attr.aria-label]="'Slide ' + (i + 1)">
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="carousel-section__cards">
+    @for (card of cards; track card.level) {
+      <button
+        class="flip-card"
+        [class.flip-card--flipped]="isFlipped(card.level)"
+        (click)="toggleFlip(card.level)"
+        type="button">
+        <div class="flip-card__inner">
+          <div class="flip-card__front">
+            <img [src]="card.iconUrl" [alt]="card.title">
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.frontText }}</p>
+          </div>
+          <div class="flip-card__back">
+            <p>{{ card.backText }}</p>
+          </div>
+        </div>
+      </button>
+    }
+  </div>
+</section>

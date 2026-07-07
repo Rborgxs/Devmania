@@ -1,0 +1,39 @@
+.about {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url('/assets/about-bg.png');
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+  padding: 4rem 1.5rem;
+}
+
+.about__content {
+  max-width: 600px;
+}
+
+.about__content h2 {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+}
+
+.about__content p {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  margin-top: 1rem;
+}
+
+.about__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.about__socials img {
+  width: 32px;
+  image-rendering: pixelated;
+}

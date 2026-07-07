@@ -1,0 +1,70 @@
+.king-section {
+  padding: 4rem 2rem;
+  min-height: 150vh;
+}
+
+.king-section__texts {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.king-section__texts p {
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+}
+
+.king-section__stage {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: sticky;
+  top: 20vh;
+}
+
+.king-section__bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.king-section__bubble-trigger {
+  min-height: 33vh;
+  display: flex;
+  align-items: center;
+}
+
+.king-section__bubble {
+  border: 2px solid var(--color-purple);
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+  padding: 1rem 1.5rem;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: opacity 0.3s, transform 0.3s;
+  font-family: var(--fonte-code);
+}
+
+.king-section__bubble--active {
+  opacity: 1;
+  transform: scale(1.05);
+  border-color: var(--color-yellow-primary);
+}
+
+.king-section__character {
+  position: relative;
+  text-align: center;
+}
+
+.king-section__character img {
+  width: 280px;
+  image-rendering: pixelated;
+}
+
+.king-section__speech {
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+  padding: 0.75rem 1.25rem;
+  margin-top: -1rem;
+  font-family: var(--fonte-chat);
+}

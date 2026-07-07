@@ -1,0 +1,25 @@
+<section class="king-section" id="desafiosSecao" #sectionRef>
+  <div class="king-section__texts">
+    <h2>Mestres da Jornada</h2>
+    <p>Receba orientações, descubra novas estratégias e aprenda a vencer seus duelos.</p>
+  </div>
+
+  <div class="king-section__stage">
+    <div class="king-section__bubbles">
+      @for (bubble of bubbles; track bubble.mode; let i = $index) {
+        <div class="king-section__bubble-trigger" [attr.data-bubble-index]="i">
+          <div class="king-section__bubble" [class.king-section__bubble--active]="activeBubble() === i">
+            {{ bubble.label }}
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="king-section__character">
+      <img src="/assets/mestre-rei.png" alt="Rei mestre">
+      <div class="king-section__speech">
+        {{ bubbles[activeBubble()].kingQuote }}
+      </div>
+    </div>
+  </div>
+</section>
