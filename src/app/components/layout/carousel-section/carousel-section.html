@@ -1,38 +1,88 @@
-<section class="carousel-section" id="missaoSecao">
-  <h2 class="carousel-section__title">Um mundo feito por devs e para devs</h2>
+<section class="carousel" id="missaoSecao">
+  <h2 class="carousel__title">Um mundo feito por devs e para devs</h2>
 
-  <div class="carousel-section__carousel">
-    <img [src]="slides[activeSlide()]" alt="Vantagens da Devmania" class="carousel-section__img">
-    <div class="carousel-section__dots">
-      @for (slide of slides; track slide; let i = $index) {
+  <div class="carousel__stage">
+    <div class="carousel__dots">
+      @for (slide of slides; track slide.card.name; let i = $index) {
         <button
-          class="carousel-section__dot"
-          [class.carousel-section__dot--active]="activeSlide() === i"
+          class="carousel__dot"
+          [class.carousel__dot--active]="activeSlide() === i"
           (click)="setSlide(i)"
-          [attr.aria-label]="'Slide ' + (i + 1)">
+          [attr.aria-label]="'Ver ' + slide.title"
+          type="button">
         </button>
       }
     </div>
-  </div>
 
-  <div class="carousel-section__cards">
-    @for (card of cards; track card.level) {
-      <button
-        class="flip-card"
-        [class.flip-card--flipped]="isFlipped(card.level)"
-        (click)="toggleFlip(card.level)"
-        type="button">
-        <div class="flip-card__inner">
-          <div class="flip-card__front">
-            <img [src]="card.iconUrl" [alt]="card.title">
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.frontText }}</p>
+    <div class="flip-card" [class.flip-card--flipped]="isCurrentFlipped()">
+      <div class="flip-card__inner">
+        <div class="flip-card__front">
+          <div class="carousel__card-header">
+            <span class="carousel__card-level">{{ currentSlide.card.level }}</span>
+            <span class="carousel__card-name">{{ currentSlide.card.name }}</span>
           </div>
-          <div class="flip-card__back">
-            <p>{{ card.backText }}</p>
-          </div>
+          <img class="carousel__card-image" [src]="currentSlide.card.imageUrl" [alt]="currentSlide.card.name">
+          <button class="carousel__flip-btn" (click)="toggleFlip()" type="button">Ver status</button>
         </div>
-      </button>
-    }
+
+        <div class="flip-card__back">
+          <p class="carousel__card-back-text">{{ currentSlide.card.backDescription }}</p>
+
+          <div class="carousel__stats">
+            <div class="carousel__stat-row">
+              <span class="carousel__stat-label">Ataque</span>
+              <div class="carousel__stat-bar">
+                @for (block of statBlocks; track $index) {
+                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.attack"></span>
+                }
+              </div>
+            </div>
+
+            <div class="carousel__stat-row">
+              <span class="carousel__stat-label">Defesa</span>
+              <div class="carousel__stat-bar">
+                @for (block of statBlocks; track $index) {
+                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.defense"></span>
+                }
+              </div>
+            </div>
+
+            <div class="carousel__stat-row">
+              <span class="carousel__stat-label">Velocidade</span>
+              <div class="carousel__stat-bar">
+                @for (block of statBlocks; track $index) {
+                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.speed"></span>
+                }
+              </div>
+            </div>
+
+            <div class="carousel__stat-row">
+              <span class="carousel__stat-label">Bravura</span>
+              <div class="carousel__stat-bar">
+                @for (block of statBlocks; track $index) {
+                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.courage"></span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel__flip-btn" (click)="toggleFlip()" type="button">Voltar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel__content" [attr.data-slide]="activeSlide()">
+      <h3 class="carousel__content-title">{{ currentSlide.title }}</h3>
+      <p class="carousel__content-description">{{ currentSlide.description }}</p>
+    
+      <ul class="carousel__features">
+        @for (feature of currentSlide.features; track feature.text + $index) {
+          <li class="carousel__feature">
+            <span class="carousel__feature-star">★</span>
+            <span>{{ feature.text }}</span>
+          </li>
+        }
+      </ul>
+    </div>
   </div>
 </section>

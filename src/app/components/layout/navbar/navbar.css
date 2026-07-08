@@ -4,19 +4,24 @@
   left: 0;
   right: 0;
   z-index: 100;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: transparent;
-  transition: background-image 0.3s ease, background-color 0.3s ease;
+  padding: 0 2rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar--filled {
-  background-image: url('/assets/nav-bg-pixel.png');
-  background-repeat: repeat-x;
   background-color: var(--color-brown-primary);
+  box-shadow: 0 2px 0 var(--color-brown-second);
+}
+
+.navbar__logo img {
+  width: 50px;
   image-rendering: pixelated;
+  display: block;
 }
 
 .navbar__links {
@@ -24,12 +29,16 @@
   gap: 2rem;
   list-style: none;
   font-family: var(--fonte-std);
-  color: var(--color-yellow-secundary);
 }
 
 .navbar__links a {
-  color: inherit;
+  color: var(--color-yellow-secundary);
   text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar__links a:hover {
+  color: var(--color-yellow-primary);
 }
 
 .navbar__actions {
@@ -42,16 +51,38 @@
   cursor: pointer;
   text-decoration: none;
   font-family: var(--fonte-std);
+  font-size: 0.9rem;
+  border: 2px solid var(--color-yellow-primary);
 }
 
 .navbar__btn--ghost {
-  border: 2px solid var(--color-yellow-primary);
   background: transparent;
   color: var(--color-yellow-primary);
+  box-shadow: 4px 4px 0 var(--color-brown-second);
+}
+
+.navbar__btn--ghost:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-brown-second);
+}
+
+.navbar__btn--ghost:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-brown-second);
 }
 
 .navbar__btn--solid {
-  border: 2px solid var(--color-yellow-primary);
   background: var(--color-yellow-primary);
   color: var(--color-brown-primary);
+  box-shadow: 4px 4px 0 var(--color-brown-second);
+}
+
+.navbar__btn--solid:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-brown-second);
+}
+
+.navbar__btn--solid:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-brown-second);
 }

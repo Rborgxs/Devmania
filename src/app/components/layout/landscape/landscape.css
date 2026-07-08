@@ -1,11 +1,48 @@
 .landscape {
+  position: relative;
   width: 100%;
-  line-height: 0;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: url('/assets/landscape-bg.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
-.landscape__img {
-  width: 100%;
-  height: auto;
-  display: block;
+.landscape__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: calc(4.5rem + 1rem);
+}
+
+.landscape__logo {
+  width: 220px;
   image-rendering: pixelated;
+}
+
+.landscape__cta {
+  position: relative;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  text-decoration: none;
+  font-family: var(--fonte-std);
+  box-shadow: 4px 4px 0 var(--color-brown-second);
+}
+
+.landscape__cta:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-brown-second);
+}
+
+.landscape__cta:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-brown-second);
 }
