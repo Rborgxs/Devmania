@@ -34,9 +34,9 @@ export class Navbar implements AfterViewInit, OnDestroy {
 
     this.observer = new IntersectionObserver(
       ([entry]) => {
-        this.isFilled.set(!entry.isIntersecting);
+        this.isFilled.set(entry.intersectionRatio < 0.5);
       },
-      { threshold: 0 }
+      { threshold: [0, 0.5, 1] }
     );
 
     this.observer.observe(landscapeEl);
@@ -59,10 +59,10 @@ export class Navbar implements AfterViewInit, OnDestroy {
     }
 
     const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + startY - 80; // offset da navbar fixa
+    const targetY = target.getBoundingClientRect().top + startY - 80;
     const distance = targetY - startY;
     const duration = 600;
-    const steps = 12; // quantidade de "saltos" — quanto menor, mais pixelado/entrecortado
+    const steps = 12;
     const stepDuration = duration / steps;
 
     let currentStep = 0;
@@ -79,4 +79,4 @@ export class Navbar implements AfterViewInit, OnDestroy {
 
     jump();
   }
-} 
+}

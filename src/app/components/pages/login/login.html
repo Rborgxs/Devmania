@@ -1,1 +1,89 @@
-<p>login works!</p>
+<section class="login">
+  <a class="login__back" routerLink="/">
+    <img class="login__back-icon" src="assets/icons/back-icon.png" alt="Voltar">
+  </a>
+
+  <img class="login__pillar login__pillar--left" src="assets/pillar-left.png" alt="">
+  <img class="login__pillar login__pillar--right" src="assets/pillar-right.png" alt="">
+
+  <div class="login__content">
+    <img class="login__logo login__anim" style="--delay: 0" src="assets/logo_nome_devmania.png" alt="Logo Devmania">
+
+    <h1 class="login__title login__anim" style="--delay: 1">Entrar na Masmorra</h1>
+
+    <div class="login__social login__anim" style="--delay: 2">
+      <button class="login__social-btn login__social-btn--github" type="button" (click)="loginWithGithub()">
+        <span class="login__icon login__icon--github"></span>
+        GitHub
+      </button>
+      <button class="login__social-btn login__social-btn--google" type="button" (click)="loginWithGoogle()">
+        <span class="login__icon login__icon--google"></span>
+        Google
+      </button>
+    </div>
+
+    <div class="login__divider login__anim" style="--delay: 3">
+      <span class="login__divider-line"></span>
+      <span class="login__divider-text">ou</span>
+      <span class="login__divider-line"></span>
+    </div>
+
+    <form class="login__form" (ngSubmit)="onSubmit()">
+      <div class="login__field login__anim" style="--delay: 4">
+        <span class="login__icon login__icon--user"></span>
+        <input
+          class="login__input"
+          type="text"
+          name="username"
+          placeholder="Usuário"
+          [value]="username()"
+          (input)="username.set($any($event.target).value)"
+        >
+      </div>
+
+      <div class="login__field login__anim" style="--delay: 5">
+        <span class="login__icon login__icon--lock"></span>
+        <input
+          class="login__input"
+          [type]="showPassword() ? 'text' : 'password'"
+          name="password"
+          placeholder="Senha"
+          [value]="password()"
+          (input)="password.set($any($event.target).value)"
+        >
+        <button
+          class="login__toggle-password"
+          type="button"
+          (click)="togglePassword()"
+          [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'"
+        >
+          <span class="login__icon" [class.login__icon--eye-off]="showPassword()" [class.login__icon--eye]="!showPassword()"></span>
+        </button>
+      </div>
+
+      <label class="login__lgpd login__anim" style="--delay: 6">
+        <input
+          class="login__lgpd-checkbox"
+          type="checkbox"
+          [checked]="lgpdAccepted()"
+          (change)="lgpdAccepted.set($any($event.target).checked)"
+        >
+        <span class="login__lgpd-text">
+          Li e concordo com a
+          <a class="login__lgpd-link" href="https://exemplo.com/politica-de-privacidade" target="_blank" rel="noopener noreferrer">
+            Política de Privacidade (LGPD)
+          </a>
+        </span>
+      </label>
+
+      <button class="login__submit login__anim" style="--delay: 7" type="submit" [disabled]="!lgpdAccepted()">
+        Entrar
+      </button>
+    </form>
+
+    <p class="login__signup login__anim" style="--delay: 8">
+      Não tem uma conta?
+      <a class="login__signup-link" routerLink="/cadastro">Cadastre-se</a>
+    </p>
+  </div>
+</section>

@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-landscape',
   standalone: true,
   imports: [RouterLink],
-  host: { 'id': 'landscape' },
+  host: { id: 'landscape' },
   templateUrl: './landscape.html',
   styleUrl: './landscape.css'
 })

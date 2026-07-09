@@ -3,7 +3,7 @@
 :root {
     --fonte-title: "Metamorphous", serif;
     --fonte-std: "MedievalSharp", serif;
-    --fonte-chat: "Jacguard 12", serif;
+    --fonte-chat: "Jacquard 12", serif;
     --fonte-code: "Quantico", serif;
 
     --color-black: #201e1a;
@@ -62,4 +62,15 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
