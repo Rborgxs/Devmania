@@ -1,39 +1,63 @@
 .about {
-  min-height: 60vh;
+  min-height: 100vh;
+  box-sizing: border-box;
+  scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-black);
+  padding: 4rem 2rem;
+}
+
+.about__bg-frame {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
   background-image: url('/assets/about-bg.png');
   background-size: cover;
   background-position: center;
-  image-rendering: pixelated;
-  padding: 4rem 1.5rem;
 }
 
-.about__content {
-  max-width: 600px;
-}
-
-.about__content h2 {
+.about__title {
   font-family: var(--fonte-title);
   color: var(--color-yellow-primary);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
-.about__content p {
+.about__text {
   font-family: var(--fonte-std);
   color: var(--color-yellow-secundary);
-  margin-top: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
 }
 
 .about__socials {
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
-.about__socials img {
-  width: 32px;
+.about__social-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
   image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+.about__social-icon--github {
+  background: url('/assets/icons/social-github.png') no-repeat center / contain;
+}
+
+.about__social-icon--linkedin {
+  background: url('/assets/icons/social-linkedin.png') no-repeat center / contain;
+}
+
+.about__socials a:hover .about__social-icon {
+  transform: translateY(-3px);
 }

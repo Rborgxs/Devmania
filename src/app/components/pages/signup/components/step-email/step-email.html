@@ -1,0 +1,27 @@
+<app-king-dialogue-layout
+  speech="Agora me informe seu e-mail para que possamos registrar sua jornada.">
+
+  <div class="step-email">
+    <label class="step-email__label" for="email">Email</label>
+    <input
+      id="email"
+      class="step-email__input"
+      type="email"
+      [(ngModel)]="email"
+      (blur)="onBlur()"
+      placeholder="seuemail@exemplo.com"
+      autocomplete="email">
+
+    @if (showError()) {
+      <span class="step-email__error">Insira um email válido</span>
+    }
+
+    <button
+      class="step-email__continue"
+      type="button"
+      [disabled]="!isValid()"
+      (click)="continue()">
+      Continuar
+    </button>
+  </div>
+</app-king-dialogue-layout>

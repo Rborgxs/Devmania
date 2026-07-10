@@ -9,6 +9,8 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
+const SCROLL_TRIGGER_PX = 30;
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -18,7 +20,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Navbar implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
-  private observer?: IntersectionObserver;
+  private scrollHandler = () => this.onScroll();
 
   readonly isFilled = signal(false);
 
@@ -26,57 +28,25 @@ export class Navbar implements AfterViewInit, OnDestroy {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
-
-    const landscapeEl = document.getElementById('landscape');
-    if (!landscapeEl) {
-      return;
-    }
-
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
-        this.isFilled.set(entry.intersectionRatio < 0.5);
-      },
-      { threshold: [0, 0.5, 1] }
-    );
-
-    this.observer.observe(landscapeEl);
+    window.addEventListener('scroll', this.scrollHandler, { passive: true });
   }
 
   ngOnDestroy(): void {
-    this.observer?.disconnect();
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('scroll', this.scrollHandler);
+    }
+  }
+
+  private onScroll(): void {
+    this.isFilled.set(window.scrollY > SCROLL_TRIGGER_PX);
   }
 
   scrollToSection(event: Event, sectionId: string): void {
     event.preventDefault();
-
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
-
     const target = document.getElementById(sectionId);
-    if (!target) {
-      return;
-    }
-
-    const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + startY - 80;
-    const distance = targetY - startY;
-    const duration = 600;
-    const steps = 12;
-    const stepDuration = duration / steps;
-
-    let currentStep = 0;
-
-    const jump = () => {
-      currentStep++;
-      const progress = currentStep / steps;
-      window.scrollTo(0, startY + distance * progress);
-
-      if (currentStep < steps) {
-        setTimeout(jump, stepDuration);
-      }
-    };
-
-    jump();
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-interface FloatingElement {
+interface FloatingIcon {
   src: string;
   alt: string;
   positionClass: string;
@@ -18,6 +18,7 @@ interface FloatingElement {
 @Component({
   selector: 'app-hero-section',
   standalone: true,
+  host: { id: 'hero' },
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.css'
 })
@@ -27,31 +28,20 @@ export class HeroSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private observer?: IntersectionObserver;
 
-  readonly comments: FloatingElement[] = [
-    { src: 'assets/hero-comment-1.png', alt: 'Comentário', positionClass: 'hero__float--comment-1' },
-    { src: 'assets/hero-comment-2.png', alt: 'Comentário', positionClass: 'hero__float--comment-2' }
-  ];
-
-  readonly sideIcons: FloatingElement[] = [
-    { src: 'assets/hero-icon-1.png', alt: 'Ícone lateral', positionClass: 'hero__float--icon-1' },
-    { src: 'assets/hero-icon-2.png', alt: 'Ícone lateral', positionClass: 'hero__float--icon-2' },
-    { src: 'assets/hero-icon-3.png', alt: 'Ícone lateral', positionClass: 'hero__float--icon-3' }
+  readonly floatingIcons: FloatingIcon[] = [
+    { src: 'assets/icons/dev-js.png', alt: 'JavaScript', positionClass: 'hero__float--1' },
+    { src: 'assets/icons/dev-html.png', alt: 'HTML', positionClass: 'hero__float--2' },
+    { src: 'assets/icons/dev-angular.png', alt: 'Angular', positionClass: 'hero__float--3' },
+    { src: 'assets/icons/dev-git.png', alt: 'Git', positionClass: 'hero__float--4' },
+    { src: 'assets/icons/dev-python.png', alt: 'Python', positionClass: 'hero__float--5' }
   ];
 
   ngAfterViewInit(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
+    if (!isPlatformBrowser(this.platformId)) return;
     this.observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          this.contentRef.nativeElement.classList.add('reveal--visible');
-        }
-      },
+      ([entry]) => entry.isIntersecting && this.contentRef.nativeElement.classList.add('reveal--visible'),
       { threshold: 0.2 }
     );
-
     this.observer.observe(this.contentRef.nativeElement);
   }
 

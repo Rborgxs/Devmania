@@ -4,14 +4,18 @@
   </a>
 
   <ul class="navbar__links">
-    <li><a href="#landscape" (click)="scrollToSection($event, 'landscape')">Home</a></li>
+    <li><a href="#hero" (click)="scrollToSection($event, 'hero')">Home</a></li>
     <li><a href="#missaoSecao" (click)="scrollToSection($event, 'missaoSecao')">Público-alvo</a></li>
     <li><a href="#desafiosSecao" (click)="scrollToSection($event, 'desafiosSecao')">Ferramentas</a></li>
     <li><a href="#sobreSecao" (click)="scrollToSection($event, 'sobreSecao')">Sobre nós</a></li>
   </ul>
 
   <div class="navbar__actions">
-    <a class="navbar__btn navbar__btn--ghost" routerLink="/login">Entrar no mundo</a>
-    <a class="navbar__btn navbar__btn--solid" routerLink="/cadastro">Começar jornada</a>
+    <a class="navbar__btn navbar__btn--ghost" id='login_btn' routerLink="/login">
+      <img src="assets/icons/login_btn.png" alt="Entrar no mundo">
+    </a>
+    <a class="navbar__btn navbar__btn--solid" id='signup_btn' routerLink="/cadastro">
+      <img src="assets/icons/signup_btn.png" alt="Começar jornada">
+    </a>
   </div>
 </nav>

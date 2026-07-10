@@ -1,0 +1,40 @@
+@if (phase() === 'form') {
+  <div class="step-confirmation">
+    <img class="step-confirmation__illustration" src="assets/icons/confirmation-illustration.png" alt="">
+
+    <p class="step-confirmation__speech">
+      Tudo está pronto! Agora posso saber como devo chamá-lo?
+    </p>
+
+    <div class="step-confirmation__fields">
+      <label class="step-confirmation__label" for="name">Nome</label>
+      <input
+        id="name"
+        class="step-confirmation__input"
+        type="text"
+        [(ngModel)]="name"
+        placeholder="Seu nome">
+
+      <label class="step-confirmation__label" for="username">Nome de usuário</label>
+      <input
+        id="username"
+        class="step-confirmation__input"
+        type="text"
+        [(ngModel)]="username"
+        placeholder="Como quer ser chamado no reino">
+    </div>
+
+    <button
+      class="step-confirmation__finish"
+      type="button"
+      [disabled]="!canFinish()"
+      (click)="finishSignup()">
+      Finalizar cadastro
+    </button>
+  </div>
+} @else {
+  <div class="step-confirmation__transition">
+    <img class="step-confirmation__transition-illustration" src="assets/icons/kingdom-illustration.png" alt="">
+    <p class="step-confirmation__transition-text">O reino aguarda sua chegada.</p>
+  </div>
+}

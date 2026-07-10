@@ -1,0 +1,36 @@
+<div class="step-master">
+  <div class="step-master__king">
+    <img class="step-master__king-image" src="assets/characters/rei_default.jpeg" alt="Rei">
+  </div>
+
+  <div class="step-master__stage" [attr.data-direction]="slideDirection()">
+    <div class="step-master__main">
+      <img class="step-master__portrait" [src]="currentMaster.imageUrl" [alt]="currentMaster.name">
+      <div class="step-master__speech">{{ currentMaster.description }}</div>
+    </div>
+
+    <div class="step-master__info">
+      <h3 class="step-master__name">{{ currentMaster.name }}</h3>
+      <p class="step-master__title">{{ currentMaster.title }}</p>
+    </div>
+
+    <div class="step-master__traits">
+      @for (trait of currentMaster.traits; track trait.label) {
+        <div class="step-master__trait">
+          <span class="icon-placeholder"></span>
+          <span>{{ trait.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="step-master__controls">
+    <button class="step-master__arrow" type="button" (click)="previousMaster()" aria-label="Mestre anterior">←</button>
+
+    <button class="step-master__choose" type="button" (click)="chooseMaster()">
+      <img src="assets/icons/button_choose.png" alt="Escolher">
+    </button>
+
+    <button class="step-master__arrow" type="button" (click)="nextMaster()" aria-label="Próximo mestre">→</button>
+  </div>
+</div>

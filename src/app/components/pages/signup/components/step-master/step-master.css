@@ -1,0 +1,119 @@
+.step-master {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.step-master__king-image {
+  width: 140px;
+  image-rendering: pixelated;
+}
+
+.step-master__stage {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.step-master__stage[data-direction="right"] {
+  animation: slide-in-right 0.4s ease-out;
+}
+
+.step-master__stage[data-direction="left"] {
+  animation: slide-in-left 0.4s ease-out;
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-master__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-master__portrait {
+  width: 220px;
+  image-rendering: pixelated;
+}
+
+.step-master__speech {
+  border: 3px solid var(--color-yellow-primary);
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-chat);
+  padding: 0.85rem 1.1rem;
+  max-width: 240px;
+  text-align: center;
+}
+
+.step-master__info {
+  text-align: left;
+}
+
+.step-master__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.6rem;
+}
+
+.step-master__title {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  margin-top: 0.3rem;
+}
+
+.step-master__traits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step-master__trait {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 2px solid var(--color-brown-second);
+  padding: 0.5rem 0.85rem;
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+}
+
+.step-master__controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.step-master__arrow {
+  background: transparent;
+  border: 2px solid var(--color-yellow-primary);
+  color: var(--color-yellow-primary);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.step-master__choose img {
+  height: 3rem;
+  image-rendering: pixelated;
+}
+
+.icon-placeholder {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px dashed var(--color-gray);
+}

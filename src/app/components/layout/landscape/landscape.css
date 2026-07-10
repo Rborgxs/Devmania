@@ -20,7 +20,6 @@
   align-items: center;
   text-align: center;
   padding: 6rem;
-
 }
 
 .landscape__logo {
@@ -42,20 +41,11 @@
 
 .landscape__btn:hover img {
   content: url("/assets/icons/button_landscape_hover.png");
+  cursor: pointer;
 }
 
 .landscape__btn:active img {
   content: url("/assets/icons/button_landscape_hover.png");
   filter: opacity(0.5);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
+  cursor: pointer;
 }

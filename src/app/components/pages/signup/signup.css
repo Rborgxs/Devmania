@@ -1,0 +1,47 @@
+.signup {
+  min-height: 100vh;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+
+.signup__topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.signup__back {
+  background: transparent;
+  border: none;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.signup__back:hover {
+  color: var(--color-yellow-primary);
+}
+
+.signup__progress {
+  flex: 1;
+  height: 10px;
+  background: var(--color-brown-second);
+  border: 2px solid var(--color-brown-primary);
+}
+
+.signup__progress-fill {
+  height: 100%;
+  background: var(--color-yellow-primary);
+  transition: width 0.4s ease;
+}
+
+.signup__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}

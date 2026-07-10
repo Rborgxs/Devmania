@@ -1,0 +1,45 @@
+.king-layout {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.king-layout__king {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.king-layout__speech {
+  border: 3px solid var(--color-yellow-primary);
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-chat);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  max-width: 220px;
+  text-align: center;
+  position: relative;
+}
+
+.king-layout__speech::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--color-brown-primary);
+}
+
+.king-layout__image {
+  width: 200px;
+  image-rendering: pixelated;
+}
+
+.king-layout__content {
+  flex: 1;
+}

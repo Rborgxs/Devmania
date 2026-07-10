@@ -3,7 +3,7 @@
 
   <div class="carousel__stage">
     <div class="carousel__dots">
-      @for (slide of slides; track slide.card.name; let i = $index) {
+      @for (slide of slides; track slide.title; let i = $index) {
         <button
           class="carousel__dot"
           [class.carousel__dot--active]="activeSlide() === i"
@@ -16,70 +16,25 @@
 
     <div class="flip-card" [class.flip-card--flipped]="isCurrentFlipped()">
       <div class="flip-card__inner">
-        <div class="flip-card__front">
-          <div class="carousel__card-header">
-            <span class="carousel__card-level">{{ currentSlide.card.level }}</span>
-            <span class="carousel__card-name">{{ currentSlide.card.name }}</span>
-          </div>
-          <img class="carousel__card-image" [src]="currentSlide.card.imageUrl" [alt]="currentSlide.card.name">
-          <button class="carousel__flip-btn" (click)="toggleFlip()" type="button">Ver status</button>
-        </div>
+        <button class="flip-card__face flip-card__front" type="button" (click)="toggleFlip()">
+          <img [src]="currentSlide.frontImage" [alt]="currentSlide.title">
+        </button>
 
-        <div class="flip-card__back">
-          <p class="carousel__card-back-text">{{ currentSlide.card.backDescription }}</p>
-
-          <div class="carousel__stats">
-            <div class="carousel__stat-row">
-              <span class="carousel__stat-label">Ataque</span>
-              <div class="carousel__stat-bar">
-                @for (block of statBlocks; track $index) {
-                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.attack"></span>
-                }
-              </div>
-            </div>
-
-            <div class="carousel__stat-row">
-              <span class="carousel__stat-label">Defesa</span>
-              <div class="carousel__stat-bar">
-                @for (block of statBlocks; track $index) {
-                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.defense"></span>
-                }
-              </div>
-            </div>
-
-            <div class="carousel__stat-row">
-              <span class="carousel__stat-label">Velocidade</span>
-              <div class="carousel__stat-bar">
-                @for (block of statBlocks; track $index) {
-                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.speed"></span>
-                }
-              </div>
-            </div>
-
-            <div class="carousel__stat-row">
-              <span class="carousel__stat-label">Bravura</span>
-              <div class="carousel__stat-bar">
-                @for (block of statBlocks; track $index) {
-                  <span class="carousel__stat-block" [class.carousel__stat-block--filled]="$index < currentSlide.card.stats.courage"></span>
-                }
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel__flip-btn" (click)="toggleFlip()" type="button">Voltar</button>
-        </div>
+        <button class="flip-card__face flip-card__back" type="button" (click)="toggleFlip()">
+          <img [src]="currentSlide.backImage" [alt]="currentSlide.title + ' - status'">
+        </button>
       </div>
     </div>
 
-    <div class="carousel__content" [attr.data-slide]="activeSlide()">
+    <div class="carousel__content">
       <h3 class="carousel__content-title">{{ currentSlide.title }}</h3>
       <p class="carousel__content-description">{{ currentSlide.description }}</p>
-    
+
       <ul class="carousel__features">
-        @for (feature of currentSlide.features; track feature.text + $index) {
+        @for (feature of currentSlide.features; track feature) {
           <li class="carousel__feature">
             <span class="carousel__feature-star">★</span>
-            <span>{{ feature.text }}</span>
+            <span>{{ feature }}</span>
           </li>
         }
       </ul>

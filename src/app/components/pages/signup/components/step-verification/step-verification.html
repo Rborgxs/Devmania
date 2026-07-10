@@ -1,0 +1,39 @@
+<app-king-dialogue-layout
+  speech="Enviei um código para sua caixa de entrada. Digite-o abaixo para confirmar sua identidade.">
+
+  <div class="step-verification">
+    <div class="step-verification__digits" (paste)="onPaste($event)">
+      @for (digit of digits(); track $index) {
+        <input
+          #digitInput
+          class="step-verification__digit"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+          [value]="digit"
+          (input)="onInput($event, $index)"
+          (keydown)="onKeydown($event, $index)">
+      }
+    </div>
+
+    <button
+      class="step-verification__continue"
+      type="button"
+      [disabled]="!isComplete()"
+      (click)="continue()">
+      Continuar
+    </button>
+
+    <button
+      class="step-verification__resend"
+      type="button"
+      [disabled]="!canResend()"
+      (click)="resendCode()">
+      @if (canResend()) {
+        Reenviar código
+      } @else {
+        Reenviar em {{ resendCountdown() }}s
+      }
+    </button>
+  </div>
+</app-king-dialogue-layout>

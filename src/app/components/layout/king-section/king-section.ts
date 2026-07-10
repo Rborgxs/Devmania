@@ -26,6 +26,7 @@ export class KingSection implements AfterViewInit, OnDestroy {
   @ViewChild('sectionRef') sectionRef!: ElementRef<HTMLElement>;
 
   private readonly platformId = inject(PLATFORM_ID);
+  private observer?: IntersectionObserver;
 
   readonly activeBubble = signal(0);
 
@@ -35,12 +36,8 @@ export class KingSection implements AfterViewInit, OnDestroy {
     { mode: 'style', label: 'Style', kingQuote: 'Refatore com elegância — código limpo também é honra.' }
   ];
 
-  private observer?: IntersectionObserver;
-
   ngAfterViewInit(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
+    if (!isPlatformBrowser(this.platformId)) return;
 
     this.observer = new IntersectionObserver(
       (entries) => {

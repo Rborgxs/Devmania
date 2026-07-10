@@ -1,9 +1,6 @@
 <section class="hero">
   <div class="hero__floats">
-    @for (comment of comments; track comment.alt + $index) {
-      <img [class]="'hero__float ' + comment.positionClass" [src]="comment.src" [alt]="comment.alt">
-    }
-    @for (icon of sideIcons; track icon.alt + $index) {
+    @for (icon of floatingIcons; track icon.alt) {
       <img [class]="'hero__float ' + icon.positionClass" [src]="icon.src" [alt]="icon.alt">
     }
   </div>
