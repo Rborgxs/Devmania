@@ -1,1 +1,44 @@
-<p>sidebar works!</p>
+<aside class="sidebar" [class.sidebar--collapsed]="layout.sidebarCollapsed()">
+  <div class="sidebar__top">
+    <span class="sidebar__brand">
+      <span class="sidebar__brand-icon"></span>
+      @if (!layout.sidebarCollapsed()) {
+        <span class="sidebar__brand-text">Devmania</span>
+      }
+    </span>
+
+    <button class="sidebar__toggle" type="button" (click)="layout.toggleSidebar()">
+      <span class="sidebar__toggle-icon" [class.sidebar__toggle-icon--collapsed]="layout.sidebarCollapsed()"></span>
+    </button>
+  </div>
+
+  <nav class="sidebar__nav">
+    @for (item of mainItems; track item.route) {
+      
+        class="sidebar__item"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__item--active"
+      <a>
+        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
+        @if (!layout.sidebarCollapsed()) {
+          <span class="sidebar__item-label">{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+
+  <nav class="sidebar__nav sidebar__nav--bottom">
+    @for (item of bottomItems; track item.route) {
+      
+        class="sidebar__item"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__item--active"
+      <a>
+        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
+        @if (!layout.sidebarCollapsed()) {
+          <span class="sidebar__item-label">{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+</aside>

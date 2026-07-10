@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, signal, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login.css'
 })
 export class Login {
+  private readonly router = inject(Router);
+
   username = signal('');
   password = signal('');
   showPassword = signal(false);
@@ -24,6 +26,7 @@ export class Login {
       return;
     }
     console.log(this.username(), this.password());
+    this.router.navigateByUrl('/masmorra');
   }
 
   loginWithGithub(): void {

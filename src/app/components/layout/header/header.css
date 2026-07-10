@@ -1,0 +1,123 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 1.5rem;
+  background: var(--color-brown-primary);
+  border-bottom: 2px solid var(--color-brown-second);
+}
+
+.header__left,
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header__pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-brown-second);
+  border-radius: 6px;
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.header__pill:hover {
+  background: var(--color-purple);
+}
+
+.header__bell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: transform 0.2s ease-out;
+}
+
+.header__bell:hover {
+  transform: scale(1.15);
+}
+
+.header__resource {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-brown-second);
+  border-radius: 6px;
+  background: var(--color-black);
+  cursor: default;
+}
+
+.header__resource-value {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.header__icon {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  image-rendering: pixelated;
+}
+
+.header__icon--inbox {
+  background-image: url('/assets/icons/header/inbox.png');
+}
+
+.header__icon--bell {
+  background-image: url('/assets/icons/header/bell.png');
+}
+
+.header__icon--coin {
+  background-image: url('/assets/icons/header/coin.png');
+}
+
+.header__icon--streak {
+  background-image: url('/assets/icons/header/streak.png');
+}
+
+.header__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.header__popup {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.header__popup-empty {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  text-align: center;
+}

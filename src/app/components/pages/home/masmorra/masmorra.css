@@ -1,0 +1,384 @@
+.masmorra {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.masmorra__header {
+  text-align: center;
+}
+
+.masmorra__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.8rem;
+}
+
+.masmorra__subtitle {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.master-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  animation: soft-rise 0.4s ease-out;
+}
+
+@keyframes soft-rise {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.master-card__avatar {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  border-radius: 50%;
+  border: 2px solid var(--color-yellow-primary);
+}
+
+.master-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.master-card__message {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.master-card__hide {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--color-brown-second);
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.master-card__hide:hover {
+  background: var(--color-brown-second);
+}
+
+.challenges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.challenges__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.quest-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.quest-card__nav {
+  background: var(--color-purple);
+  border: none;
+  color: var(--color-yellow-secundary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease-out;
+}
+
+.quest-card__nav:hover {
+  transform: scale(1.15);
+}
+
+.quest-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quest-card__difficulty {
+  align-self: flex-start;
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: var(--color-purple);
+  color: var(--color-yellow-secundary);
+}
+
+.quest-card__difficulty[data-level='facil'] { background: #2f7a4d; }
+.quest-card__difficulty[data-level='medio'] { background: #a1731f; }
+.quest-card__difficulty[data-level='dificil'] { background: #8a2b2b; }
+
+.quest-card__reward {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.quest-card__coin-icon,
+.quest-card__xp-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  image-rendering: pixelated;
+}
+
+.quest-card__coin-icon {
+  background: url('/assets/icons/header/coin.png') no-repeat center / contain;
+}
+
+.quest-card__xp-icon {
+  background: url('/assets/icons/quest/xp.png') no-repeat center / contain;
+}
+
+.quest-card__image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  image-rendering: pixelated;
+  border-radius: 6px;
+}
+
+.quest-card__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.1rem;
+}
+
+.quest-card__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+.quest-card__io {
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.6rem;
+}
+
+.quest-card__io-label {
+  display: block;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+
+.quest-card__io-line {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.8rem;
+}
+
+.quest-card__start {
+  margin-top: 0.4rem;
+  padding: 0.7rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.15s ease-out;
+}
+
+.quest-card__start:hover {
+  transform: translateY(-2px);
+}
+
+.weekly-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--color-brown-second);
+  min-height: 380px;
+}
+
+.weekly-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.weekly-card__overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  justify-content: flex-end;
+}
+
+.weekly-card__top {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekly-card__reward,
+.weekly-card__bugs {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+  background: rgba(0,0,0,0.5);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.weekly-card__week {
+  align-self: flex-start;
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+  color: var(--color-yellow-primary);
+  background: rgba(0,0,0,0.5);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.weekly-card__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.3rem;
+}
+
+.weekly-card__description {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.weekly-card__actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.weekly-card__start {
+  flex: 1;
+  padding: 0.7rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.weekly-card__history {
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.history-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.history-modal {
+  width: 100%;
+  max-width: 32rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.history-modal__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  margin-bottom: 1rem;
+}
+
+.history-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.history-modal__item {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  font-family: var(--fonte-std);
+  font-size: 0.8rem;
+  color: var(--color-yellow-secundary);
+}
+
+.history-modal__status[data-status='concluido'] { color: #4caf7d; }
+.history-modal__status[data-status='pendente'] { color: var(--color-gray); }
+.history-modal__status[data-status='falhou'] { color: #d16060; }
+
+.history-modal__start {
+  background: var(--color-purple);
+  border: none;
+  color: var(--color-yellow-secundary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.history-modal__close {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--color-brown-second);
+  background: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  border-radius: 4px;
+}

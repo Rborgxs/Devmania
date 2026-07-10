@@ -40,7 +40,7 @@ export class StepConfirmation {
     this.phase.set('transition');
 
     setTimeout(() => {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/masmorra');
     }, REDIRECT_DELAY_MS);
   }
 }

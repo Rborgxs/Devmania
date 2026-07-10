@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
+import { MainLayout } from './components/layout/main-layout/main-layout';
 
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     loadComponent: () =>
       import('./components/pages/landing-page/landing-page').then(m => m.LandingPage)
   },
@@ -15,6 +17,37 @@ export const routes: Routes = [
     path: 'cadastro',
     loadComponent: () =>
       import('./components/pages/signup/signup').then(m => m.Signup)
+  },
+  {
+    path: '',
+    component: MainLayout,
+    children: [
+      {
+        path: 'masmorra',
+        loadComponent: () =>
+          import('./components/pages/home/masmorra/masmorra').then(m => m.Masmorra)
+      },
+      {
+        path: 'academia',
+        loadComponent: () =>
+          import('./components/pages/home/academia/academia').then(m => m.Academia)
+      },
+      {
+        path: 'arena',
+        loadComponent: () =>
+          import('./components/pages/home/arena/arena').then(m => m.Arena)
+      },
+      {
+        path: 'taberna',
+        loadComponent: () =>
+          import('./components/pages/home/taberna/taberna').then(m => m.Taberna)
+      },
+      {
+        path: 'oficina',
+        loadComponent: () =>
+          import('./components/pages/home/oficina/oficina').then(m => m.Oficina)
+      }
+    ]
   },
   {
     path: '**',

@@ -1,1 +1,103 @@
-<p>masmorra works!</p>
+<div class="masmorra">
+  <header class="masmorra__header">
+    <h1 class="masmorra__title">Masmorra</h1>
+    <p class="masmorra__subtitle">Enfrente desafios diários, evolua suas habilidades e conquiste recompensas.</p>
+  </header>
+
+  @if (masterCardVisible()) {
+    <div class="master-card">
+      <img class="master-card__avatar" src="assets/master-avatar.png" alt="Mestre">
+      <div class="master-card__body">
+        <p class="master-card__message">
+          Hoje há uma Quest Média disponível. Complete-a para manter sua sequência e ganhar moedas extras.
+        </p>
+        <button class="master-card__hide" type="button" (click)="hideMasterCard()">Ocultar</button>
+      </div>
+    </div>
+  }
+
+  <div class="challenges">
+    <section class="challenges__column">
+      <h2 class="challenges__title">Quests Diárias</h2>
+
+      <div class="quest-card">
+        <button class="quest-card__nav quest-card__nav--prev" type="button" (click)="prevQuest()">‹</button>
+
+        <div class="quest-card__body">
+          <span class="quest-card__difficulty" [attr.data-level]="currentQuest().difficulty">
+            {{ difficultyLabel(currentQuest().difficulty) }}
+          </span>
+          <span class="quest-card__reward">
+            <span class="quest-card__coin-icon"></span> {{ currentQuest().coinReward }}
+            <span class="quest-card__xp-icon"></span> {{ currentQuest().xpReward }}
+          </span>
+
+          <img class="quest-card__image" [src]="currentQuest().image" [alt]="currentQuest().title">
+
+          <h3 class="quest-card__title">{{ currentQuest().title }}</h3>
+          <p class="quest-card__description">{{ currentQuest().description }}</p>
+
+          <div class="quest-card__io">
+            <span class="quest-card__io-label">Entrada → Saída Esperada</span>
+            <code class="quest-card__io-line">{{ currentQuest().input }} → {{ currentQuest().output }}</code>
+          </div>
+
+          <button class="quest-card__start">Lutar</button>
+        </div>
+
+        <button class="quest-card__nav quest-card__nav--next" type="button" (click)="nextQuest()">›</button>
+      </div>
+    </section>
+
+    <section class="challenges__column">
+      <h2 class="challenges__title">Grande Desafio Semanal</h2>
+
+      <div class="weekly-card">
+        <img class="weekly-card__image" [src]="weeklyChallenge.image" [alt]="weeklyChallenge.title">
+
+        <div class="weekly-card__overlay">
+          <div class="weekly-card__top">
+            <span class="weekly-card__reward">
+              <span class="quest-card__coin-icon"></span> {{ weeklyChallenge.coinReward }}
+            </span>
+            <span class="weekly-card__bugs">🐛 {{ weeklyChallenge.bugCount }} bugs</span>
+          </div>
+
+          <span class="weekly-card__week">Semana #{{ weeklyChallenge.week }}</span>
+
+          <h3 class="weekly-card__title">{{ weeklyChallenge.title }}</h3>
+          <p class="weekly-card__description">{{ weeklyChallenge.description }}</p>
+
+          <div class="weekly-card__actions">
+            <button class="weekly-card__start">Enfrentar Desafio</button>
+            <button class="weekly-card__history" type="button" (click)="openHistory()">↺</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-stats-panel></app-stats-panel>
+
+  @if (historyModalOpen()) {
+    <div class="history-modal__overlay" (click)="closeHistory()">
+      <div class="history-modal" (click)="$event.stopPropagation()">
+        <h2 class="history-modal__title">Histórico da Semana</h2>
+
+        <ul class="history-modal__list">
+          @for (day of weekHistory; track day.day) {
+            <li class="history-modal__item">
+              <span class="history-modal__day">{{ day.day }}</span>
+              <span class="history-modal__quest">{{ day.questTitle }}</span>
+              <span class="history-modal__coins">{{ day.coins }} moedas</span>
+              <span class="history-modal__status" [attr.data-status]="day.status">{{ day.status }}</span>
+              <button class="history-modal__start">Iniciar</button>
+            </li>
+          }
+        </ul>
+
+        <button class="history-modal__close" type="button" (click)="closeHistory()">Fechar</button>
+      </div>
+    </div>
+  }
+</div>
