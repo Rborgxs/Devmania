@@ -1,0 +1,17 @@
+.chest-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chest-panel__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.1rem;
+}
+
+.chest-panel__slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

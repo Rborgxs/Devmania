@@ -1,0 +1,116 @@
+.arena-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.arena-sidebar__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.arena-sidebar__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--color-yellow-primary);
+  image-rendering: pixelated;
+}
+
+.arena-sidebar__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1rem;
+}
+
+.arena-sidebar__mode-select {
+  margin-top: 0.4rem;
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 4px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.arena-sidebar__elo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.arena-sidebar__elo-icon {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+}
+
+.arena-sidebar__elo-name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.05rem;
+}
+
+.arena-sidebar__tournaments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.arena-sidebar__tournament-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease-out, transform 0.15s ease-out;
+}
+
+.arena-sidebar__tournament-btn:hover {
+  background: var(--color-purple);
+  transform: translateX(3px);
+}
+
+.arena-sidebar__tournament-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  image-rendering: pixelated;
+}
+
+.arena-sidebar__tournament-icon--tournaments {
+  background-image: url('/assets/icons/arena/tournaments.png');
+}
+
+.arena-sidebar__tournament-icon--guild {
+  background-image: url('/assets/icons/arena/guild.png');
+}
+
+.arena-sidebar__tournament-icon--friends {
+  background-image: url('/assets/icons/arena/friends.png');
+}

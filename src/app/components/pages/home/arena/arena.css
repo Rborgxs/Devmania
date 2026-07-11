@@ -1,0 +1,38 @@
+.arena {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.arena__header {
+  text-align: center;
+}
+
+.arena__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.8rem;
+}
+
+.arena__subtitle {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arena__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 280px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.arena__left,
+.arena__right {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,39 @@
+<aside class="arena-sidebar">
+  <section class="arena-sidebar__profile">
+    <img class="arena-sidebar__avatar" src="/assets/avatars/default.png" alt="Jogador">
+    <span class="arena-sidebar__name">Aventureiro</span>
+
+    <select class="arena-sidebar__mode-select" [value]="selectedMode()" (change)="onModeChange($event)">
+      @for (option of modeOptions; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </section>
+
+  <section class="arena-sidebar__elo">
+    <img class="arena-sidebar__elo-icon" [src]="progress().tier.icon" [alt]="progress().tier.name">
+    <span class="arena-sidebar__elo-name">{{ progress().tier.name }}</span>
+
+    <app-elo-progress-bar
+      [progressPercent]="progress().progressPercent"
+      [currentXp]="progress().currentXp"
+      [xpIntoTier]="progress().xpIntoTier"
+      [xpNeededForNextTier]="progress().xpNeededForNextTier"
+    ></app-elo-progress-bar>
+  </section>
+
+  <section class="arena-sidebar__tournaments">
+    <button class="arena-sidebar__tournament-btn" type="button" (click)="openTournaments()">
+      <span class="arena-sidebar__tournament-icon arena-sidebar__tournament-icon--tournaments"></span>
+      Torneios
+    </button>
+    <button class="arena-sidebar__tournament-btn" type="button" (click)="openGuildTournament()">
+      <span class="arena-sidebar__tournament-icon arena-sidebar__tournament-icon--guild"></span>
+      Torneio de Guildas
+    </button>
+    <button class="arena-sidebar__tournament-btn" type="button" (click)="openFriends()">
+      <span class="arena-sidebar__tournament-icon arena-sidebar__tournament-icon--friends"></span>
+      Amigos
+    </button>
+  </section>
+</aside>

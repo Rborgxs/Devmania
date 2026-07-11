@@ -1,0 +1,12 @@
+<div class="duel">
+  <app-duel-header></app-duel-header>
+
+  <div class="duel__body">
+    <app-duel-problem-panel></app-duel-problem-panel>
+    <app-duel-editor></app-duel-editor>
+  </div>
+
+  @if (duelState.matchEnded()) {
+    <app-duel-result></app-duel-result>
+  }
+</div>

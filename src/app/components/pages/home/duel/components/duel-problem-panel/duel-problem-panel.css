@@ -1,0 +1,67 @@
+.duel-problem-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--color-brown-primary);
+  border-right: 2px solid var(--color-brown-second);
+  overflow-y: auto;
+}
+
+.duel-problem-panel__label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.duel-problem-panel__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.15rem;
+}
+
+.duel-problem-panel__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.duel-problem-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.duel-problem-panel__heading {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.duel-problem-panel__example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-family: var(--fonte-code);
+  font-size: 0.78rem;
+  color: var(--color-yellow-secundary);
+}
+
+.duel-problem-panel__list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.82rem;
+}
+
+.duel-problem-panel__done {
+  font-family: var(--fonte-std);
+  color: #4caf7d;
+  font-size: 0.95rem;
+}

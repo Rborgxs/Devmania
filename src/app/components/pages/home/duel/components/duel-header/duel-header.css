@@ -1,0 +1,100 @@
+.duel-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: var(--color-brown-primary);
+  border-bottom: 2px solid var(--color-brown-second);
+  flex-shrink: 0;
+}
+
+.duel-header__player {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.duel-header__player--opponent {
+  justify-content: flex-end;
+}
+
+.duel-header__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-yellow-primary);
+  image-rendering: pixelated;
+}
+
+.duel-header__player-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.duel-header__player--opponent .duel-header__player-meta {
+  text-align: right;
+}
+
+.duel-header__player-name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.duel-header__player-elo {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+}
+
+.duel-header__vs-icon {
+  font-size: 1.5rem;
+}
+
+.duel-header__center {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.duel-header__timer {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-primary);
+  font-size: 1.5rem;
+}
+
+.duel-header__progress-row {
+  display: grid;
+  grid-template-columns: 5rem 1fr 4rem;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.duel-header__progress-label,
+.duel-header__progress-count {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+}
+
+.duel-header__progress-track {
+  height: 8px;
+  background: var(--color-black);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.duel-header__progress-fill {
+  height: 100%;
+  background: var(--color-yellow-primary);
+  transition: width 0.5s ease-out;
+}
+
+.duel-header__progress-fill--opponent {
+  background: #d16060;
+}

@@ -1,0 +1,53 @@
+.duel-mode-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.duel-mode-modal {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.duel-mode-modal__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.3rem;
+}
+
+.duel-mode-modal__options {
+  display: flex;
+  gap: 1rem;
+}
+
+.duel-mode-modal__option {
+  padding: 0.85rem 2rem;
+  border: 2px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-title);
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, border-color 0.2s ease-out;
+}
+
+.duel-mode-modal__option:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-yellow-primary);
+}
+
+.duel-mode-modal__option--ranked {
+  background: var(--color-purple);
+  border-color: var(--color-yellow-primary);
+}

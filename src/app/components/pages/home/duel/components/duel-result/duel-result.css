@@ -1,0 +1,122 @@
+.duel-result__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.duel-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-yellow-primary);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 32rem;
+  animation: victory-pop 0.4s ease-out;
+}
+
+@keyframes victory-pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.duel-result__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 2rem;
+}
+
+.duel-result__title--defeat {
+  color: #d16060;
+}
+
+.duel-result__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+}
+
+.duel-result__table th {
+  color: var(--color-gray);
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-brown-second);
+  font-size: 0.75rem;
+}
+
+.duel-result__table td {
+  color: var(--color-yellow-secundary);
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-brown-second);
+}
+
+.duel-result__chest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.duel-result__chest-icon {
+  width: 64px;
+  height: 64px;
+  background: url('/assets/icons/chest/chest-open.png') no-repeat center / contain;
+  image-rendering: pixelated;
+  animation: chest-pop 0.5s ease-out;
+}
+
+@keyframes chest-pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.duel-result__chest-icon[data-rarity='lendario'] { filter: drop-shadow(0 0 10px var(--color-yellow-primary)); }
+.duel-result__chest-icon[data-rarity='raro'] { filter: drop-shadow(0 0 8px #4a7fd1); }
+
+.duel-result__chest-label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.duel-result__actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.duel-result__primary-btn,
+.duel-result__secondary-btn {
+  flex: 1;
+  padding: 0.85rem;
+  border-radius: 6px;
+  font-family: var(--fonte-title);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.duel-result__primary-btn {
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+}
+
+.duel-result__secondary-btn {
+  border: 2px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+}

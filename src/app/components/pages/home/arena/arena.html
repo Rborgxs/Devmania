@@ -1,1 +1,35 @@
-<p>arena works!</p>
+<div class="arena">
+  <header class="arena__header">
+    <h1 class="arena__title">Arena</h1>
+    <p class="arena__subtitle">
+      Enfrente outros magos do reino em duelos de programação. Resolva desafios mais rápido que seu adversário e suba no ranking.
+    </p>
+  </header>
+
+  <div class="arena__body">
+    <div class="arena__left">
+      <app-mode-selector
+        (duelRequested)="onDuelRequested($event)"
+      ></app-mode-selector>
+    </div>
+
+    <div class="arena__right">
+      <app-chest-panel></app-chest-panel>
+    </div>
+
+    <app-arena-sidebar></app-arena-sidebar>
+  </div>
+
+  @if (isModeModalOpen()) {
+    <app-duel-mode-modal
+      (close)="closeModeModal()"
+      (select)="onQueueTypeSelected($event)"
+    ></app-duel-mode-modal>
+  }
+
+  @if (isSearching()) {
+    <app-duel-search-modal
+      (cancel)="cancelSearch()"
+    ></app-duel-search-modal>
+  }
+</div>

@@ -1,0 +1,14 @@
+<div class="duel-mode-modal__overlay" (click)="close.emit()">
+  <div class="duel-mode-modal" (click)="$event.stopPropagation()">
+    <h2 class="duel-mode-modal__title">Modos</h2>
+
+    <div class="duel-mode-modal__options">
+      <button class="duel-mode-modal__option" type="button" (click)="select.emit('casual')">
+        Casual
+      </button>
+      <button class="duel-mode-modal__option duel-mode-modal__option--ranked" type="button" (click)="select.emit('ranqueado')">
+        Ranqueado
+      </button>
+    </div>
+  </div>
+</div>

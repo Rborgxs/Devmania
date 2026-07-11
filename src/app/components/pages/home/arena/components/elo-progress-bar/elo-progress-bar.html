@@ -1,0 +1,8 @@
+<div class="elo-progress-bar">
+  <div class="elo-progress-bar__track">
+    <div class="elo-progress-bar__fill" [style.width.%]="progressPercent()"></div>
+  </div>
+  <span class="elo-progress-bar__label">
+    {{ xpIntoTier() }} / {{ xpNeededForNextTier() }} XP
+  </span>
+</div>

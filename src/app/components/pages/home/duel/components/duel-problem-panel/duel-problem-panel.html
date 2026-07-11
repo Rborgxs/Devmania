@@ -1,0 +1,29 @@
+<div class="duel-problem-panel">
+  <span class="duel-problem-panel__label">Problema</span>
+
+  @if (currentProblem(); as problem) {
+    <h2 class="duel-problem-panel__title">{{ problem.title }}</h2>
+    <p class="duel-problem-panel__description">{{ problem.description }}</p>
+
+    <section class="duel-problem-panel__section">
+      <h3 class="duel-problem-panel__heading">Exemplos</h3>
+      @for (example of problem.examples; track example.input) {
+        <div class="duel-problem-panel__example">
+          <code>{{ example.input }}</code>
+          <code>{{ example.output }}</code>
+        </div>
+      }
+    </section>
+
+    <section class="duel-problem-panel__section">
+      <h3 class="duel-problem-panel__heading">Restrições</h3>
+      <ul class="duel-problem-panel__list">
+        @for (restriction of problem.restrictions; track restriction) {
+          <li><code>{{ restriction }}</code></li>
+        }
+      </ul>
+    </section>
+  } @else {
+    <p class="duel-problem-panel__done">Você concluiu todos os problemas!</p>
+  }
+</div>

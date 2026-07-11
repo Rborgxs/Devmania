@@ -1,0 +1,32 @@
+<section class="mode-selector">
+  <div class="mode-selector__cards">
+    @for (mode of modes; track mode.id) {
+      <button
+        class="mode-card"
+        [class.mode-card--active]="selectedMode() === mode.id"
+        type="button"
+        (click)="selectMode(mode.id)"
+      >
+        <span class="mode-card__icon" [style.background-image]="'url(' + mode.icon + ')'"></span>
+        <div class="mode-card__header">
+          <span class="mode-card__name">{{ mode.label }}</span>
+          <span
+            class="mode-card__tooltip-trigger"
+            (mouseenter)="showTooltip(mode.id); $event.stopPropagation()"
+            (mouseleave)="hideTooltip()"
+            (click)="$event.stopPropagation()"
+          >
+            ?
+            @if (hoveredTooltip() === mode.id) {
+              <span class="mode-card__tooltip">{{ mode.description }}</span>
+            }
+          </span>
+        </div>
+      </button>
+    }
+  </div>
+
+  <button class="mode-selector__duel-btn" type="button" (click)="requestDuel()">
+    Duelar
+  </button>
+</section>

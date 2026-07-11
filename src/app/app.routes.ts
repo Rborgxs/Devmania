@@ -29,6 +29,11 @@ export const routes: Routes = [
       import('./components/pages/battle/battle').then(m => m.Battle)
   },
   {
+    path: 'duelo/:matchId',
+    loadComponent: () =>
+      import('./components/pages/home/duel/duel').then(m => m.Duel)
+  },
+  {
     path: 'solucoes-comunidade',
     loadComponent: () =>
       import('./components/pages/community-solutions/community-solutions').then(m => m.CommunitySolutions)

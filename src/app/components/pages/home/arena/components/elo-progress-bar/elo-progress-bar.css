@@ -1,0 +1,27 @@
+.elo-progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.elo-progress-bar__track {
+  height: 10px;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.elo-progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-yellow-primary), var(--color-yellow-secundary));
+  transition: width 0.6s ease-out;
+}
+
+.elo-progress-bar__label {
+  font-family: var(--fonte-code);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+  text-align: center;
+}

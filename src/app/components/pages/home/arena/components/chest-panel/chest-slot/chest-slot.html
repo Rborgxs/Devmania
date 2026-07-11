@@ -1,0 +1,28 @@
+<div class="chest-slot" [attr.data-status]="chest().status" [attr.data-rarity]="chest().rarity">
+  @switch (chest().status) {
+    @case ('bloqueado') {
+      <div class="chest-slot__locked">
+        <span class="chest-slot__chest-icon"></span>
+        <span class="chest-slot__timer">{{ remainingLabel() }}</span>
+      </div>
+    }
+    @case ('disponivel') {
+      <div class="chest-slot__ready">
+        <span class="chest-slot__chest-icon chest-slot__chest-icon--bounce"></span>
+        <button class="chest-slot__open-btn" type="button" (click)="onOpenClick()">Abrir</button>
+      </div>
+    }
+    @case ('aberto') {
+      <div class="chest-slot__opened">
+        <span class="chest-slot__chest-icon chest-slot__chest-icon--open"></span>
+        <div class="chest-slot__rewards">
+          @for (reward of chest().rewards; track reward.label) {
+            <span class="chest-slot__reward">
+              {{ reward.label }}@if (reward.amount) { : {{ reward.amount }} }
+            </span>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>

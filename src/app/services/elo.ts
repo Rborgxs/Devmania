@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { EloTier, EloProgress, BattleMode } from '../models/elo';
 
 const TIER_NAMES = [

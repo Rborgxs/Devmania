@@ -1,0 +1,43 @@
+<div class="duel-editor">
+  <div class="duel-editor__code-area">
+    <div class="duel-editor__toolbar">
+      <span class="duel-editor__function-name">
+        @if (currentProblem()) {
+          {{ currentProblem().functionSignature.split('(')[0] }}
+        }
+      </span>
+      <button
+        class="duel-editor__submit-btn"
+        type="button"
+        [disabled]="duelState.matchEnded() || !currentProblem()"
+        (click)="submitSolution()"
+      >
+        Enviar Solução
+      </button>
+    </div>
+
+    <div class="duel-editor__monaco-wrapper">
+      @if (isBrowser) {
+        <ngx-monaco-editor
+          class="duel-editor__monaco"
+          [options]="editorOptions"
+          [ngModel]="code()"
+          (ngModelChange)="code.set($event)"
+        ></ngx-monaco-editor>
+      } @else {
+        <div class="duel-editor__ssr-placeholder">Carregando editor...</div>
+      }
+    </div>
+  </div>
+
+  <div class="duel-editor__console">
+    <span class="duel-editor__console-header">Console</span>
+    <div class="duel-editor__console-lines">
+      @for (entry of consoleEntries(); track entry.id) {
+        <p class="duel-editor__console-line" [class.duel-editor__console-line--fail]="!entry.success">
+          {{ entry.message }}
+        </p>
+      }
+    </div>
+  </div>
+</div>

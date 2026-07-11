@@ -1,0 +1,13 @@
+<section class="chest-panel">
+  <h2 class="chest-panel__title">Baús</h2>
+
+  <div class="chest-panel__slots">
+    @for (chest of chestService.chests(); track chest.id) {
+      <app-chest-slot
+        [chest]="chest"
+        (openChest)="chestService.openChest($event)"
+        (unlocked)="chestService.markUnlocked($event)"
+      ></app-chest-slot>
+    }
+  </div>
+</section>

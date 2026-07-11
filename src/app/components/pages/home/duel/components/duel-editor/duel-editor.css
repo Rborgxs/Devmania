@@ -1,0 +1,104 @@
+.duel-editor {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.duel-editor__code-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.duel-editor__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: var(--color-brown-primary);
+  border-bottom: 2px solid var(--color-brown-second);
+}
+
+.duel-editor__function-name {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.duel-editor__submit-btn {
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+}
+
+.duel-editor__submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.duel-editor__submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.duel-editor__monaco-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.duel-editor__monaco {
+  width: 100%;
+  height: 100%;
+}
+
+.duel-editor__ssr-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+}
+
+.duel-editor__console {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-black);
+  border-top: 2px solid var(--color-brown-second);
+  flex-shrink: 0;
+}
+
+.duel-editor__console-header {
+  padding: 0.4rem 1rem;
+  background: var(--color-brown-primary);
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+}
+
+.duel-editor__console-lines {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.duel-editor__console-line {
+  font-family: var(--fonte-code);
+  color: #4caf7d;
+  font-size: 0.8rem;
+}
+
+.duel-editor__console-line--fail {
+  color: #d16060;
+}

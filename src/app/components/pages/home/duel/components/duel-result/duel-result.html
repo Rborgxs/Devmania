@@ -1,0 +1,52 @@
+@if (duelState.result(); as result) {
+  <div class="duel-result__overlay">
+    <div class="duel-result">
+      <h1 class="duel-result__title" [class.duel-result__title--defeat]="result.winner !== 'player'">
+        {{ result.winner === 'player' ? 'Vitória!' : 'Derrota' }}
+      </h1>
+
+      <table class="duel-result__table">
+        <thead>
+          <tr>
+            <th>Estatística</th>
+            <th>Você</th>
+            <th>Oponente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tempo Total</td>
+            <td colspan="2">{{ formatTime(result.totalTimeSeconds) }}</td>
+          </tr>
+          <tr>
+            <td>Problemas Resolvidos</td>
+            <td>{{ duelState.player().problemsSolved }}</td>
+            <td>{{ duelState.opponent().problemsSolved }}</td>
+          </tr>
+          <tr>
+            <td>Tentativas</td>
+            <td>{{ duelState.player().attempts }}</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Linguagem</td>
+            <td>{{ duelState.player().language }}</td>
+            <td>{{ duelState.opponent().language }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      @if (result.winner === 'player') {
+        <div class="duel-result__chest">
+          <span class="duel-result__chest-icon" [attr.data-rarity]="result.rewardRarity"></span>
+          <span class="duel-result__chest-label">Baú {{ result.rewardRarity }} conquistado!</span>
+        </div>
+      }
+
+      <div class="duel-result__actions">
+        <button class="duel-result__primary-btn" type="button" (click)="duelAgain()">Duelar Novamente</button>
+        <button class="duel-result__secondary-btn" type="button" (click)="backToArena()">Voltar para Arena</button>
+      </div>
+    </div>
+  </div>
+}

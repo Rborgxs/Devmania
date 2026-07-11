@@ -1,0 +1,39 @@
+<header class="duel-header">
+  <div class="duel-header__player">
+    <img class="duel-header__avatar" [src]="duelState.player().avatar" [alt]="duelState.player().name">
+    <div class="duel-header__player-meta">
+      <span class="duel-header__player-name">{{ duelState.player().name }}</span>
+      <span class="duel-header__player-elo">{{ duelState.player().eloName }}</span>
+    </div>
+  </div>
+
+  <span class="duel-header__vs-icon">⚔️</span>
+
+  <div class="duel-header__player duel-header__player--opponent">
+    <div class="duel-header__player-meta">
+      <span class="duel-header__player-name">{{ duelState.opponent().name }}</span>
+      <span class="duel-header__player-elo">{{ duelState.opponent().eloName }}</span>
+    </div>
+    <img class="duel-header__avatar" [src]="duelState.opponent().avatar" [alt]="duelState.opponent().name">
+  </div>
+
+  <div class="duel-header__center">
+    <span class="duel-header__timer">{{ formattedTime() }}</span>
+
+    <div class="duel-header__progress-row">
+      <span class="duel-header__progress-label">Você</span>
+      <div class="duel-header__progress-track">
+        <div class="duel-header__progress-fill" [style.width.%]="(duelState.player().problemsSolved / duelState.problems().length) * 100"></div>
+      </div>
+      <span class="duel-header__progress-count">{{ duelState.player().problemsSolved }} / {{ duelState.problems().length }}</span>
+    </div>
+
+    <div class="duel-header__progress-row">
+      <span class="duel-header__progress-label">Adversário</span>
+      <div class="duel-header__progress-track">
+        <div class="duel-header__progress-fill duel-header__progress-fill--opponent" [style.width.%]="(duelState.opponent().problemsSolved / duelState.problems().length) * 100"></div>
+      </div>
+      <span class="duel-header__progress-count">{{ duelState.opponent().problemsSolved }} / {{ duelState.problems().length }}</span>
+    </div>
+  </div>
+</header>
