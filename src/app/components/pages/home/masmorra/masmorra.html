@@ -41,8 +41,7 @@
             <span class="quest-card__io-label">Entrada → Saída Esperada</span>
             <code class="quest-card__io-line">{{ currentQuest().input }} → {{ currentQuest().output }}</code>
           </div>
-
-          <button class="quest-card__start">Lutar</button>
+          <a class="quest-card__start" [routerLink]="['/batalha', currentQuest().id]">Lutar</a>
         </div>
 
         <button class="quest-card__nav quest-card__nav--next" type="button" (click)="nextQuest()">›</button>
@@ -50,7 +49,7 @@
     </section>
 
     <section class="challenges__column">
-      <h2 class="challenges__title">Grande Desafio Semanal</h2>
+      <h2 class="challenges__title">O Desafio</h2>
 
       <div class="weekly-card">
         <img class="weekly-card__image" [src]="weeklyChallenge.image" [alt]="weeklyChallenge.title">
@@ -69,7 +68,7 @@
           <p class="weekly-card__description">{{ weeklyChallenge.description }}</p>
 
           <div class="weekly-card__actions">
-            <button class="weekly-card__start">Enfrentar Desafio</button>
+            <a class="weekly-card__start" [routerLink]="['/desafio-semanal', weeklyChallenge.id]">Enfrentar Desafio</a>
             <button class="weekly-card__history" type="button" (click)="openHistory()">↺</button>
           </div>
         </div>

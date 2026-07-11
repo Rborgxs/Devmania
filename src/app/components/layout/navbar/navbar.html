@@ -1,4 +1,6 @@
 <nav class="navbar" [class.navbar--filled]="isFilled()" aria-label="Navegação principal">
+  <div class="navbar__bg"></div>
+
   <a class="navbar__logo" routerLink="/">
     <img src="assets/logo_simbolo_devmania.png" alt="Devmania">
   </a>
@@ -11,11 +13,12 @@
   </ul>
 
   <div class="navbar__actions">
-    <a class="navbar__btn navbar__btn--ghost" id='login_btn' routerLink="/login">
-      <img src="assets/icons/login_btn.png" alt="Entrar no mundo">
-    </a>
-    <a class="navbar__btn navbar__btn--solid" id='signup_btn' routerLink="/cadastro">
-      <img src="assets/icons/signup_btn.png" alt="Começar jornada">
-    </a>
+    @if (isFilled()) {
+      <div class="navbar__actions-inner">
+        <a class="navbar__btn navbar__btn--ghost" id="login_btn" routerLink="/login">
+          <img src="assets/icons/login_btn.png" alt="Entrar no mundo">
+        </a>
+      </div>
+    }
   </div>
 </nav>

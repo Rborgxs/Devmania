@@ -1,11 +1,12 @@
 import { Component, signal, computed } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Quest, DayHistory } from '../../../../models/quest';
 import { StatsPanel } from './stats-panel/stats-panel';
 
 @Component({
   selector: 'app-masmorra',
   standalone: true,
-  imports: [StatsPanel],
+  imports: [RouterLink, StatsPanel],
   host: { id: 'masmorra' },
   templateUrl: './masmorra.html',
   styleUrl: './masmorra.css'

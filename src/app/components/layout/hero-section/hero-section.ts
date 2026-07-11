@@ -33,7 +33,7 @@ export class HeroSection implements AfterViewInit, OnDestroy {
     { src: 'assets/icons/dev-html.png', alt: 'HTML', positionClass: 'hero__float--2' },
     { src: 'assets/icons/dev-angular.png', alt: 'Angular', positionClass: 'hero__float--3' },
     { src: 'assets/icons/dev-git.png', alt: 'Git', positionClass: 'hero__float--4' },
-    { src: 'assets/icons/dev-python.png', alt: 'Python', positionClass: 'hero__float--5' }
+    { src: 'assets/icons/dev-css.png', alt: 'CSS', positionClass: 'hero__float--5' }
   ];
 
   ngAfterViewInit(): void {

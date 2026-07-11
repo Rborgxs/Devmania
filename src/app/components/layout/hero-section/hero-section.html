@@ -1,18 +1,20 @@
 <section class="hero">
-  <div class="hero__floats">
-    @for (icon of floatingIcons; track icon.alt) {
-      <img [class]="'hero__float ' + icon.positionClass" [src]="icon.src" [alt]="icon.alt">
-    }
-  </div>
+  <div class="hero__stage">
+    <div class="hero__floats">
+      @for (icon of floatingIcons; track icon.alt) {
+        <img [class]="'hero__float ' + icon.positionClass" [src]="icon.src" [alt]="icon.alt">
+      }
+    </div>
 
-  <div class="hero__content reveal" #contentRef>
-    <h1 class="hero__title">
-      Crie. Debugue. Pratique. <span class="hero__highlight">Torne-se um mestre</span>
-    </h1>
-    <p class="hero__subtitle">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatum officiis
-      laboriosam iste doloremque recusandae. Veritatis autem iure dolores commodi placeat
-      numquam obcaecati nulla, enim odio qui perspiciatis nihil ipsam.
-    </p>
+    <div class="hero__content reveal" #contentRef>
+      <h1 class="hero__title">
+        Crie. Debugue. Pratique. <span class="hero__highlight">Torne-se um mestre</span>
+      </h1>
+      <p class="hero__subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatum officiis
+        laboriosam iste doloremque recusandae. Veritatis autem iure dolores commodi placeat
+        numquam obcaecati nulla, enim odio qui perspiciatis nihil ipsam.
+      </p>
+    </div>
   </div>
 </section>

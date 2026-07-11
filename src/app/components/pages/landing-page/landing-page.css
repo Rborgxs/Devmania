@@ -5,4 +5,8 @@
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  background-image: url('/assets/wall_bg.jpeg');
+  background-repeat: repeat;
+  background-position: top center;
+  image-rendering: pixelated;
 }

@@ -1,7 +1,6 @@
 .king-section {
   min-height: 150vh;
   box-sizing: border-box;
-  background-color: var(--color-black);
   padding: 4rem 3rem;
 }
 

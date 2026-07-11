@@ -1,10 +1,11 @@
 import { Component, signal, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   host: { id: 'login' },
   templateUrl: './login.html',
   styleUrl: './login.css'

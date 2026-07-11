@@ -14,11 +14,7 @@
 
   <nav class="sidebar__nav">
     @for (item of mainItems; track item.route) {
-      
-        class="sidebar__item"
-        [routerLink]="item.route"
-        routerLinkActive="sidebar__item--active"
-      <a>
+      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active">
         <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
         @if (!layout.sidebarCollapsed()) {
           <span class="sidebar__item-label">{{ item.label }}</span>
@@ -29,11 +25,7 @@
 
   <nav class="sidebar__nav sidebar__nav--bottom">
     @for (item of bottomItems; track item.route) {
-      
-        class="sidebar__item"
-        [routerLink]="item.route"
-        routerLinkActive="sidebar__item--active"
-      <a>
+      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active">
         <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
         @if (!layout.sidebarCollapsed()) {
           <span class="sidebar__item-label">{{ item.label }}</span>

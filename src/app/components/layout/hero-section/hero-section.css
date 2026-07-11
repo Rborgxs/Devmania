@@ -1,5 +1,6 @@
 .hero {
   position: relative;
+  top: -130px;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
@@ -8,8 +9,19 @@
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background-color: var(--color-black);
-  overflow: hidden;
+  background-image: url('/assets/hero_bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  image-rendering: pixelated;
+  overflow: visible;
+  z-index: 2;
+}
+
+.hero__stage {
+  position: relative;
+  width: 100%;
+  margin-top: 12rem;
 }
 
 .hero__floats {
@@ -20,67 +32,56 @@
 
 .hero__float {
   position: absolute;
+  top: 50%;
+  left: 50%;
   image-rendering: pixelated;
+  width: 42px;
+  margin: -21px 0 0 -21px;
 }
 
-.hero__float--comment-1 {
-  top: 15%;
-  left: 8%;
-  width: 140px;
-  animation: hero-drift-a 8s ease-in-out infinite;
-  animation-delay: 0s;
+.hero__float--1 {
+  animation: orbit-a 14s linear infinite;
 }
 
-.hero__float--comment-2 {
-  bottom: 18%;
-  right: 10%;
-  width: 140px;
-  animation: hero-drift-b 9s ease-in-out infinite;
-  animation-delay: 1.2s;
+.hero__float--2 {
+  animation: orbit-b 16s linear infinite;
 }
 
-.hero__float--icon-1 {
-  top: 30%;
-  right: 18%;
-  width: 60px;
-  animation: hero-particle-a 6s ease-in-out infinite;
-  animation-delay: 0.4s;
+.hero__float--3 {
+  animation: orbit-c 18s linear infinite;
 }
 
-.hero__float--icon-2 {
-  bottom: 30%;
-  left: 15%;
-  width: 60px;
-  animation: hero-particle-b 6.5s ease-in-out infinite;
-  animation-delay: 1.8s;
+.hero__float--4 {
+  animation: orbit-d 15s linear infinite;
 }
 
-.hero__float--icon-3 {
-  top: 10%;
-  right: 40%;
-  width: 60px;
-  animation: hero-particle-a 5.5s ease-in-out infinite;
-  animation-delay: 0.9s;
+.hero__float--5 {
+  animation: orbit-e 17s linear infinite;
 }
 
-@keyframes hero-drift-a {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(24px, -14px); }
+@keyframes orbit-a {
+  from { transform: rotate(0deg) translateX(280px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(280px) rotate(-360deg); }
 }
 
-@keyframes hero-drift-b {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-26px, -12px); }
+@keyframes orbit-b {
+  from { transform: rotate(72deg) translateX(280px) rotate(-72deg); }
+  to   { transform: rotate(432deg) translateX(280px) rotate(-432deg); }
 }
 
-@keyframes hero-particle-a {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(18px, -10px); }
+@keyframes orbit-c {
+  from { transform: rotate(144deg) translateX(280px) rotate(-144deg); }
+  to   { transform: rotate(504deg) translateX(280px) rotate(-504deg); }
 }
 
-@keyframes hero-particle-b {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-18px, -10px); }
+@keyframes orbit-d {
+  from { transform: rotate(216deg) translateX(280px) rotate(-216deg); }
+  to   { transform: rotate(576deg) translateX(280px) rotate(-576deg); }
+}
+
+@keyframes orbit-e {
+  from { transform: rotate(288deg) translateX(280px) rotate(-288deg); }
+  to   { transform: rotate(648deg) translateX(280px) rotate(-648deg); }
 }
 
 .hero__content {
@@ -88,6 +89,7 @@
   z-index: 1;
   max-width: 700px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .hero__title {
