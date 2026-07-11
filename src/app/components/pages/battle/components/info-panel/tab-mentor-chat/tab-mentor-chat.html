@@ -1,0 +1,38 @@
+<div class="mentor-chat">
+  <div class="mentor-chat__messages">
+    @for (msg of battleState.mentorMessages(); track msg.id) {
+      <div class="mentor-chat__message" [class.mentor-chat__message--user]="msg.sender === 'user'">
+        <span class="mentor-chat__text">{{ msg.text }}</span>
+        <span class="mentor-chat__time">{{ msg.timestamp }}</span>
+      </div>
+    }
+  </div>
+
+  <div class="mentor-chat__hints">
+    <span class="mentor-chat__hints-title">Dicas Disponíveis</span>
+    @for (hint of battleState.hints(); track hint.id) {
+      <div class="mentor-chat__hint">
+        @if (hint.unlocked) {
+          <span class="mentor-chat__hint-text">{{ hint.label }}</span>
+        } @else {
+          <span class="mentor-chat__hint-locked">Dica bloqueada</span>
+          <button class="mentor-chat__hint-buy" type="button" (click)="buyHint(hint.id)">
+            Comprar por {{ hint.cost }}
+          </button>
+        }
+      </div>
+    }
+  </div>
+
+  <form class="mentor-chat__input-row" (ngSubmit)="sendMessage()">
+    <input
+      class="mentor-chat__input"
+      type="text"
+      placeholder="Pergunte sobre as ferramentas..."
+      [ngModel]="draft()"
+      (ngModelChange)="draft.set($event)"
+      name="chatDraft"
+    >
+    <button class="mentor-chat__send" type="submit">Enviar</button>
+  </form>
+</div>

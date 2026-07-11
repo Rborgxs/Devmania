@@ -1,0 +1,28 @@
+<div class="results">
+  @if (battleState.submitPhase() === 'processing') {
+    <div class="results__loading">
+      <span class="results__spinner"></span>
+      <span>Executando testes ocultos...</span>
+    </div>
+  } @else if (battleState.executionLog().length === 0) {
+    <p class="results__empty">Clique em Enviar para executar os testes ocultos.</p>
+  } @else {
+    <ul class="results__log">
+      @for (entry of battleState.executionLog(); track entry.id) {
+        <li class="results__entry" [class.results__entry--fail]="!entry.passed">
+          <div class="results__entry-header">
+            <span class="results__entry-label">{{ entry.label }}</span>
+            <span class="results__entry-status">{{ entry.passed ? 'Sucesso' : 'Falha' }}</span>
+          </div>
+          <div class="results__entry-meta">
+            <span>{{ entry.time }}</span>
+            <span>{{ entry.durationMs }}ms</span>
+          </div>
+          @if (entry.message) {
+            <p class="results__entry-message">{{ entry.message }}</p>
+          }
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,0 +1,47 @@
+@if (battleState.submitPhase() === 'victory') {
+  <div class="submit-flow__overlay">
+    <div class="submit-flow__victory">
+      <span class="submit-flow__victory-icon">⚔️</span>
+      <h2 class="submit-flow__victory-title">Vitória!</h2>
+      <p class="submit-flow__victory-subtitle">Todos os testes ocultos foram aprovados.</p>
+      <button class="submit-flow__continue-btn" type="button" (click)="viewRewards()">
+        Ver Recompensas
+      </button>
+    </div>
+  </div>
+}
+
+@if (battleState.submitPhase() === 'reward' && battleState.lastRewardSummary(); as reward) {
+  <div class="submit-flow__overlay">
+    <div class="submit-flow__reward-card">
+      <h2 class="submit-flow__reward-title">Recompensas Conquistadas</h2>
+
+      <div class="submit-flow__reward-grid">
+        <div class="submit-flow__reward-item">
+          <span class="submit-flow__reward-label">Moedas</span>
+          <span class="submit-flow__reward-value">{{ reward.coins }}</span>
+        </div>
+        <div class="submit-flow__reward-item">
+          <span class="submit-flow__reward-label">Experiência</span>
+          <span class="submit-flow__reward-value">{{ reward.xp }} XP</span>
+        </div>
+        <div class="submit-flow__reward-item">
+          <span class="submit-flow__reward-label">Tempo Total</span>
+          <span class="submit-flow__reward-value">{{ formatTime(reward.totalTimeSeconds) }}</span>
+        </div>
+        <div class="submit-flow__reward-item">
+          <span class="submit-flow__reward-label">Dicas Usadas</span>
+          <span class="submit-flow__reward-value">{{ reward.hintsUsed }}</span>
+        </div>
+        <div class="submit-flow__reward-item">
+          <span class="submit-flow__reward-label">Moedas em Dicas</span>
+          <span class="submit-flow__reward-value">-{{ reward.coinsSpentOnHints }}</span>
+        </div>
+      </div>
+
+      <button class="submit-flow__continue-btn" type="button" (click)="goToCommunitySolutions()">
+        Ver Soluções da Comunidade
+      </button>
+    </div>
+  </div>
+}

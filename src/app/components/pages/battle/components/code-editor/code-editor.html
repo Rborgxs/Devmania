@@ -1,0 +1,26 @@
+<div class="code-editor" [class.code-editor--maximized]="isMaximized()">
+  <div class="code-editor__toolbar">
+    <span class="code-editor__function-name">formatName(firstName, lastName)</span>
+
+    <div class="code-editor__actions">
+      <button class="code-editor__action" type="button" (click)="copyCode()" title="Copiar código">⧉</button>
+      <button class="code-editor__action" type="button" (click)="restoreCode()" title="Restaurar código inicial">↺</button>
+      <button class="code-editor__action" type="button" (click)="toggleMaximize()" title="Maximizar editor">
+        {{ isMaximized() ? '⤡' : '⤢' }}
+      </button>
+    </div>
+  </div>
+
+  <div class="code-editor__body">
+    @if (isBrowser) {
+      <ngx-monaco-editor
+        class="code-editor__monaco"
+        [options]="editorOptions"
+        [ngModel]="battleState.currentCode()"
+        (ngModelChange)="battleState.updateCode($event)"
+      ></ngx-monaco-editor>
+    } @else {
+      <div class="code-editor__ssr-placeholder">Carregando editor...</div>
+    }
+  </div>
+</div>

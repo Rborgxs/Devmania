@@ -1,0 +1,68 @@
+.solutions-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 1.5rem;
+  height: fit-content;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.solutions-sidebar__action {
+  padding: 0.7rem;
+  border: 1px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease-out;
+}
+
+.solutions-sidebar__action:hover {
+  background: var(--color-purple);
+}
+
+.solutions-sidebar__filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid var(--color-brown-second);
+  padding-top: 0.85rem;
+}
+
+.solutions-sidebar__filters-title {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.solutions-sidebar__filter {
+  padding: 0.55rem 0.7rem;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.78rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease-out, color 0.2s ease-out;
+}
+
+.solutions-sidebar__filter:hover {
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+}
+
+.solutions-sidebar__filter--active {
+  background: var(--color-purple);
+  color: var(--color-yellow-primary);
+  border-color: var(--color-yellow-primary);
+}

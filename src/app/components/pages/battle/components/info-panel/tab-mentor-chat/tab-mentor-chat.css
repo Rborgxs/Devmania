@@ -1,0 +1,116 @@
+.mentor-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.mentor-chat__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.mentor-chat__message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: 85%;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  align-self: flex-start;
+}
+
+.mentor-chat__message--user {
+  align-self: flex-end;
+  background: var(--color-purple);
+}
+
+.mentor-chat__text {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.mentor-chat__time {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.65rem;
+  align-self: flex-end;
+}
+
+.mentor-chat__hints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid var(--color-brown-second);
+  padding-top: 0.75rem;
+}
+
+.mentor-chat__hints-title {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+}
+
+.mentor-chat__hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-black);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+}
+
+.mentor-chat__hint-text {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.8rem;
+}
+
+.mentor-chat__hint-locked {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.8rem;
+}
+
+.mentor-chat__hint-buy {
+  background: var(--color-yellow-primary);
+  border: none;
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-std);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mentor-chat__input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mentor-chat__input {
+  flex: 1;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 4px;
+  padding: 0.6rem;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.mentor-chat__send {
+  background: var(--color-yellow-primary);
+  border: none;
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-std);
+  padding: 0 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

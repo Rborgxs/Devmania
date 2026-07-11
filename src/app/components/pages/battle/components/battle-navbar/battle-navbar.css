@@ -1,0 +1,120 @@
+.battle-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1.5rem;
+  background: var(--color-brown-primary);
+  border-bottom: 2px solid var(--color-brown-second);
+  flex-shrink: 0;
+}
+
+.battle-navbar__left,
+.battle-navbar__right,
+.battle-navbar__center {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.battle-navbar__logo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  transition: transform 0.2s ease-out;
+}
+
+.battle-navbar__logo:hover {
+  transform: scale(1.08);
+}
+
+.battle-navbar__logo img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.battle-navbar__nav-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-purple);
+  color: var(--color-yellow-secundary);
+  cursor: pointer;
+  transition: transform 0.15s ease-out, opacity 0.2s ease-out;
+}
+
+.battle-navbar__nav-btn:hover:not(:disabled) {
+  transform: scale(1.15);
+}
+
+.battle-navbar__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.battle-navbar__difficulty {
+  font-family: var(--fonte-title);
+  font-size: 0.95rem;
+  padding: 0.35rem 1rem;
+  border-radius: 4px;
+  min-width: 5.5rem;
+  text-align: center;
+}
+
+.battle-navbar__difficulty[data-level='facil'] {
+  background: #2f7a4d;
+  color: var(--color-yellow-secundary);
+}
+
+.battle-navbar__difficulty[data-level='medio'] {
+  background: #a1731f;
+  color: var(--color-yellow-secundary);
+}
+
+.battle-navbar__difficulty[data-level='dificil'] {
+  background: #8a2b2b;
+  color: var(--color-yellow-secundary);
+}
+
+.battle-navbar__test-btn {
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.battle-navbar__test-btn:hover {
+  background: var(--color-purple);
+}
+
+.battle-navbar__submit-btn {
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+}
+
+.battle-navbar__submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.battle-navbar__submit-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: var(--color-gray);
+  border-color: var(--color-gray);
+  transform: none;
+}

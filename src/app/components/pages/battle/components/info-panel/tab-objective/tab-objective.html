@@ -1,0 +1,54 @@
+<div class="objective">
+  <h2 class="objective__title">{{ battleState.challenge().title }}</h2>
+
+  <section class="objective__section">
+    <p class="objective__description">{{ battleState.challenge().description }}</p>
+  </section>
+
+  <section class="objective__section">
+    <h3 class="objective__heading">Regras</h3>
+    <ul class="objective__list">
+      @for (rule of battleState.challenge().rules; track rule) {
+        <li>{{ rule }}</li>
+      }
+    </ul>
+  </section>
+
+  <section class="objective__section">
+    <h3 class="objective__heading">Restrições</h3>
+    <ul class="objective__list">
+      @for (restriction of battleState.challenge().restrictions; track restriction) {
+        <li><code>{{ restriction }}</code></li>
+      }
+    </ul>
+  </section>
+
+  <section class="objective__section">
+    <h3 class="objective__heading">Exemplos</h3>
+    @for (example of battleState.challenge().examples; track example.input) {
+      <div class="objective__example">
+        <span class="objective__example-label">Entrada:</span>
+        <code>{{ example.input }}</code>
+        <span class="objective__example-label">Saída:</span>
+        <code>{{ example.output }}</code>
+        @if (example.explanation) {
+          <p class="objective__example-explanation">{{ example.explanation }}</p>
+        }
+      </div>
+    }
+  </section>
+
+  <section class="objective__section">
+    <h3 class="objective__heading">Git</h3>
+    <p class="objective__git-hint">
+      @if (battleState.challenge().gitInstructions.hasExistingRepo) {
+        Repositório já existente. Execute os comandos abaixo:
+      } @else {
+        Nenhum repositório encontrado. Inicialize um novo:
+      }
+    </p>
+    <pre class="objective__git-commands">@for (cmd of battleState.challenge().gitInstructions.commands; track cmd) {
+{{ cmd }}
+}</pre>
+  </section>
+</div>

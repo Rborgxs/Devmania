@@ -1,0 +1,111 @@
+.submit-flow__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.submit-flow__victory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  animation: victory-pop 0.4s ease-out;
+}
+
+@keyframes victory-pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.submit-flow__victory-icon {
+  font-size: 3rem;
+}
+
+.submit-flow__victory-title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 2rem;
+}
+
+.submit-flow__victory-subtitle {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+}
+
+.submit-flow__continue-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.15s ease-out;
+}
+
+.submit-flow__continue-btn:hover {
+  transform: translateY(-2px);
+}
+
+.submit-flow__reward-card {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-yellow-primary);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: victory-pop 0.4s ease-out;
+}
+
+.submit-flow__reward-title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.submit-flow__reward-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.submit-flow__reward-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.85rem;
+}
+
+.submit-flow__reward-label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+}
+
+.submit-flow__reward-value {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1rem;
+}

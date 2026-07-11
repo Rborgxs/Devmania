@@ -1,0 +1,46 @@
+<nav class="battle-navbar">
+  <div class="battle-navbar__left">
+    <button class="battle-navbar__logo" type="button" (click)="exitBattle()">
+      <img src="/assets/logo_simbolo_devmania.png" alt="Devmania">
+    </button>
+  </div>
+
+  <div class="battle-navbar__center">
+    <button
+      class="battle-navbar__nav-btn"
+      type="button"
+      [disabled]="isFirstDifficulty()"
+      (click)="battleState.goToPreviousDifficulty()"
+    >
+      ‹
+    </button>
+
+    <span class="battle-navbar__difficulty" [attr.data-level]="battleState.difficulties[battleState.currentDifficultyIndex()]">
+      {{ difficultyLabel() }}
+    </span>
+
+    <button
+      class="battle-navbar__nav-btn"
+      type="button"
+      [disabled]="isLastDifficulty()"
+      (click)="battleState.goToNextDifficulty()"
+    >
+      ›
+    </button>
+  </div>
+
+  <div class="battle-navbar__right">
+    <button class="battle-navbar__test-btn" type="button" (click)="runTests()">
+      Testar
+    </button>
+
+    <button
+      class="battle-navbar__submit-btn"
+      type="button"
+      [disabled]="!battleState.allPublicTestsPassed()"
+      (click)="submit()"
+    >
+      Enviar
+    </button>
+  </div>
+</nav>

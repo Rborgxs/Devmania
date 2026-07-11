@@ -1,0 +1,122 @@
+.solution-post {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.solution-post__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.solution-post__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-yellow-primary);
+  image-rendering: pixelated;
+}
+
+.solution-post__meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.solution-post__author {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.solution-post__date {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+}
+
+.solution-post__language {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-primary);
+  font-size: 0.75rem;
+  background: var(--color-black);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.solution-post__code-frame {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s ease-out;
+}
+
+.solution-post__code-frame:hover {
+  border-color: var(--color-yellow-primary);
+}
+
+.solution-post__code-topbar {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-brown-primary);
+}
+
+.solution-post__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.solution-post__dot--red { background: #d16060; }
+.solution-post__dot--yellow { background: #ecb158; }
+.solution-post__dot--green { background: #4caf7d; }
+
+.solution-post__code {
+  padding: 0.85rem;
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+  overflow-x: auto;
+  max-height: 120px;
+}
+
+.solution-post__footer {
+  display: flex;
+  gap: 1rem;
+}
+
+.solution-post__like {
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s ease-out, transform 0.15s ease-out;
+}
+
+.solution-post__like:hover {
+  transform: scale(1.08);
+}
+
+.solution-post__like--active {
+  color: #d16060;
+}
+
+.solution-post__comments {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}

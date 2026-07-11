@@ -1,0 +1,20 @@
+.battle {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.battle__body {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+.battle__code-area {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

@@ -1,0 +1,29 @@
+<div class="info-panel">
+  <nav class="info-panel__tabs">
+    @for (tab of tabs(); track tab.id) {
+      <button
+        class="info-panel__tab"
+        [class.info-panel__tab--active]="battleState.activeTab() === tab.id"
+        type="button"
+        (click)="battleState.setActiveTab(tab.id)"
+      >
+        {{ tab.label }}
+      </button>
+    }
+  </nav>
+
+  <div class="info-panel__content">
+    @switch (battleState.activeTab()) {
+      @case ('objetivo') {
+        @if (battleState.isWeeklyChallenge()) {
+          <app-tab-files />
+        } @else {
+          <app-tab-objective />
+        }
+      }
+      @case ('testes') { <app-tab-tests /> }
+      @case ('resultados') { <app-tab-results /> }
+      @case ('mentor') { <app-tab-mentor-chat /> }
+    }
+  </div>
+</div>

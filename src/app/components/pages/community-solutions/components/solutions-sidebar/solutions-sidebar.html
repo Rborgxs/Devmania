@@ -1,0 +1,23 @@
+<aside class="solutions-sidebar">
+  <button class="solutions-sidebar__action" type="button" (click)="backToHome.emit()">
+    ← Voltar para Home
+  </button>
+
+  <button class="solutions-sidebar__action solutions-sidebar__action--mentor" type="button" (click)="discussMentor.emit()">
+    💬 Discutir com Mentor
+  </button>
+
+  <div class="solutions-sidebar__filters">
+    <span class="solutions-sidebar__filters-title">Filtros</span>
+    @for (filter of filters; track filter.id) {
+      <button
+        class="solutions-sidebar__filter"
+        [class.solutions-sidebar__filter--active]="activeFilter() === filter.id"
+        type="button"
+        (click)="filterChange.emit(filter.id)"
+      >
+        {{ filter.label }}
+      </button>
+    }
+  </div>
+</aside>

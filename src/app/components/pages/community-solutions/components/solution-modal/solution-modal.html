@@ -1,0 +1,41 @@
+<div class="solution-modal__overlay" (click)="close.emit()">
+  <div class="solution-modal" (click)="$event.stopPropagation()">
+    <header class="solution-modal__header">
+      <img class="solution-modal__avatar" [src]="post().avatar" [alt]="post().author">
+      <div class="solution-modal__meta">
+        <span class="solution-modal__author">{{ post().author }}</span>
+        <span class="solution-modal__date">{{ post().date }}</span>
+      </div>
+      <button class="solution-modal__copy" type="button" (click)="copyCode()">⧉ Copiar</button>
+      <button class="solution-modal__close" type="button" (click)="close.emit()">✕</button>
+    </header>
+
+    <pre class="solution-modal__code">{{ post().fullCode }}</pre>
+
+    <section class="solution-modal__comments">
+      <span class="solution-modal__comments-title">Comentários</span>
+
+      @for (comment of post().comments; track comment.id) {
+        <div class="solution-modal__comment">
+          <img class="solution-modal__comment-avatar" [src]="comment.avatar" [alt]="comment.author">
+          <div class="solution-modal__comment-body">
+            <span class="solution-modal__comment-author">{{ comment.author }}</span>
+            <p class="solution-modal__comment-text">{{ comment.text }}</p>
+          </div>
+        </div>
+      }
+
+      <form class="solution-modal__comment-form" (ngSubmit)="submitComment()">
+        <input
+          class="solution-modal__comment-input"
+          type="text"
+          placeholder="Adicione um comentário..."
+          [ngModel]="commentDraft()"
+          (ngModelChange)="commentDraft.set($event)"
+          name="commentDraft"
+        >
+        <button class="solution-modal__comment-submit" type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+</div>

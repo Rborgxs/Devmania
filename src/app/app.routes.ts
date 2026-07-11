@@ -19,6 +19,21 @@ export const routes: Routes = [
       import('./components/pages/signup/signup').then(m => m.Signup)
   },
   {
+    path: 'batalha/:questId',
+    loadComponent: () =>
+      import('./components/pages/battle/battle').then(m => m.Battle)
+  },
+  {
+    path: 'desafio-semanal/:challengeId',
+    loadComponent: () =>
+      import('./components/pages/battle/battle').then(m => m.Battle)
+  },
+  {
+    path: 'solucoes-comunidade',
+    loadComponent: () =>
+      import('./components/pages/community-solutions/community-solutions').then(m => m.CommunitySolutions)
+  },
+  {
     path: '',
     component: MainLayout,
     children: [

@@ -1,0 +1,26 @@
+<div class="tests">
+  @for (test of battleState.challenge().publicTests; track test.id; let i = $index) {
+    <div class="test-card">
+      <span class="test-card__index">Teste {{ i + 1 }}</span>
+
+      <div class="test-card__row">
+        <span class="test-card__label">Entrada</span>
+        <code class="test-card__value">{{ test.input }}</code>
+      </div>
+
+      <div class="test-card__row">
+        <span class="test-card__label">Saída Esperada</span>
+        <code class="test-card__value">{{ test.expectedOutput }}</code>
+      </div>
+
+      @if (test.actualOutput !== undefined) {
+        <div class="test-card__row">
+          <span class="test-card__label">Resultado Obtido</span>
+          <code class="test-card__value" [class.test-card__value--pass]="test.passed" [class.test-card__value--fail]="test.passed === false">
+            {{ test.actualOutput }}
+          </code>
+        </div>
+      }
+    </div>
+  }
+</div>

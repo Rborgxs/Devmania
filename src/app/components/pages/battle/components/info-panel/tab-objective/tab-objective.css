@@ -1,0 +1,91 @@
+.objective {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.objective__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.2rem;
+}
+
+.objective__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.objective__heading {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+}
+
+.objective__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.objective__list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.objective__list code {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+}
+
+.objective__example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-family: var(--fonte-code);
+  font-size: 0.8rem;
+}
+
+.objective__example-label {
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+}
+
+.objective__example code {
+  color: var(--color-yellow-secundary);
+}
+
+.objective__example-explanation {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.objective__git-hint {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+.objective__git-commands {
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-family: var(--fonte-code);
+  color: #4caf7d;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}

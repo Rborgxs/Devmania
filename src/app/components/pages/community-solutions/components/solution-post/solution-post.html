@@ -1,0 +1,26 @@
+<article class="solution-post">
+  <header class="solution-post__header">
+    <img class="solution-post__avatar" [src]="post().avatar" [alt]="post().author">
+    <div class="solution-post__meta">
+      <span class="solution-post__author">{{ post().author }}</span>
+      <span class="solution-post__date">{{ post().date }}</span>
+    </div>
+    <span class="solution-post__language">{{ post().language }}</span>
+  </header>
+
+  <button class="solution-post__code-frame" type="button" (click)="onOpenCode()">
+    <div class="solution-post__code-topbar">
+      <span class="solution-post__dot solution-post__dot--red"></span>
+      <span class="solution-post__dot solution-post__dot--yellow"></span>
+      <span class="solution-post__dot solution-post__dot--green"></span>
+    </div>
+    <pre class="solution-post__code">{{ post().codePreview }}</pre>
+  </button>
+
+  <footer class="solution-post__footer">
+    <button class="solution-post__like" type="button" [class.solution-post__like--active]="post().likedByUser" (click)="toggleLike()">
+      ♥ {{ post().likes }}
+    </button>
+    <span class="solution-post__comments">💬 {{ post().comments.length }}</span>
+  </footer>
+</article>

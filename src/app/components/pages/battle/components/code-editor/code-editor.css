@@ -1,0 +1,68 @@
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.code-editor--maximized {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.code-editor__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: var(--color-brown-primary);
+  border-bottom: 2px solid var(--color-brown-second);
+  flex-shrink: 0;
+}
+
+.code-editor__function-name {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.code-editor__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.code-editor__action {
+  background: none;
+  border: 1px solid var(--color-brown-second);
+  color: var(--color-yellow-secundary);
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.code-editor__action:hover {
+  background: var(--color-purple);
+}
+
+.code-editor__body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.code-editor__monaco {
+  width: 100%;
+  height: 100%;
+}
+
+.code-editor__ssr-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+}

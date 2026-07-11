@@ -1,0 +1,24 @@
+<div class="tab-files">
+  <section class="tab-files__tree">
+    <span class="tab-files__section-title">Estrutura do Projeto</span>
+    @for (node of battleState.fileTree(); track node.id) {
+      <app-file-tree-node [node]="node"></app-file-tree-node>
+    }
+  </section>
+
+  <section class="tab-files__bugs">
+    <span class="tab-files__section-title">Bugs Conhecidos</span>
+    <span class="tab-files__progress">
+      {{ battleState.bugsResolvedCount() }} / {{ battleState.knownBugs().length }} corrigidos
+    </span>
+
+    <ul class="tab-files__bug-list">
+      @for (bug of battleState.knownBugs(); track bug.id) {
+        <li class="tab-files__bug" [class.tab-files__bug--resolved]="bug.resolved">
+          <span class="tab-files__bug-check">{{ bug.resolved ? '✔' : '○' }}</span>
+          <span class="tab-files__bug-text">{{ bug.description }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+</div>

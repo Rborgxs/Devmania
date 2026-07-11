@@ -1,0 +1,20 @@
+.community-solutions {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+.community-solutions__feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.community-solutions__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.5rem;
+}

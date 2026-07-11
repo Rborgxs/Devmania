@@ -1,0 +1,18 @@
+<div class="file-tree-node">
+  <button class="file-tree-node__row" type="button" (click)="toggle()">
+    @if (node().type === 'folder') {
+      <span class="file-tree-node__icon">{{ expanded() ? '📂' : '📁' }}</span>
+    } @else {
+      <span class="file-tree-node__icon">📄</span>
+    }
+    <span class="file-tree-node__name">{{ node().name }}</span>
+  </button>
+
+  @if (node().type === 'folder' && expanded() && node().children) {
+    <div class="file-tree-node__children">
+      @for (child of node().children; track child.id) {
+        <app-file-tree-node [node]="child"></app-file-tree-node>
+      }
+    </div>
+  }
+</div>

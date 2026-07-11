@@ -1,0 +1,47 @@
+.tests {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.test-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 6px;
+  padding: 0.85rem;
+}
+
+.test-card__index {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-primary);
+  font-size: 0.8rem;
+}
+
+.test-card__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.test-card__label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+}
+
+.test-card__value {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.test-card__value--pass {
+  color: #4caf7d;
+}
+
+.test-card__value--fail {
+  color: #d16060;
+}

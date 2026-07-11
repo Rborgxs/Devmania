@@ -1,0 +1,20 @@
+<div class="community-solutions">
+  <div class="community-solutions__feed">
+    <h1 class="community-solutions__title">Soluções da Comunidade</h1>
+
+    @for (post of sortedPosts(); track post.id) {
+      <app-solution-post [post]="post" (openCode)="openPost($event)"></app-solution-post>
+    }
+  </div>
+
+  <app-solutions-sidebar
+    [activeFilter]="activeFilter()"
+    (filterChange)="setFilter($event)"
+    (backToHome)="backToHome()"
+    (discussMentor)="discussWithMentor()"
+  ></app-solutions-sidebar>
+
+  @if (selectedPost(); as post) {
+    <app-solution-modal [post]="post" (close)="closeModal()"></app-solution-modal>
+  }
+</div>

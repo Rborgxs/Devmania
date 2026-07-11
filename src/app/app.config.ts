@@ -1,14 +1,12 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter, withViewTransitions } from '@angular/router';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withViewTransitions()),
-    provideClientHydration(withEventReplay())
+    importProvidersFrom(MonacoEditorModule.forRoot())
   ]
 };
