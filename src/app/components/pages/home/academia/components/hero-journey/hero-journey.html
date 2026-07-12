@@ -1,0 +1,47 @@
+<aside class="hero-journey">
+  <h2 class="hero-journey__title">Jornada do Herói</h2>
+  <p class="hero-journey__subtitle">{{ journeyService.currentModuleName() }}</p>
+
+  <div class="hero-journey__map-wrapper">
+    <svg class="hero-journey__svg" [attr.viewBox]="'0 0 180 ' + svgHeight()" [attr.height]="svgHeight()">
+      <path
+        class="hero-journey__path"
+        [attr.d]="pathData()"
+        fill="none"
+      />
+
+      @for (node of nodes(); track node.id) {
+        <g
+          class="hero-journey__node"
+          [attr.data-status]="node.status"
+          [attr.data-type]="node.type"
+          [attr.transform]="'translate(' + node.x + ',' + node.y + ')'"
+          (click)="onNodeClick(node.route)"
+        >
+          <circle class="hero-journey__node-circle" cx="20" cy="20" r="20" />
+          <image
+            class="hero-journey__node-icon"
+            [attr.href]="node.icon"
+            x="6" y="6" width="28" height="28"
+          />
+        </g>
+      }
+    </svg>
+
+    <div class="hero-journey__labels">
+      @for (node of nodes(); track node.id) {
+        <div
+          class="hero-journey__label"
+          [attr.data-status]="node.status"
+          [style.top.px]="node.y + 46"
+          [style.left.px]="node.x - 30"
+        >
+          <span class="hero-journey__label-name">{{ node.name }}</span>
+          @if (node.type === 'module' && node.progressPercent !== undefined) {
+            <span class="hero-journey__label-progress">{{ node.progressPercent }}%</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</aside>

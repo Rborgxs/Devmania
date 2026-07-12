@@ -1,0 +1,8 @@
+<div class="lesson-page">
+  @if (lesson(); as l) {
+    <app-lesson-theory-panel [lesson]="l"></app-lesson-theory-panel>
+    <app-lesson-exercise-list [exercises]="l.exercises"></app-lesson-exercise-list>
+  } @else {
+    <p class="lesson-page__not-found">Lição não encontrada.</p>
+  }
+</div>

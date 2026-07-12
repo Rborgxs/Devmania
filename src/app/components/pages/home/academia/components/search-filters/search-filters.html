@@ -1,0 +1,22 @@
+<div class="search-filters">
+  <input
+    class="search-filters__input"
+    type="text"
+    placeholder="Pesquise um assunto..."
+    [value]="academiaService.searchTerm()"
+    (input)="onSearchInput($event)"
+  >
+
+  <div class="search-filters__chips">
+    @for (option of academiaService.levelOptions; track option.id) {
+      <button
+        class="search-filters__chip"
+        [class.search-filters__chip--active]="academiaService.activeLevel() === option.id"
+        type="button"
+        (click)="academiaService.activeLevel.set(option.id)"
+      >
+        {{ option.label }}
+      </button>
+    }
+  </div>
+</div>

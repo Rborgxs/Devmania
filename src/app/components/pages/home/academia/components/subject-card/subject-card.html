@@ -1,0 +1,6 @@
+<button class="subject-card" type="button" (click)="select.emit(subject())">
+  <img class="subject-card__icon" [src]="subject().icon" [alt]="subject().name">
+  <span class="subject-card__name">{{ subject().name }}</span>
+  <p class="subject-card__description">{{ subject().description }}</p>
+  <span class="subject-card__level" [attr.data-level]="subject().level">{{ subject().level }}</span>
+</button>

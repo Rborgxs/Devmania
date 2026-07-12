@@ -1,0 +1,64 @@
+<div class="lesson-theory-panel">
+  <nav class="lesson-theory-panel__tabs">
+    @for (tab of tabs; track tab.id) {
+      <button
+        class="lesson-theory-panel__tab"
+        [class.lesson-theory-panel__tab--active]="activeTab() === tab.id"
+        type="button"
+        (click)="activeTab.set(tab.id)"
+      >
+        {{ tab.label }}
+      </button>
+    }
+  </nav>
+
+  <div class="lesson-theory-panel__content">
+    @switch (activeTab()) {
+      @case ('explicacao') {
+        <h2 class="lesson-theory-panel__title">{{ lesson().title }}</h2>
+        <p class="lesson-theory-panel__text">{{ lesson().explanation }}</p>
+      }
+      @case ('exemplos') {
+        @for (example of lesson().examples; track example.input) {
+          <div class="lesson-theory-panel__example">
+            <code>{{ example.input }}</code>
+            <code>{{ example.output }}</code>
+          </div>
+        }
+      }
+      @case ('mentor') {
+        <div class="lesson-theory-panel__chat">
+          <div class="lesson-theory-panel__chat-messages">
+            @for (msg of mentorMessages(); track msg.id) {
+              <div class="lesson-theory-panel__chat-message" [class.lesson-theory-panel__chat-message--user]="msg.sender === 'user'">
+                {{ msg.text }}
+              </div>
+            }
+          </div>
+          <form class="lesson-theory-panel__chat-form" (ngSubmit)="sendMentorMessage()">
+            <input
+              class="lesson-theory-panel__chat-input"
+              type="text"
+              placeholder="Pergunte ao mestre..."
+              [ngModel]="mentorDraft()"
+              (ngModelChange)="mentorDraft.set($event)"
+              name="mentorDraft"
+            >
+            <button class="lesson-theory-panel__chat-send" type="submit">Enviar</button>
+          </form>
+          <span class="lesson-theory-panel__chat-hint">A cada 5 mensagens, cobra-se um valor em moedas.</span>
+        </div>
+      }
+      @case ('materiais') {
+        <div class="lesson-theory-panel__materials">
+          @for (material of lesson().materials; track material.url) {
+            <a class="lesson-theory-panel__material" [href]="material.url" target="_blank" rel="noopener noreferrer">
+              <span class="lesson-theory-panel__material-type">{{ material.type }}</span>
+              <span class="lesson-theory-panel__material-label">{{ material.label }}</span>
+            </a>
+          }
+        </div>
+      }
+    }
+  </div>
+</div>

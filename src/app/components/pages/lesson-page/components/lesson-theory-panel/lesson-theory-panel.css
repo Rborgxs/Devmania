@@ -1,0 +1,161 @@
+.lesson-theory-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lesson-theory-panel__tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-brown-second);
+}
+
+.lesson-theory-panel__tab {
+  flex: 1;
+  padding: 0.8rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.lesson-theory-panel__tab--active {
+  color: var(--color-yellow-primary);
+  border-bottom-color: var(--color-yellow-primary);
+}
+
+.lesson-theory-panel__content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 20rem;
+}
+
+.lesson-theory-panel__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.1rem;
+}
+
+.lesson-theory-panel__text {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.lesson-theory-panel__example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.82rem;
+}
+
+.lesson-theory-panel__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.lesson-theory-panel__chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.lesson-theory-panel__chat-message {
+  align-self: flex-start;
+  max-width: 85%;
+  background: var(--color-black);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.82rem;
+}
+
+.lesson-theory-panel__chat-message--user {
+  align-self: flex-end;
+  background: var(--color-purple);
+}
+
+.lesson-theory-panel__chat-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lesson-theory-panel__chat-input {
+  flex: 1;
+  background: var(--color-black);
+  border: 1px solid var(--color-brown-second);
+  border-radius: 4px;
+  padding: 0.55rem;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.lesson-theory-panel__chat-send {
+  background: var(--color-yellow-primary);
+  border: none;
+  color: var(--color-brown-primary);
+  padding: 0 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--fonte-std);
+}
+
+.lesson-theory-panel__chat-hint {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.68rem;
+}
+
+.lesson-theory-panel__materials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.lesson-theory-panel__material {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.7rem;
+  background: var(--color-black);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease-out;
+}
+
+.lesson-theory-panel__material:hover {
+  background: var(--color-purple);
+}
+
+.lesson-theory-panel__material-type {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-primary);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.lesson-theory-panel__material-label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}

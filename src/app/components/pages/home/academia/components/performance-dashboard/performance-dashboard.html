@@ -1,0 +1,70 @@
+<section class="performance-dashboard">
+  <h2 class="performance-dashboard__title">Desempenho Recente</h2>
+
+  <div class="performance-dashboard__cards">
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.averageAccuracy }}%</span>
+      <span class="performance-card__label">Precisão Média</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.streakDays }}</span>
+      <span class="performance-card__label">Dias em Sequência</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.weeklyXp }}</span>
+      <span class="performance-card__label">XP na Semana</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.avgTimePerExercise }}</span>
+      <span class="performance-card__label">Tempo Médio</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.questionsAnswered }}</span>
+      <span class="performance-card__label">Questões Respondidas</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.strongestSubject }}</span>
+      <span class="performance-card__label">Assunto Mais Forte</span>
+    </div>
+    <div class="performance-card">
+      <span class="performance-card__value">{{ stats.subjectToReview }}</span>
+      <span class="performance-card__label">Precisa de Revisão</span>
+    </div>
+  </div>
+
+  <div class="performance-dashboard__charts">
+    <div class="performance-chart-box">
+      <h3 class="performance-chart-box__title">Evolução</h3>
+      <apx-chart
+        [series]="evolutionSeries"
+        [chart]="evolutionChart"
+        [xaxis]="evolutionXAxis"
+        [stroke]="evolutionStroke"
+        [dataLabels]="evolutionDataLabels"
+      ></apx-chart>
+    </div>
+
+    <div class="performance-chart-box">
+      <h3 class="performance-chart-box__title">Assuntos</h3>
+      <apx-chart
+        [series]="subjectsSeries"
+        [chart]="subjectsChart"
+        [xaxis]="subjectsXAxis"
+        [fill]="subjectsFill"
+        [plotOptions]="subjectsPlotOptions"
+        [dataLabels]="subjectsDataLabels"
+      ></apx-chart>
+    </div>
+  </div>
+
+  <div class="performance-dashboard__recent">
+    <h3 class="performance-dashboard__recent-title">Últimos Treinos</h3>
+    @for (training of academiaService.recentTrainings(); track training.subjectName) {
+      <div class="performance-dashboard__recent-item">
+        <span class="performance-dashboard__recent-check">✓</span>
+        <span class="performance-dashboard__recent-name">{{ training.subjectName }}</span>
+        <span class="performance-dashboard__recent-percent">{{ training.accuracyPercent }}%</span>
+      </div>
+    }
+  </div>
+</section>

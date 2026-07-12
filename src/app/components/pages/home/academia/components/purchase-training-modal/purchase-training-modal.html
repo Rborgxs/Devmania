@@ -1,0 +1,69 @@
+<div class="purchase-modal__overlay" (click)="close.emit()">
+  <div class="purchase-modal" (click)="$event.stopPropagation()">
+    <button class="purchase-modal__close" type="button" (click)="close.emit()">✕</button>
+
+    <h2 class="purchase-modal__title">{{ subject().name }}</h2>
+    <p class="purchase-modal__description">{{ subject().description }}</p>
+
+    <section class="purchase-modal__section">
+      <span class="purchase-modal__label">Escolha a dificuldade</span>
+      <div class="purchase-modal__difficulty-row">
+        @for (option of difficultyOptions; track option.id) {
+          <button
+            class="purchase-modal__difficulty-btn"
+            [class.purchase-modal__difficulty-btn--active]="selectedDifficulty() === option.id"
+            type="button"
+            (click)="selectDifficulty(option.id)"
+          >
+            {{ option.label }}
+          </button>
+        }
+      </div>
+    </section>
+
+    <section class="purchase-modal__section">
+      <span class="purchase-modal__label">Quantidade de exercícios</span>
+      <div class="purchase-modal__quantity-row">
+        @for (value of quickQuantities; track value) {
+          <button
+            class="purchase-modal__quantity-btn"
+            [class.purchase-modal__quantity-btn--active]="quantity() === value"
+            type="button"
+            (click)="setQuantity(value)"
+          >
+            {{ value }}
+          </button>
+        }
+        <input
+          class="purchase-modal__quantity-input"
+          type="number"
+          min="1"
+          max="50"
+          [value]="quantity()"
+          (input)="onQuantityInput($event)"
+        >
+      </div>
+    </section>
+
+    <section class="purchase-modal__summary">
+      <div class="purchase-modal__summary-row">
+        <span>{{ quantity() }} exercícios</span>
+        <span>Dificuldade {{ difficultyOptions[selectedDifficulty() === 'facil' ? 0 : selectedDifficulty() === 'medio' ? 1 : 2].label }}</span>
+      </div>
+      <div class="purchase-modal__summary-row">
+        <span class="purchase-modal__summary-cost">{{ totalCost() }} moedas</span>
+        <span class="purchase-modal__summary-xp">{{ totalXp() }} XP</span>
+      </div>
+      <span class="purchase-modal__wallet">Você possui: {{ playerCoins() }} moedas</span>
+    </section>
+
+    <button
+      class="purchase-modal__start-btn"
+      type="button"
+      [disabled]="!hasEnoughCoins()"
+      (click)="startTraining()"
+    >
+      {{ hasEnoughCoins() ? 'Iniciar Treino' : 'Moedas Insuficientes' }}
+    </button>
+  </div>
+</div>

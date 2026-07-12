@@ -1,0 +1,23 @@
+<div class="lesson-exercise-list">
+  <h2 class="lesson-exercise-list__title">Exercícios</h2>
+
+  @for (exercise of exercises(); track exercise.id) {
+    <div class="exercise-item" [class.exercise-item--completed]="exercise.status === 'concluido'">
+      <div class="exercise-item__info">
+        <span class="exercise-item__title">{{ exercise.title }}</span>
+        <div class="exercise-item__meta">
+          <span class="exercise-item__difficulty" [attr.data-level]="exercise.difficulty">{{ exercise.difficulty }}</span>
+          <span class="exercise-item__reward">{{ exercise.coinReward }} moedas</span>
+        </div>
+      </div>
+
+      @if (exercise.status === 'concluido') {
+        <span class="exercise-item__status">✔ Concluído</span>
+      } @else {
+        <button class="exercise-item__resolve-btn" type="button" (click)="resolveExercise(exercise.id)">
+          Resolver
+        </button>
+      }
+    </div>
+  }
+</div>

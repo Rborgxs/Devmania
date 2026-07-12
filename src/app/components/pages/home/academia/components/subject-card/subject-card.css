@@ -1,0 +1,50 @@
+.subject-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease-out, transform 0.15s ease-out;
+}
+
+.subject-card:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateY(-2px);
+}
+
+.subject-card__icon {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+}
+
+.subject-card__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1rem;
+}
+
+.subject-card__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.subject-card__level {
+  font-family: var(--fonte-std);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.subject-card__level[data-level='fundamentos'] { background: #2f7a4d; color: var(--color-yellow-secundary); }
+.subject-card__level[data-level='intermediario'] { background: #a1731f; color: var(--color-yellow-secundary); }
+.subject-card__level[data-level='avancado'] { background: #8a2b2b; color: var(--color-yellow-secundary); }
+.subject-card__level[data-level='expert'] { background: var(--color-purple); color: var(--color-yellow-secundary); }

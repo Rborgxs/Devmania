@@ -53,6 +53,16 @@ export const routes: Routes = [
           import('./components/pages/home/academia/academia').then(m => m.Academia)
       },
       {
+        path: 'academia/modulo/:moduleId',
+        loadComponent: () =>
+          import('./components/pages/module-page/module-page').then(m => m.ModulePage)
+      },
+      {
+        path: 'academia/licao/:lessonId',
+        loadComponent: () =>
+          import('./components/pages/lesson-page/lesson-page').then(m => m.LessonPage)
+      },
+      {
         path: 'arena',
         loadComponent: () =>
           import('./components/pages/home/arena/arena').then(m => m.Arena)

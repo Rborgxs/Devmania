@@ -1,0 +1,23 @@
+<div class="module-page">
+  @if (module(); as mod) {
+    <header class="module-page__header">
+      <h1 class="module-page__title">{{ mod.name }}</h1>
+      <p class="module-page__description">{{ mod.description }}</p>
+    </header>
+
+    <div class="module-page__lessons">
+      @for (lesson of mod.lessons; track lesson.id) {
+        <a
+          class="lesson-item"
+          [class.lesson-item--completed]="lesson.completed"
+          [routerLink]="['/academia/licao', lesson.id]"
+        >
+          <span class="lesson-item__status">{{ lesson.completed ? '✔' : '○' }}</span>
+          <span class="lesson-item__title">{{ lesson.title }}</span>
+        </a>
+      }
+    </div>
+  } @else {
+    <p class="module-page__not-found">Módulo não encontrado.</p>
+  }
+</div>

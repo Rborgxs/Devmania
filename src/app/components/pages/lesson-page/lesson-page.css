@@ -1,0 +1,11 @@
+.lesson-page {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lesson-page__not-found {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+}

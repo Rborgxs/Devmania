@@ -1,0 +1,116 @@
+.hero-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.hero-journey__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.hero-journey__subtitle {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.hero-journey__map-wrapper {
+  position: relative;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+
+.hero-journey__svg {
+  width: 100%;
+  display: block;
+}
+
+.hero-journey__path {
+  stroke: var(--color-brown-second);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+}
+
+.hero-journey__node {
+  cursor: pointer;
+}
+
+.hero-journey__node-circle {
+  fill: var(--color-black);
+  stroke: var(--color-gray);
+  stroke-width: 2;
+  transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+}
+
+.hero-journey__node[data-status='completed'] .hero-journey__node-circle {
+  fill: var(--color-brown-second);
+  stroke: var(--color-yellow-primary);
+}
+
+.hero-journey__node[data-status='current'] .hero-journey__node-circle {
+  fill: var(--color-purple);
+  stroke: var(--color-yellow-primary);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px var(--color-yellow-primary));
+}
+
+.hero-journey__node[data-status='locked'] .hero-journey__node-circle {
+  opacity: 0.4;
+}
+
+.hero-journey__node-icon {
+  image-rendering: pixelated;
+}
+
+.hero-journey__node[data-status='locked'] .hero-journey__node-icon {
+  opacity: 0.4;
+}
+
+.hero-journey__labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hero-journey__label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  text-align: center;
+}
+
+.hero-journey__label-name {
+  font-family: var(--fonte-std);
+  font-size: 0.65rem;
+  color: var(--color-gray);
+}
+
+.hero-journey__label[data-status='completed'] .hero-journey__label-name {
+  color: var(--color-yellow-primary);
+}
+
+.hero-journey__label[data-status='current'] .hero-journey__label-name {
+  color: var(--color-yellow-secundary);
+  font-weight: bold;
+}
+
+.hero-journey__label-progress {
+  font-family: var(--fonte-code);
+  font-size: 0.6rem;
+  color: var(--color-gray);
+}

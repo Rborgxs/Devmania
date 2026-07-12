@@ -1,0 +1,19 @@
+<section class="mentor-recommendation">
+  <h2 class="mentor-recommendation__title">Recomendações do Mestre</h2>
+
+  <div class="mentor-recommendation__chat">
+    <img class="mentor-recommendation__avatar" src="/assets/master-avatar.png" alt="Mestre">
+    <p class="mentor-recommendation__message">{{ mentorMessage }}</p>
+  </div>
+
+  <div class="mentor-recommendation__suggestions">
+    @for (suggestion of suggestions; track suggestion.id) {
+      <div class="mentor-recommendation__suggestion-card">
+        <span class="mentor-recommendation__suggestion-label">{{ suggestion.label }}</span>
+        <button class="mentor-recommendation__train-btn" type="button" (click)="trainSuggestion(suggestion.id)">
+          Treinar
+        </button>
+      </div>
+    }
+  </div>
+</section>

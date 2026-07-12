@@ -1,0 +1,81 @@
+.lesson-exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.lesson-exercise-list__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.05rem;
+}
+
+.exercise-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+}
+
+.exercise-item--completed {
+  opacity: 0.7;
+}
+
+.exercise-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.exercise-item__title {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.88rem;
+}
+
+.exercise-item__meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.exercise-item__difficulty {
+  font-family: var(--fonte-std);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.exercise-item__difficulty[data-level='facil'] { background: #2f7a4d; color: var(--color-yellow-secundary); }
+.exercise-item__difficulty[data-level='medio'] { background: #a1731f; color: var(--color-yellow-secundary); }
+.exercise-item__difficulty[data-level='dificil'] { background: #8a2b2b; color: var(--color-yellow-secundary); }
+
+.exercise-item__reward {
+  font-family: var(--fonte-code);
+  color: var(--color-gray);
+  font-size: 0.72rem;
+}
+
+.exercise-item__status {
+  font-family: var(--fonte-std);
+  color: #4caf7d;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.exercise-item__resolve-btn {
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
