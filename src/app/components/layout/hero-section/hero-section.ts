@@ -29,11 +29,11 @@ export class HeroSection implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
 
   readonly floatingIcons: FloatingIcon[] = [
-    { src: 'assets/icons/dev-js.png', alt: 'JavaScript', positionClass: 'hero__float--1' },
-    { src: 'assets/icons/dev-html.png', alt: 'HTML', positionClass: 'hero__float--2' },
-    { src: 'assets/icons/dev-angular.png', alt: 'Angular', positionClass: 'hero__float--3' },
-    { src: 'assets/icons/dev-git.png', alt: 'Git', positionClass: 'hero__float--4' },
-    { src: 'assets/icons/dev-css.png', alt: 'CSS', positionClass: 'hero__float--5' }
+    { src: '/assets/icons/c#_icon.png', alt: 'C#', positionClass: 'hero__float--1' },
+    { src: '/assets/icons/html_icon.png', alt: 'HTML', positionClass: 'hero__float--2' },
+    { src: '/assets/icons/js_icon.png', alt: 'JavaScript', positionClass: 'hero__float--3' },
+    { src: '/assets/icons/vscode_icon.png', alt: 'VSCode', positionClass: 'hero__float--4' },
+    { src: '/assets/icons/computer_icon.png', alt: 'Computador', positionClass: 'hero__float--5' }
   ];
 
   ngAfterViewInit(): void {

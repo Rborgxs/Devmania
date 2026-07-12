@@ -32,22 +32,22 @@ export class CarouselSection implements OnInit, OnDestroy {
 
   readonly slides: CarouselSlide[] = [
     {
-      frontImage: 'assets/carousel/junior-front.png',
-      backImage: 'assets/carousel/junior-back.png',
+      frontImage: 'assets/icons/card_junior_front.png',
+      backImage: 'assets/icons/card_junior_back.png',
       title: 'Dev Júnior',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
       features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']
     },
     {
-      frontImage: 'assets/carousel/pleno-front.png',
-      backImage: 'assets/carousel/pleno-back.png',
+      frontImage: 'assets/icons/card_pleno_front.png',
+      backImage: 'assets/icons/card_pleno_back.png',
       title: 'Dev Pleno',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
       features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']
     },
     {
-      frontImage: 'assets/carousel/senior-front.png',
-      backImage: 'assets/carousel/senior-back.png',
+      frontImage: 'assets/icons/card_senior_front.png',
+      backImage: 'assets/icons/card-senior-back.png',
       title: 'Dev Sênior',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
       features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']

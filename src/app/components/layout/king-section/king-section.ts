@@ -10,9 +10,11 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-interface DuelBubble {
+interface DuelCard {
   mode: 'feat' | 'fix' | 'style';
-  label: string;
+  image: string;
+  title: string;
+  description: string;
   kingQuote: string;
 }
 
@@ -28,12 +30,30 @@ export class KingSection implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private observer?: IntersectionObserver;
 
-  readonly activeBubble = signal(0);
+  readonly activeCard = signal(0);
 
-  readonly bubbles: DuelBubble[] = [
-    { mode: 'feat', label: 'Feat', kingQuote: 'Construa uma funcionalidade do zero, aventureiro.' },
-    { mode: 'fix', label: 'Fix', kingQuote: 'Encontre o erro escondido antes que o tempo acabe.' },
-    { mode: 'style', label: 'Style', kingQuote: 'Refatore com elegância — código limpo também é honra.' }
+  readonly cards: DuelCard[] = [
+    {
+      mode: 'feat',
+      image: 'assets/king-section/card-feat.png',
+      title: 'Feat',
+      description: 'Construa uma funcionalidade nova do zero, seguindo os requisitos do desafio.',
+      kingQuote: 'Construa uma funcionalidade do zero, aventureiro.'
+    },
+    {
+      mode: 'fix',
+      image: 'assets/king-section/card-fix.png',
+      title: 'Fix',
+      description: 'Encontre e corrija o bug escondido no código antes que o tempo se esgote.',
+      kingQuote: 'Encontre o erro escondido antes que o tempo acabe.'
+    },
+    {
+      mode: 'style',
+      image: 'assets/king-section/card-style.png',
+      title: 'Style',
+      description: 'Refatore o código existente, mantendo a mesma função com mais elegância.',
+      kingQuote: 'Refatore com elegância — código limpo também é honra.'
+    }
   ];
 
   ngAfterViewInit(): void {
@@ -43,8 +63,8 @@ export class KingSection implements AfterViewInit, OnDestroy {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const index = Number((entry.target as HTMLElement).dataset['bubbleIndex']);
-            this.activeBubble.set(index);
+            const index = Number((entry.target as HTMLElement).dataset['cardIndex']);
+            this.activeCard.set(index);
           }
         });
       },
@@ -52,11 +72,23 @@ export class KingSection implements AfterViewInit, OnDestroy {
     );
 
     this.sectionRef.nativeElement
-      .querySelectorAll('[data-bubble-index]')
+      .querySelectorAll('[data-card-index]')
       .forEach(el => this.observer!.observe(el));
   }
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+  }
+
+  cardState(index: number): 'active' | 'behind-1' | 'behind-2' {
+    const active = this.activeCard();
+    const diff = (index - active + this.cards.length) % this.cards.length;
+    if (diff === 0) return 'active';
+    if (diff === 1) return 'behind-1';
+    return 'behind-2';
+  }
+
+  selectCard(index: number): void {
+    this.activeCard.set(index);
   }
 }

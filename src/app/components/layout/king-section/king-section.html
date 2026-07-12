@@ -7,19 +7,33 @@
   </div>
 
   <div class="king-section__stage">
-    <div class="king-section__king-wrapper">
-      <img class="king-section__king-image" src="assets/characters/rei_default.jpeg" alt="Rei mestre">
-    </div>
-
-    <div class="king-section__dialogue">
-      @for (bubble of bubbles; track bubble.mode; let i = $index) {
-        <div class="king-section__bubble-trigger" [attr.data-bubble-index]="i">
-          <div class="king-section__bubble" [class.king-section__bubble--active]="activeBubble() === i">
-            <span class="king-section__bubble-tag">{{ bubble.label }}</span>
-            <p class="king-section__bubble-text">{{ bubble.kingQuote }}</p>
-          </div>
+    <div class="king-section__cards">
+      @for (card of cards; track card.mode; let i = $index) {
+        <div class="king-section__trigger" [attr.data-card-index]="i">
+          <button
+            class="king-section__card"
+            type="button"
+            (click)="selectCard(i)"
+            [class.king-section__card--active]="cardState(i) === 'active'"
+            [class.king-section__card--behind-1]="cardState(i) === 'behind-1'"
+            [class.king-section__card--behind-2]="cardState(i) === 'behind-2'">
+            <div class="king-section__card-frame">
+              <img class="king-section__card-image" [src]="card.image" [alt]="card.title">
+            </div>
+            <div class="king-section__card-info">
+              <h3 class="king-section__card-title">{{ card.title }}</h3>
+              <p class="king-section__card-description">{{ card.description }}</p>
+            </div>
+          </button>
         </div>
       }
+    </div>
+
+    <div class="king-section__king-wrapper">
+      <div class="king-section__speech">
+        {{ cards[activeCard()].kingQuote }}
+      </div>
+      <img class="king-section__king-image" src="assets/characters/rei_default.jpeg" alt="Rei mestre">
     </div>
   </div>
 </section>

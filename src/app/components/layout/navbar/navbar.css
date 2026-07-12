@@ -31,6 +31,17 @@
   opacity: 1;
 }
 
+.navbar__logo-slot {
+  display: flex;
+  align-items: center;
+  width: 3.2rem;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  animation: fade-in-btn 0.4s ease;
+}
+
 .navbar__logo img {
   width: 3.2rem;
   image-rendering: pixelated;

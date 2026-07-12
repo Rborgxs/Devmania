@@ -1,9 +1,13 @@
 <nav class="navbar" [class.navbar--filled]="isFilled()" aria-label="Navegação principal">
   <div class="navbar__bg"></div>
 
-  <a class="navbar__logo" routerLink="/">
-    <img src="assets/logo_simbolo_devmania.png" alt="Devmania">
-  </a>
+  <div class="navbar__logo-slot">
+    @if (isFilled()) {
+      <a class="navbar__logo" routerLink="/">
+        <img src="assets/logo_simbolo_devmania.png" alt="Devmania">
+      </a>
+    }
+  </div>
 
   <ul class="navbar__links">
     <li><a href="#hero" (click)="scrollToSection($event, 'hero')">Home</a></li>
