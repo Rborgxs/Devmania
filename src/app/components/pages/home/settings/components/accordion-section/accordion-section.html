@@ -1,0 +1,13 @@
+<div class="accordion-section" [class.accordion-section--open]="isOpen()">
+  <button class="accordion-section__header" type="button" (click)="toggle()">
+    <span class="accordion-section__icon">{{ icon() }}</span>
+    <span class="accordion-section__title">{{ title() }}</span>
+    <span class="accordion-section__chevron">{{ isOpen() ? '▲' : '▼' }}</span>
+  </button>
+
+  @if (isOpen()) {
+    <div class="accordion-section__body">
+      <ng-content></ng-content>
+    </div>
+  }
+</div>

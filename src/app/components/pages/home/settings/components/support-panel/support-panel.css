@@ -1,0 +1,27 @@
+.support-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.support-panel__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: var(--color-black);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.88rem;
+  transition: background 0.2s ease-out;
+}
+
+.support-panel__link:hover {
+  background: var(--color-purple);
+}
+
+.support-panel__arrow {
+  color: var(--color-gray);
+}

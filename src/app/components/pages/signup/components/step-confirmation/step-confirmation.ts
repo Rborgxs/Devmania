@@ -2,6 +2,8 @@ import { Component, signal, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from '../../../../../services/signup';
+import { AuthService } from '../../../../../services/auth';
+
 
 type ConfirmationPhase = 'form' | 'transition';
 
@@ -17,6 +19,7 @@ const REDIRECT_DELAY_MS = 2500;
 export class StepConfirmation {
   private readonly signupService = inject(SignupService);
   private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
   readonly phase = signal<ConfirmationPhase>('form');
 
@@ -38,6 +41,7 @@ export class StepConfirmation {
     });
 
     this.phase.set('transition');
+    this.authService.login();
 
     setTimeout(() => {
       this.router.navigateByUrl('/masmorra');

@@ -1,0 +1,52 @@
+<div class="account-panel">
+  <section class="account-panel__section">
+    <h3 class="account-panel__section-title">Dados da Conta</h3>
+
+    <div class="account-panel__grid">
+      <div class="account-field">
+        <span class="account-field__label">Nome de Exibição</span>
+        <span class="account-field__value">{{ settingsService.account().displayName }}</span>
+      </div>
+      <div class="account-field">
+        <span class="account-field__label">Nome de Usuário</span>
+        <span class="account-field__value">{{ settingsService.account().username }}</span>
+      </div>
+      <div class="account-field">
+        <span class="account-field__label">E-mail</span>
+        <span class="account-field__value">{{ settingsService.account().email }}</span>
+      </div>
+      <div class="account-field">
+        <span class="account-field__label">Data de Criação</span>
+        <span class="account-field__value">{{ settingsService.account().createdAt }}</span>
+      </div>
+      <div class="account-field">
+        <span class="account-field__label">ID da Conta</span>
+        <span class="account-field__value">{{ settingsService.account().accountId }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="account-panel__section">
+    <h3 class="account-panel__section-title">Contas Vinculadas</h3>
+
+    <div class="account-panel__linked-list">
+      @for (linked of settingsService.linkedAccounts(); track linked.provider) {
+        <div class="linked-account">
+          <img class="linked-account__icon" [src]="providerIcons[linked.provider]" [alt]="linked.label">
+          <span class="linked-account__label">{{ linked.label }}</span>
+          <span class="linked-account__status" [class.linked-account__status--connected]="linked.connected">
+            {{ linked.connected ? '✅ Vinculado' : '❌ Não vinculado' }}
+          </span>
+          <button
+            class="linked-account__action-btn"
+            [class.linked-account__action-btn--disconnect]="linked.connected"
+            type="button"
+            (click)="settingsService.toggleLinkedAccount(linked.provider)"
+          >
+            {{ linked.connected ? 'Desvincular' : 'Conectar' }}
+          </button>
+        </div>
+      }
+    </div>
+  </section>
+</div>

@@ -1,0 +1,99 @@
+.account-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.account-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.account-panel__section-title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+}
+
+.account-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.account-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: var(--color-black);
+  border-radius: 6px;
+}
+
+.account-field__label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.68rem;
+}
+
+.account-field__value {
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.account-panel__linked-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.linked-account {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem;
+  background: var(--color-black);
+  border-radius: 8px;
+}
+
+.linked-account__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.linked-account__label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.linked-account__status {
+  font-family: var(--fonte-std);
+  font-size: 0.78rem;
+  color: var(--color-gray);
+}
+
+.linked-account__status--connected {
+  color: #4caf7d;
+}
+
+.linked-account__action-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.linked-account__action-btn--disconnect {
+  background: none;
+  border-color: #d16060;
+  color: #d16060;
+}

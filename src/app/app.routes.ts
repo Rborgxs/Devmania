@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainLayout } from './components/layout/main-layout/main-layout';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -20,27 +21,32 @@ export const routes: Routes = [
   },
   {
     path: 'batalha/:questId',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./components/pages/battle/battle').then(m => m.Battle)
   },
   {
     path: 'desafio-semanal/:challengeId',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./components/pages/battle/battle').then(m => m.Battle)
   },
   {
     path: 'duelo/:matchId',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./components/pages/home/duel/duel').then(m => m.Duel)
   },
   {
     path: 'solucoes-comunidade',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./components/pages/community-solutions/community-solutions').then(m => m.CommunitySolutions)
   },
   {
     path: '',
     component: MainLayout,
+    canActivate: [authGuard],
     children: [
       {
         path: 'masmorra',
@@ -76,6 +82,11 @@ export const routes: Routes = [
         path: 'oficina',
         loadComponent: () =>
           import('./components/pages/home/oficina/oficina').then(m => m.Oficina)
+      },
+      {
+        path: 'configuracoes',
+        loadComponent: () =>
+          import('./components/pages/home/settings/settings').then(m => m.Settings)
       }
     ]
   },

@@ -1,0 +1,18 @@
+<div class="privacy-panel">
+  @for (option of options; track option.key) {
+    <div class="privacy-panel__row">
+      <div class="privacy-panel__info">
+        <span class="privacy-panel__label">{{ option.label }}</span>
+        <span class="privacy-panel__description">{{ option.description }}</span>
+      </div>
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="settingsService.privacy()[option.key]"
+          (change)="settingsService.togglePrivacy(option.key)"
+        >
+        <span class="switch__slider"></span>
+      </label>
+    </div>
+  }
+</div>

@@ -1,0 +1,30 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.settings__header {
+  text-align: center;
+}
+
+.settings__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.6rem;
+}
+
+.settings__subtitle {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+.settings__accordions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}

@@ -1,0 +1,15 @@
+<div class="notifications-panel">
+  @for (option of options; track option.key) {
+    <div class="notifications-panel__row">
+      <span class="notifications-panel__label">{{ option.label }}</span>
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="settingsService.notifications()[option.key]"
+          (change)="settingsService.toggleNotification(option.key)"
+        >
+        <span class="switch__slider"></span>
+      </label>
+    </div>
+  }
+</div>

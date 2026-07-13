@@ -1,0 +1,8 @@
+<div class="support-panel">
+  @for (link of links; track link.url) {
+    <a class="support-panel__link" [href]="link.url" target="_blank" rel="noopener noreferrer">
+      {{ link.label }}
+      <span class="support-panel__arrow">→</span>
+    </a>
+  }
+</div>

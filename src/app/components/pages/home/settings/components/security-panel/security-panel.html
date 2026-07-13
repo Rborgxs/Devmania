@@ -1,0 +1,90 @@
+<div class="security-panel">
+  <section class="security-panel__section">
+    <h3 class="security-panel__section-title">Senha</h3>
+
+    <div class="security-panel__field">
+      <label class="security-panel__label">Confirmar Senha Atual</label>
+      <input
+        class="security-panel__input"
+        type="password"
+        [ngModel]="currentPassword()"
+        (ngModelChange)="currentPassword.set($event)"
+        name="currentPassword"
+      >
+    </div>
+
+    <div class="security-panel__field">
+      <label class="security-panel__label">Nova Senha</label>
+      <input
+        class="security-panel__input"
+        type="password"
+        [ngModel]="settingsService.newPasswordDraft()"
+        (ngModelChange)="settingsService.newPasswordDraft.set($event)"
+        name="newPassword"
+      >
+      @if (settingsService.newPasswordDraft().length > 0) {
+        <div class="password-strength" [attr.data-strength]="settingsService.passwordStrength()">
+          <div class="password-strength__bar"></div>
+          <span class="password-strength__label">{{ strengthLabels[settingsService.passwordStrength()] }}</span>
+        </div>
+      }
+    </div>
+
+    <button class="security-panel__action-btn" type="button" (click)="submitPasswordChange()">
+      Alterar Senha
+    </button>
+  </section>
+
+  <section class="security-panel__section">
+    <h3 class="security-panel__section-title">E-mail</h3>
+
+    <div class="security-panel__field">
+      <label class="security-panel__label">Novo E-mail</label>
+      <input
+        class="security-panel__input"
+        type="email"
+        [ngModel]="newEmailDraft()"
+        (ngModelChange)="newEmailDraft.set($event)"
+        name="newEmail"
+      >
+    </div>
+
+    <div class="security-panel__actions-row">
+      <button class="security-panel__action-btn" type="button" (click)="submitEmailChange()">
+        Alterar E-mail
+      </button>
+      <button class="security-panel__secondary-btn" type="button" (click)="settingsService.resendVerificationCode()">
+        Reenviar Código de Verificação
+      </button>
+    </div>
+  </section>
+
+  <section class="security-panel__section">
+    <h3 class="security-panel__section-title">Verificação em Duas Etapas (2FA)</h3>
+
+    <div class="security-panel__2fa-status">
+      <span>Status: <strong>{{ settingsService.twoFactor().enabled ? 'Ativado' : 'Desativado' }}</strong></span>
+      <button class="security-panel__action-btn" type="button" (click)="settingsService.toggleTwoFactor()">
+        {{ settingsService.twoFactor().enabled ? 'Desativar 2FA' : 'Ativar 2FA' }}
+      </button>
+    </div>
+
+    @if (settingsService.twoFactor().enabled) {
+      <div class="security-panel__2fa-details">
+        <div class="security-panel__qr">
+          <img class="security-panel__qr-image" [src]="settingsService.twoFactor().qrCodeUrl" alt="QR Code 2FA">
+          <span class="security-panel__qr-hint">Escaneie com seu aplicativo autenticador</span>
+        </div>
+
+        <div class="security-panel__recovery-codes">
+          <span class="security-panel__label">Códigos de Recuperação</span>
+          <div class="security-panel__codes-grid">
+            @for (code of settingsService.twoFactor().recoveryCodes; track code) {
+              <code class="security-panel__code">{{ code }}</code>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </section>
+</div>

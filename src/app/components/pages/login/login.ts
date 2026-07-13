@@ -1,6 +1,8 @@
 import { Component, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Login {
   private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
   username = signal('');
   password = signal('');
@@ -27,6 +30,7 @@ export class Login {
       return;
     }
     console.log(this.username(), this.password());
+    this.authService.login();
     this.router.navigateByUrl('/masmorra');
   }
 

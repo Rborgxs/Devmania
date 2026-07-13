@@ -1,0 +1,188 @@
+.security-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.security-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.security-panel__section-title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+}
+
+.security-panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.security-panel__label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.78rem;
+}
+
+.security-panel__input {
+  padding: 0.65rem 0.85rem;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 6px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.security-panel__input:focus {
+  border-color: var(--color-yellow-primary);
+}
+
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.password-strength__bar {
+  height: 6px;
+  flex: 1;
+  border-radius: 3px;
+  background: var(--color-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.password-strength__bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transition: transform 0.3s ease-out, background 0.3s ease-out;
+}
+
+.password-strength[data-strength='fraca'] .password-strength__bar::after {
+  background: #d16060;
+  transform: scaleX(0.25);
+}
+
+.password-strength[data-strength='media'] .password-strength__bar::after {
+  background: #a1731f;
+  transform: scaleX(0.5);
+}
+
+.password-strength[data-strength='forte'] .password-strength__bar::after {
+  background: #4caf7d;
+  transform: scaleX(0.75);
+}
+
+.password-strength[data-strength='muito-forte'] .password-strength__bar::after {
+  background: var(--color-yellow-primary);
+  transform: scaleX(1);
+}
+
+.password-strength__label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.security-panel__actions-row {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.security-panel__action-btn {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.security-panel__secondary-btn {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--color-brown-second);
+  background: none;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.security-panel__2fa-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem;
+  background: var(--color-black);
+  border-radius: 8px;
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.security-panel__2fa-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: var(--color-black);
+  border-radius: 8px;
+}
+
+.security-panel__qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.security-panel__qr-image {
+  width: 140px;
+  height: 140px;
+  background: white;
+  border-radius: 6px;
+}
+
+.security-panel__qr-hint {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.68rem;
+  text-align: center;
+  max-width: 140px;
+}
+
+.security-panel__recovery-codes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.security-panel__codes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.security-panel__code {
+  padding: 0.5rem;
+  background: var(--color-brown-primary);
+  border-radius: 4px;
+  font-family: var(--fonte-code);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+  text-align: center;
+}

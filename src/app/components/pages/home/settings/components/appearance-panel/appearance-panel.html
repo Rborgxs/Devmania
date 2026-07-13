@@ -1,0 +1,27 @@
+<div class="appearance-panel">
+  <div class="appearance-panel__row">
+    <div class="appearance-panel__info">
+      <span class="appearance-panel__label">Alto Contraste</span>
+      <span class="appearance-panel__description">Aumenta o contraste visual da interface.</span>
+    </div>
+    <label class="switch">
+      <input
+        type="checkbox"
+        [checked]="settingsService.appearance().highContrast"
+        (change)="settingsService.updateAppearance('highContrast', !settingsService.appearance().highContrast)"
+      >
+      <span class="switch__slider"></span>
+    </label>
+  </div>
+
+  <div class="appearance-panel__row">
+    <div class="appearance-panel__info">
+      <span class="appearance-panel__label">Idioma da Plataforma</span>
+    </div>
+    <select class="appearance-panel__select" [value]="settingsService.appearance().language" (change)="onLanguageChange($event)">
+      @for (lang of settingsService.languageOptions; track lang.id) {
+        <option [value]="lang.id">{{ lang.label }}</option>
+      }
+    </select>
+  </div>
+</div>

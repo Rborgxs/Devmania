@@ -1,0 +1,32 @@
+<div class="settings">
+  <header class="settings__header">
+    <h1 class="settings__title">Configurações</h1>
+    <p class="settings__subtitle">Gerencie sua conta, segurança, preferências e suporte.</p>
+  </header>
+
+  <div class="settings__accordions">
+    <app-accordion-section icon="👤" title="Conta" [startOpen]="true">
+      <app-account-panel></app-account-panel>
+    </app-accordion-section>
+
+    <app-accordion-section icon="🔐" title="Segurança">
+      <app-security-panel></app-security-panel>
+    </app-accordion-section>
+
+    <app-accordion-section icon="🎨" title="Aparência">
+      <app-appearance-panel></app-appearance-panel>
+    </app-accordion-section>
+
+    <app-accordion-section icon="🔔" title="Notificações">
+      <app-notifications-panel></app-notifications-panel>
+    </app-accordion-section>
+
+    <app-accordion-section icon="🔒" title="Privacidade">
+      <app-privacy-panel></app-privacy-panel>
+    </app-accordion-section>
+
+    <app-accordion-section icon="❓" title="Ajuda e Suporte">
+      <app-support-panel></app-support-panel>
+    </app-accordion-section>
+  </div>
+</div>

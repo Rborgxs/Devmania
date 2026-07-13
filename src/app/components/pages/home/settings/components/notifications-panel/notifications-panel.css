@@ -1,0 +1,63 @@
+.notifications-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.notifications-panel__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.85rem;
+  background: var(--color-black);
+  border-radius: 8px;
+}
+
+.notifications-panel__label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.85rem;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch__slider {
+  position: absolute;
+  inset: 0;
+  background: var(--color-brown-second);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.switch__slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: var(--color-gray);
+  border-radius: 50%;
+  transition: transform 0.2s ease-out, background 0.2s ease-out;
+}
+
+.switch input:checked + .switch__slider {
+  background: var(--color-purple);
+}
+
+.switch input:checked + .switch__slider::before {
+  transform: translateX(20px);
+  background: var(--color-yellow-primary);
+}
