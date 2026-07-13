@@ -1,0 +1,9 @@
+.avatar-editor {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.5rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.5rem;
+}

@@ -1,0 +1,13 @@
+<nav class="taberna-tabs">
+  @for (tab of tabs; track tab.id) {
+    <button
+      class="taberna-tabs__tab"
+      [class.taberna-tabs__tab--active]="activeTab() === tab.id"
+      type="button"
+      (click)="tabChange.emit(tab.id)"
+    >
+      <span class="taberna-tabs__icon">{{ tab.icon }}</span>
+      {{ tab.label }}
+    </button>
+  }
+</nav>

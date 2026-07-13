@@ -1,0 +1,49 @@
+<div class="channel-chat">
+  <header class="channel-chat__header">
+    <span class="channel-chat__channel-name">
+      # {{ chatService.activeChannel()?.name }}
+    </span>
+  </header>
+
+  <div class="channel-chat__messages">
+    @if (chatService.currentMessages().length === 0) {
+      <div class="channel-chat__empty">
+        <span class="channel-chat__empty-icon">🏰</span>
+        <p class="channel-chat__empty-text">Seja o primeiro aventureiro a falar neste canal!</p>
+      </div>
+    } @else {
+      @for (message of chatService.currentMessages(); track message.id) {
+        <div class="channel-chat__message">
+          <img class="channel-chat__avatar" [src]="message.authorAvatar" [alt]="message.authorName">
+          <div class="channel-chat__message-body">
+            <div class="channel-chat__message-meta">
+              <span class="channel-chat__author">{{ message.authorName }}</span>
+              <span class="channel-chat__elo">{{ message.authorEloName }}</span>
+              <span class="channel-chat__time">{{ message.timestamp }}</span>
+            </div>
+            <p class="channel-chat__text">{{ message.text }}</p>
+          </div>
+        </div>
+      }
+    }
+  </div>
+
+  <form class="channel-chat__input-row" (ngSubmit)="send()">
+    <div class="channel-chat__emojis">
+      @for (emoji of quickEmojis; track emoji) {
+        <button class="channel-chat__emoji-btn" type="button" (click)="addEmoji(emoji)">{{ emoji }}</button>
+      }
+    </div>
+
+    <input
+      class="channel-chat__input"
+      type="text"
+      placeholder="Escreva sua mensagem..."
+      [ngModel]="draft()"
+      (ngModelChange)="draft.set($event)"
+      name="chatDraft"
+    >
+
+    <button class="channel-chat__send-btn" type="submit">🪶</button>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+.duel-modes-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.duel-modes-modal {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 30rem;
+}
+
+.duel-modes-modal__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.duel-modes-modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.duel-modes-modal__option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  padding: 1rem;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease-out, transform 0.15s ease-out;
+}
+
+.duel-modes-modal__option:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateY(-2px);
+}
+
+.duel-modes-modal__icon {
+  font-size: 1.3rem;
+}
+
+.duel-modes-modal__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+}
+
+.duel-modes-modal__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.78rem;
+}

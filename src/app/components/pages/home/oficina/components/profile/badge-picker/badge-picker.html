@@ -1,0 +1,20 @@
+<div class="badge-picker">
+  <div class="badge-picker__header">
+    <h3 class="badge-picker__title">Insígnias</h3>
+    <span class="badge-picker__count">{{ profileService.profile().selectedBadgeIds.length }} / 5</span>
+  </div>
+
+  <div class="badge-picker__grid">
+    @for (badge of profileService.availableBadges(); track badge.id) {
+      <button
+        class="badge-item"
+        [class.badge-item--selected]="profileService.profile().selectedBadgeIds.includes(badge.id)"
+        type="button"
+        (click)="profileService.toggleBadge(badge.id)"
+      >
+        <img class="badge-item__icon" [src]="badge.icon" [alt]="badge.name">
+        <span class="badge-item__name">{{ badge.name }}</span>
+      </button>
+    }
+  </div>
+</div>

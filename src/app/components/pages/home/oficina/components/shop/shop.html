@@ -1,0 +1,12 @@
+<div class="shop">
+  <app-shop-category-nav></app-shop-category-nav>
+  <app-shop-filters></app-shop-filters>
+
+  <div class="shop__grid">
+    @for (item of shopService.filteredItems(); track item.id) {
+      <app-shop-item-card [item]="item"></app-shop-item-card>
+    } @empty {
+      <p class="shop__empty">Nenhum item encontrado com esses filtros.</p>
+    }
+  </div>
+</div>

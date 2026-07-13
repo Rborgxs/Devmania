@@ -1,0 +1,15 @@
+<div class="duel-modes-modal__overlay" (click)="close.emit()">
+  <div class="duel-modes-modal" (click)="$event.stopPropagation()">
+    <h2 class="duel-modes-modal__title">Modos de Duelo</h2>
+
+    <div class="duel-modes-modal__options">
+      @for (mode of modes; track mode.id) {
+        <button class="duel-modes-modal__option" type="button" (click)="select.emit(mode)">
+          <span class="duel-modes-modal__icon">{{ mode.icon }}</span>
+          <span class="duel-modes-modal__name">{{ mode.name }}</span>
+          <span class="duel-modes-modal__description">{{ mode.description }}</span>
+        </button>
+      }
+    </div>
+  </div>
+</div>

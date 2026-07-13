@@ -1,0 +1,28 @@
+<div class="appearance-options">
+  <div class="appearance-options__grid">
+    @for (option of avatarService.appearanceOptions; track option.key) {
+      <div class="appearance-field">
+        <label class="appearance-field__label" [for]="option.key">{{ option.label }}</label>
+        <select
+          class="appearance-field__select"
+          [id]="option.key"
+          [value]="avatarService.appearance()[option.key]"
+          (change)="onOptionChange(option.key, $event)"
+        >
+          @for (choice of option.choices; track choice) {
+            <option [value]="choice">{{ choice }}</option>
+          }
+        </select>
+      </div>
+    }
+  </div>
+
+  <div class="appearance-options__actions">
+    <button class="appearance-options__save-btn" type="button" (click)="avatarService.saveChanges()">
+      Salvar Alterações
+    </button>
+    <button class="appearance-options__reset-btn" type="button" (click)="avatarService.restoreDefault()">
+      Restaurar Aparência Padrão
+    </button>
+  </div>
+</div>

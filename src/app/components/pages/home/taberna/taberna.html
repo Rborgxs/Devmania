@@ -1,1 +1,29 @@
-<p>taberna works!</p>
+<div class="taberna">
+  <div class="taberna__main">
+    <app-taberna-tabs [activeTab]="activeTab()" (tabChange)="setTab($event)"></app-taberna-tabs>
+
+    <div class="taberna__content">
+      @switch (activeTab()) {
+        @case ('chat-global') {
+          <div class="taberna__panel-anim taberna__full-height">
+            <app-chat-global></app-chat-global>
+          </div>
+        }
+        @case ('guildas') {
+          <div class="taberna__panel-anim taberna__full-height">
+            <app-guilds></app-guilds>
+          </div>
+        }
+        @case ('amigos') {
+          <div class="taberna__panel-anim taberna__full-height">
+            <app-friends></app-friends>
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <aside class="taberna__sidebar">
+    <app-community-panel></app-community-panel>
+  </aside>
+</div>

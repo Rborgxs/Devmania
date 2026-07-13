@@ -1,0 +1,7 @@
+<div class="guilds">
+  @if (guildService.selectedGuild()) {
+    <app-guild-detail></app-guild-detail>
+  } @else {
+    <app-guild-search></app-guild-search>
+  }
+</div>

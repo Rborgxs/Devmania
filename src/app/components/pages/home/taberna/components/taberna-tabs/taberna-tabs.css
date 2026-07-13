@@ -1,0 +1,35 @@
+.taberna-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--color-brown-second);
+}
+
+.taberna-tabs__tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s ease-out, border-color 0.2s ease-out, background 0.2s ease-out;
+  border-radius: 6px 6px 0 0;
+}
+
+.taberna-tabs__tab:hover {
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+}
+
+.taberna-tabs__tab--active {
+  color: var(--color-yellow-primary);
+  border-bottom-color: var(--color-yellow-primary);
+}
+
+.taberna-tabs__icon {
+  font-size: 1rem;
+}

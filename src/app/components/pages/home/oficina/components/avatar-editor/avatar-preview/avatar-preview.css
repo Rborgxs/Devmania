@@ -1,0 +1,39 @@
+.avatar-preview {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 320px;
+  background: radial-gradient(circle at center, var(--color-purple) 0%, var(--color-black) 70%);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.avatar-preview__pedestal {
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  height: 20px;
+  background: var(--color-brown-second);
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: 0.6;
+}
+
+.avatar-preview__sprite {
+  position: relative;
+  height: 260px;
+  width: auto;
+  image-rendering: pixelated;
+  animation: avatar-idle 2.4s ease-in-out infinite;
+}
+
+@keyframes avatar-idle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

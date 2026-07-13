@@ -1,0 +1,13 @@
+<nav class="oficina-tabs">
+  @for (tab of tabs; track tab.id) {
+    <button
+      class="oficina-tabs__tab"
+      [class.oficina-tabs__tab--active]="activeTab() === tab.id"
+      type="button"
+      (click)="tabChange.emit(tab.id)"
+    >
+      <span class="oficina-tabs__icon">{{ tab.icon }}</span>
+      {{ tab.label }}
+    </button>
+  }
+</nav>

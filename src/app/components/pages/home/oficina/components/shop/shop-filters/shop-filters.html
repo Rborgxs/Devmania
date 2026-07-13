@@ -1,0 +1,39 @@
+<div class="shop-filters">
+  <div class="shop-filters__group">
+    <span class="shop-filters__label">Raridade</span>
+    <select class="shop-filters__select" [value]="shopService.activeRarity()" (change)="onRarityChange($event)">
+      @for (option of shopService.rarityOptions; track option.id) {
+        <option [value]="option.id">{{ option.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="shop-filters__group">
+    <span class="shop-filters__label">Preço máximo: {{ shopService.maxPrice() }}</span>
+    <input
+      class="shop-filters__range"
+      type="range"
+      min="50"
+      max="2000"
+      step="50"
+      [value]="shopService.maxPrice()"
+      (input)="onPriceInput($event)"
+    >
+  </div>
+
+  <div class="shop-filters__group">
+    <span class="shop-filters__label">Posse</span>
+    <div class="shop-filters__chips">
+      @for (option of ownershipOptions; track option.id) {
+        <button
+          class="shop-filters__chip"
+          [class.shop-filters__chip--active]="shopService.ownershipFilter() === option.id"
+          type="button"
+          (click)="shopService.ownershipFilter.set(option.id)"
+        >
+          {{ option.label }}
+        </button>
+      }
+    </div>
+  </div>
+</div>

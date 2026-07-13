@@ -1,0 +1,8 @@
+.chat-global {
+  display: flex;
+  height: 100%;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  overflow: hidden;
+}

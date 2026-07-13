@@ -1,0 +1,81 @@
+<div class="profile-editor">
+  <div class="profile-editor__field">
+    <label class="profile-editor__label">Nome de Exibição</label>
+    <input
+      class="profile-editor__input"
+      type="text"
+      [value]="profileService.profile().displayName"
+      (change)="onDisplayNameChange($event)"
+    >
+  </div>
+
+  <div class="profile-editor__field">
+    <label class="profile-editor__label">Nome de Usuário</label>
+    <div class="profile-editor__username-row">
+      <span class="profile-editor__username-value">{{ profileService.profile().username }}</span>
+      <button class="profile-editor__edit-username-btn" type="button" (click)="openUsernameModal()">
+        Editar
+      </button>
+    </div>
+  </div>
+
+  <div class="profile-editor__field">
+    <label class="profile-editor__label">Biografia</label>
+    <textarea
+      class="profile-editor__textarea"
+      rows="3"
+      [value]="profileService.profile().bio"
+      (change)="onBioChange($event)"
+    ></textarea>
+  </div>
+
+  <div class="profile-editor__field">
+    <label class="profile-editor__label">Exibir Elo por Modalidade</label>
+    <div class="profile-editor__elo-toggles">
+      <label class="profile-editor__toggle">
+        <input type="checkbox" [checked]="profileService.profile().eloVisibility.feat" (change)="profileService.toggleEloVisibility('feat')">
+        Feat
+      </label>
+      <label class="profile-editor__toggle">
+        <input type="checkbox" [checked]="profileService.profile().eloVisibility.fix" (change)="profileService.toggleEloVisibility('fix')">
+        Fix
+      </label>
+      <label class="profile-editor__toggle">
+        <input type="checkbox" [checked]="profileService.profile().eloVisibility.style" (change)="profileService.toggleEloVisibility('style')">
+        Style
+      </label>
+    </div>
+  </div>
+
+  @if (profileService.usernameChangeModalOpen()) {
+    <div class="username-modal__overlay" (click)="profileService.closeUsernameModal()">
+      <div class="username-modal" (click)="$event.stopPropagation()">
+        <h3 class="username-modal__title">Alterar Nome de Usuário</h3>
+        <p class="username-modal__cost">
+          Esta alteração custará <strong>{{ profileService.usernameChangeCost }} moedas</strong>.
+        </p>
+
+        <input
+          class="username-modal__input"
+          type="text"
+          [ngModel]="usernameDraft()"
+          (ngModelChange)="usernameDraft.set($event)"
+          name="usernameDraft"
+        >
+
+        @if (usernameError()) {
+          <span class="username-modal__error">Moedas insuficientes para essa alteração.</span>
+        }
+
+        <div class="username-modal__actions">
+          <button class="username-modal__confirm-btn" type="button" (click)="confirmUsernameChange()">
+            Confirmar
+          </button>
+          <button class="username-modal__cancel-btn" type="button" (click)="profileService.closeUsernameModal()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

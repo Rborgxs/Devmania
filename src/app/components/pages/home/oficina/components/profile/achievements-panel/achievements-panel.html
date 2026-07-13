@@ -1,0 +1,59 @@
+<div class="achievements-panel">
+  <div class="achievements-panel__header">
+    <h3 class="achievements-panel__title">Conquistas</h3>
+    @if (achievementService.pendingRewardsCount() > 0) {
+      <button class="achievements-panel__collect-all-btn" type="button" (click)="achievementService.collectAll()">
+        Coletar Todas ({{ achievementService.pendingRewardsCount() }})
+      </button>
+    }
+  </div>
+
+  <div class="achievements-panel__section">
+    <span class="achievements-panel__section-title">✅ Conquistadas</span>
+    <div class="achievements-panel__list">
+      @for (achievement of achievementService.unlockedAchievements(); track achievement.id) {
+        <div class="achievement-card" [attr.data-rarity]="achievement.rarity">
+          <img class="achievement-card__icon" [src]="achievement.icon" [alt]="achievement.name">
+          <div class="achievement-card__body">
+            <span class="achievement-card__name">{{ achievement.name }}</span>
+            <p class="achievement-card__description">{{ achievement.description }}</p>
+            <span class="achievement-card__reward">{{ achievement.coinReward }} moedas</span>
+          </div>
+          @if (!achievement.rewardCollected) {
+            <button class="achievement-card__collect-btn" type="button" (click)="achievementService.collectReward(achievement.id)">
+              Coletar
+            </button>
+          } @else {
+            <span class="achievement-card__collected">✔ Coletado</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="achievements-panel__section">
+    <span class="achievements-panel__section-title">🔒 Não Conquistadas</span>
+    <div class="achievements-panel__list">
+      @for (achievement of achievementService.lockedAchievements(); track achievement.id) {
+        <div class="achievement-card achievement-card--locked">
+          <img class="achievement-card__icon" [src]="achievement.icon" [alt]="achievement.name">
+          <div class="achievement-card__body">
+            <span class="achievement-card__name">{{ achievement.name }}</span>
+            <p class="achievement-card__description">{{ achievement.description }}</p>
+            @if (achievement.progress) {
+              <div class="achievement-card__progress-track">
+                <div
+                  class="achievement-card__progress-fill"
+                  [style.width.%]="(achievement.progress.current / achievement.progress.total) * 100"
+                ></div>
+              </div>
+              <span class="achievement-card__progress-label">
+                {{ achievement.progress.current }} / {{ achievement.progress.total }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

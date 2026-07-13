@@ -1,0 +1,13 @@
+<nav class="shop-category-nav">
+  @for (category of shopService.categories; track category.id) {
+    <button
+      class="shop-category-nav__item"
+      [class.shop-category-nav__item--active]="shopService.activeCategory() === category.id"
+      type="button"
+      (click)="shopService.activeCategory.set(category.id)"
+    >
+      <span class="shop-category-nav__icon">{{ category.icon }}</span>
+      {{ category.label }}
+    </button>
+  }
+</nav>

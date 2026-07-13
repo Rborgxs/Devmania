@@ -1,0 +1,27 @@
+<div class="friends-list">
+  <div class="friends-list__toolbar">
+    <input
+      class="friends-list__input"
+      type="text"
+      placeholder="Buscar amigo..."
+      [value]="friendsService.searchTerm()"
+      (input)="onSearchInput($event)"
+    >
+    <button class="friends-list__add-btn" type="button" (click)="friendsService.addFriend()">
+      Adicionar Amigo
+    </button>
+  </div>
+
+  <div class="friends-list__cards">
+    @for (friend of friendsService.filteredFriends(); track friend.id) {
+      <button class="friend-card" type="button" (click)="friendsService.selectFriend(friend)">
+        <img class="friend-card__avatar" [src]="friend.avatar" [alt]="friend.name">
+        <div class="friend-card__info">
+          <span class="friend-card__name">{{ friend.name }}</span>
+          <span class="friend-card__role">{{ friend.role }}</span>
+        </div>
+        <span class="friend-card__status">{{ statusLabels[friend.status] }}</span>
+      </button>
+    }
+  </div>
+</div>

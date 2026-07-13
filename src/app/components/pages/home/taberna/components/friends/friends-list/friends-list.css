@@ -1,0 +1,98 @@
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+}
+
+.friends-list__toolbar {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.friends-list__input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 6px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.friends-list__add-btn {
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.friends-list__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease-out, transform 0.15s ease-out;
+}
+
+.friend-card:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateX(3px);
+}
+
+.friend-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.friend-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.friend-card__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.friend-card__role {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.72rem;
+}
+
+.friend-card__status {
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  white-space: nowrap;
+}

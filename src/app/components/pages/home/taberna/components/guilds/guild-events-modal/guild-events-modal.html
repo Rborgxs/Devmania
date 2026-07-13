@@ -1,0 +1,29 @@
+<div class="guild-events-modal__overlay" (click)="close.emit()">
+  <div class="guild-events-modal" (click)="$event.stopPropagation()">
+    <h2 class="guild-events-modal__title">Eventos Ativos</h2>
+
+    <div class="guild-events-modal__list">
+      @for (event of guildService.events(); track event.id) {
+        <div class="event-card">
+          <img class="event-card__image" [src]="event.image" [alt]="event.name">
+
+          <div class="event-card__body">
+            <h3 class="event-card__name">{{ event.name }}</h3>
+            <p class="event-card__description">{{ event.description }}</p>
+
+            <div class="event-card__meta">
+              <span class="event-card__time">⏳ {{ event.timeRemaining }}</span>
+              <span class="event-card__participants">👥 {{ event.participantCount }}</span>
+            </div>
+
+            <span class="event-card__rewards">Recompensas: {{ event.rewards }}</span>
+
+            <button class="event-card__join-btn" type="button" (click)="joinEvent(event.id)">
+              Participar
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

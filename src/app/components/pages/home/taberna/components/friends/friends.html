@@ -1,0 +1,7 @@
+<div class="friends">
+  @if (friendsService.selectedFriend()) {
+    <app-friend-chat></app-friend-chat>
+  } @else {
+    <app-friends-list></app-friends-list>
+  }
+</div>

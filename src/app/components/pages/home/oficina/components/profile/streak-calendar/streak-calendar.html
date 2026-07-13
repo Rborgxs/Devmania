@@ -1,0 +1,31 @@
+<div class="streak-calendar">
+  <h3 class="streak-calendar__title">Calendário de Ofensiva</h3>
+
+  <div class="streak-calendar__grid">
+    @for (day of profileService.calendarDays(); track day.day) {
+      <div class="streak-calendar__day" [attr.data-state]="day.state">
+        <span class="streak-calendar__day-icon">{{ stateIcons[day.state] }}</span>
+        <span class="streak-calendar__day-number">{{ day.day }}</span>
+      </div>
+    }
+  </div>
+
+  <div class="streak-calendar__summary">
+    <div class="streak-calendar__summary-item">
+      <span class="streak-calendar__summary-value">{{ profileService.currentStreak() }}</span>
+      <span class="streak-calendar__summary-label">Dias Consecutivos</span>
+    </div>
+    <div class="streak-calendar__summary-item">
+      <span class="streak-calendar__summary-value">{{ profileService.bestStreak() }}</span>
+      <span class="streak-calendar__summary-label">Melhor Sequência</span>
+    </div>
+    <div class="streak-calendar__summary-item">
+      <span class="streak-calendar__summary-value">{{ profileService.weeklyGoal() }}/7</span>
+      <span class="streak-calendar__summary-label">Meta Semanal</span>
+    </div>
+    <div class="streak-calendar__summary-item">
+      <span class="streak-calendar__summary-value">{{ profileService.monthlyGoal() }}/30</span>
+      <span class="streak-calendar__summary-label">Meta Mensal</span>
+    </div>
+  </div>
+</div>

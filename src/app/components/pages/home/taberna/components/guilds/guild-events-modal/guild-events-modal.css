@@ -1,0 +1,106 @@
+.guild-events-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 2rem;
+}
+
+.guild-events-modal {
+  width: 100%;
+  max-width: 42rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.guild-events-modal__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.guild-events-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.event-card__image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+}
+
+.event-card__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.1rem;
+}
+
+.event-card__description {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.event-card__meta {
+  display: flex;
+  gap: 1rem;
+}
+
+.event-card__time,
+.event-card__participants {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+}
+
+.event-card__rewards {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+}
+
+.event-card__join-btn {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+}
+
+.event-card__join-btn:hover {
+  transform: translateY(-2px);
+}

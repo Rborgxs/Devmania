@@ -1,0 +1,51 @@
+<div class="friend-chat">
+  @if (friendsService.selectedFriend(); as friend) {
+    <header class="friend-chat__header">
+      <button class="friend-chat__back" type="button" (click)="friendsService.closeConversation()">←</button>
+      <img class="friend-chat__avatar" [src]="friend.avatar" [alt]="friend.name">
+      <span class="friend-chat__name">{{ friend.name }}</span>
+
+      <div class="friend-chat__actions">
+        <button class="friend-chat__action-btn" type="button" (click)="challenge()">⚔️ Desafiar</button>
+        <button class="friend-chat__action-btn" type="button" (click)="toggleGiftPanel()">🎁 Enviar Presente</button>
+      </div>
+    </header>
+
+    @if (isGiftPanelOpen()) {
+      <div class="friend-chat__gift-panel">
+        @for (item of friendsService.giftItems(); track item.id) {
+          <button class="friend-chat__gift-item" type="button" (click)="sendGift(item.name)">
+            <img class="friend-chat__gift-icon" [src]="item.icon" [alt]="item.name">
+            <span>{{ item.name }}</span>
+          </button>
+        }
+      </div>
+    }
+
+    <div class="friend-chat__messages">
+      @for (message of friendsService.currentMessages(); track message.id) {
+        <div class="friend-chat__message" [class.friend-chat__message--user]="message.sender === 'user'">
+          <span class="friend-chat__message-text">{{ message.text }}</span>
+          <span class="friend-chat__message-time">{{ message.timestamp }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="friend-chat__share-row">
+      <button class="friend-chat__share-btn" type="button" (click)="shareChallenge()">Compartilhar Desafio</button>
+      <button class="friend-chat__share-btn" type="button" (click)="shareProject()">Compartilhar Projeto</button>
+    </div>
+
+    <form class="friend-chat__input-row" (ngSubmit)="send()">
+      <input
+        class="friend-chat__input"
+        type="text"
+        placeholder="Escreva uma mensagem..."
+        [ngModel]="draft()"
+        (ngModelChange)="draft.set($event)"
+        name="friendDraft"
+      >
+      <button class="friend-chat__send-btn" type="submit">🪶</button>
+    </form>
+  }
+</div>

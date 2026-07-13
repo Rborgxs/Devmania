@@ -1,0 +1,15 @@
+<aside class="channel-list">
+  <span class="channel-list__title">Canais</span>
+
+  @for (channel of chatService.channels(); track channel.id) {
+    <button
+      class="channel-list__item"
+      [class.channel-list__item--active]="chatService.activeChannelId() === channel.id"
+      type="button"
+      (click)="chatService.selectChannel(channel.id)"
+    >
+      <span class="channel-list__icon">{{ channel.icon }}</span>
+      {{ channel.name }}
+    </button>
+  }
+</aside>

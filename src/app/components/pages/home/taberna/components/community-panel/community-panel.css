@@ -1,0 +1,145 @@
+.community-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.community-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.community-panel__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.88rem;
+}
+
+.community-panel__players,
+.community-panel__events,
+.community-panel__ranking,
+.community-panel__announcements {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.online-player {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  background: var(--color-black);
+  border-radius: 6px;
+}
+
+.online-player__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.online-player__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.online-player__name {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.75rem;
+}
+
+.online-player__meta {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.62rem;
+}
+
+.online-player__status {
+  font-size: 0.7rem;
+}
+
+.mini-event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.6rem;
+  background: var(--color-black);
+  border-radius: 6px;
+}
+
+.mini-event-card__name {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+}
+
+.mini-event-card__meta {
+  display: flex;
+  gap: 0.75rem;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.65rem;
+}
+
+.ranking-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  background: var(--color-black);
+  border-radius: 6px;
+}
+
+.ranking-entry__medal {
+  font-size: 0.9rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+.ranking-entry__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ranking-entry__name {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+}
+
+.ranking-entry__title {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-primary);
+  font-size: 0.65rem;
+}
+
+.announcement-item {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.55rem;
+  background: var(--color-black);
+  border-radius: 6px;
+}
+
+.announcement-item__icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.announcement-item__text {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}

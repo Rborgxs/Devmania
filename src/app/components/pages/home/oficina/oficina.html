@@ -1,1 +1,23 @@
-<p>oficina works!</p>
+<div class="oficina">
+  <app-oficina-tabs [activeTab]="activeTab()" (tabChange)="setTab($event)"></app-oficina-tabs>
+
+  <div class="oficina__content">
+    @switch (activeTab()) {
+      @case ('avatar') {
+        <div class="oficina__panel-anim-full">
+          <app-avatar-editor></app-avatar-editor>
+        </div>
+      }
+      @case ('loja') {
+        <div class="oficina__panel-anim-full">
+          <app-shop></app-shop>
+        </div>
+      }
+      @case ('perfil') {
+        <div class="oficina__panel-anim-full">
+          <app-profile></app-profile>
+        </div>
+      }
+    }
+  </div>
+</div>

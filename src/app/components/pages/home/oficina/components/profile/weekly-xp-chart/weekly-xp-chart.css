@@ -1,0 +1,6 @@
+.weekly-xp-chart__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}

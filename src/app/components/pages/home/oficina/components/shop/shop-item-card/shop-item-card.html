@@ -1,0 +1,33 @@
+<div class="shop-item-card" [attr.data-rarity]="item().rarity">
+  <img class="shop-item-card__image" [src]="item().image" [alt]="item().name">
+
+  <div class="shop-item-card__body">
+    <span class="shop-item-card__rarity">{{ item().rarity }}</span>
+    <h3 class="shop-item-card__name">{{ item().name }}</h3>
+    <p class="shop-item-card__description">{{ item().description }}</p>
+
+    @if (!shopService.isOwned(item().id)) {
+      <span class="shop-item-card__price">{{ item().price }} moedas</span>
+    }
+
+    @if (shopService.isOwned(item().id)) {
+      <button
+        class="shop-item-card__action-btn shop-item-card__action-btn--equip"
+        [class.shop-item-card__action-btn--equipped]="shopService.isEquipped(item().id)"
+        type="button"
+        (click)="onActionClick()"
+      >
+        {{ shopService.isEquipped(item().id) ? 'Equipado' : 'Equipar' }}
+      </button>
+    } @else {
+      <button
+        class="shop-item-card__action-btn"
+        type="button"
+        [disabled]="!canAfford()"
+        (click)="onActionClick()"
+      >
+        {{ canAfford() ? 'Comprar' : 'Moedas Insuficientes' }}
+      </button>
+    }
+  </div>
+</div>

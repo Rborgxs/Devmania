@@ -1,0 +1,19 @@
+.shop {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.shop__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.shop__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  padding: 2rem;
+}

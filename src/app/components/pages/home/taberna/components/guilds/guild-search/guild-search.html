@@ -1,0 +1,26 @@
+<div class="guild-search">
+  <div class="guild-search__toolbar">
+    <input
+      class="guild-search__input"
+      type="text"
+      placeholder="Procurar guilda..."
+      [value]="guildService.searchTerm()"
+      (input)="onSearchInput($event)"
+    >
+    <button class="guild-search__create-btn" type="button" (click)="createGuild()">
+      Criar Guilda
+    </button>
+  </div>
+
+  <div class="guild-search__list">
+    @for (guild of results(); track guild.id) {
+      <button class="guild-search__item" type="button" (click)="guildService.selectGuild(guild)">
+        <img class="guild-search__emblem" [src]="guild.emblem" [alt]="guild.name">
+        <div class="guild-search__info">
+          <span class="guild-search__name">{{ guild.name }}</span>
+          <span class="guild-search__meta">{{ guild.memberCount }} membros · Nível {{ guild.level }}</span>
+        </div>
+      </button>
+    }
+  </div>
+</div>

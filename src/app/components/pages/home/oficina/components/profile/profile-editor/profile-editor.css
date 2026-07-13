@@ -1,0 +1,153 @@
+.profile-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-editor__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.profile-editor__label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.78rem;
+}
+
+.profile-editor__input,
+.profile-editor__textarea {
+  padding: 0.65rem 0.85rem;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 6px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  outline: none;
+  resize: none;
+}
+
+.profile-editor__input:focus,
+.profile-editor__textarea:focus {
+  border-color: var(--color-yellow-primary);
+}
+
+.profile-editor__username-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-editor__username-value {
+  font-family: var(--fonte-code);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+.profile-editor__edit-username-btn {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-brown-second);
+  background: var(--color-brown-primary);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+  font-size: 0.72rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile-editor__elo-toggles {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-editor__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.username-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 250;
+}
+
+.username-modal {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-yellow-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.username-modal__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.05rem;
+}
+
+.username-modal__cost {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.82rem;
+}
+
+.username-modal__input {
+  padding: 0.6rem 0.85rem;
+  background: var(--color-black);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 6px;
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-code);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.username-modal__error {
+  font-family: var(--fonte-std);
+  color: #d16060;
+  font-size: 0.75rem;
+}
+
+.username-modal__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.username-modal__confirm-btn {
+  flex: 1;
+  padding: 0.65rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.username-modal__cancel-btn {
+  flex: 1;
+  padding: 0.65rem;
+  border: 2px solid var(--color-brown-second);
+  background: none;
+  color: var(--color-gray);
+  font-family: var(--fonte-std);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
