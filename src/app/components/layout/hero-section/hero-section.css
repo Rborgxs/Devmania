@@ -34,59 +34,75 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 10rem;
   image-rendering: pixelated;
-  width: 42px;
-  margin: -21px 0 0 -21px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .hero__float--1 {
-  transform: translate(0px, -170px);
   animation: drift-1 6s ease-in-out infinite;
 }
 
 .hero__float--2 {
-  transform: translate(310px, -70px);
   animation: drift-2 7s ease-in-out infinite;
 }
 
 .hero__float--3 {
-  transform: translate(260px, 130px);
   animation: drift-3 6.5s ease-in-out infinite;
 }
 
 .hero__float--4 {
-  transform: translate(-260px, 120px);
   animation: drift-4 8s ease-in-out infinite;
 }
 
 .hero__float--5 {
-  transform: translate(-310px, -60px);
   animation: drift-5 7.5s ease-in-out infinite;
 }
 
 @keyframes drift-1 {
-  0%, 100% { transform: translate(0px, -170px); }
-  50% { transform: translate(10px, -162px); }
+  0%,100% {
+    transform: translate(-50%, -50%) translate(0, -340px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(12px, -330px);
+  }
 }
 
 @keyframes drift-2 {
-  0%, 100% { transform: translate(310px, -70px); }
-  50% { transform: translate(298px, -78px); }
+  0%,100% {
+    transform: translate(-50%, -50%) translate(470px, -170px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(455px, -182px);
+  }
 }
 
 @keyframes drift-3 {
-  0%, 100% { transform: translate(260px, 130px); }
-  50% { transform: translate(270px, 122px); }
+  0%,100% {
+    transform: translate(-50%, -50%) translate(410px, 260px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(425px, 248px);
+  }
 }
 
 @keyframes drift-4 {
-  0%, 100% { transform: translate(-260px, 120px); }
-  50% { transform: translate(-250px, 128px); }
+  0%,100% {
+    transform: translate(-50%, -50%) translate(-410px, 260px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-395px, 272px);
+  }
 }
 
 @keyframes drift-5 {
-  0%, 100% { transform: translate(-310px, -60px); }
-  50% { transform: translate(-298px, -68px); }
+  0%,100% {
+    transform: translate(-50%, -50%) translate(-470px, -170px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-455px, -182px);
+  }
 }
 
 .hero__content {

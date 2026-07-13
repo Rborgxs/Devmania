@@ -30,29 +30,41 @@ export class CarouselSection implements OnInit, OnDestroy {
   readonly activeSlide = signal(0);
   readonly flippedIndexes = signal<Set<number>>(new Set());
 
-  readonly slides: CarouselSlide[] = [
-    {
-      frontImage: 'assets/icons/card_junior_front.png',
-      backImage: 'assets/icons/card_junior_back.png',
-      title: 'Dev Júnior',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
-      features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']
-    },
-    {
-      frontImage: 'assets/icons/card_pleno_front.png',
-      backImage: 'assets/icons/card_pleno_back.png',
-      title: 'Dev Pleno',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
-      features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']
-    },
-    {
-      frontImage: 'assets/icons/card_senior_front.png',
-      backImage: 'assets/icons/card-senior-back.png',
-      title: 'Dev Sênior',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend efficitur porta.',
-      features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Sed porta neque non odio']
-    }
-  ];
+readonly slides: CarouselSlide[] = [
+  {
+    frontImage: 'assets/icons/card_junior_front.png',
+    backImage: 'assets/icons/card_junior_back.png',
+    title: 'Dev Júnior',
+    description: 'Está começando agora? A Devmania te guia do primeiro "Hello World" ao seu primeiro duelo, com quests pensadas pra construir sua lógica passo a passo.',
+    features: [
+      'Quests diárias com dificuldade progressiva',
+      'Trilhas guiadas de linguagens e frameworks',
+      'Feedback do Mestre a cada desafio'
+    ]
+  },
+  {
+    frontImage: 'assets/icons/card_pleno_front.png',
+    backImage: 'assets/icons/card_pleno_back.png',
+    title: 'Dev Pleno',
+    description: 'Já programa e quer evoluir? Encare duelos em tempo real na Arena e suba de posição nas ligas enquanto aprofunda seu domínio técnico.',
+    features: [
+      'Duelos Feat, Fix e Style contra outros devs',
+      'Treinos livres configuráveis por linguagem',
+      'Progresso competitivo através das ligas'
+    ]
+  },
+  {
+    frontImage: 'assets/icons/card_senior_front.png',
+    backImage: 'assets/icons/card_senior_back.png',
+    title: 'Dev Sênior',
+    description: 'Domina a arte do código? Lidere torneios, compartilhe conhecimento na Guilda e conquiste o topo das ligas mais disputadas da Devmania.',
+    features: [
+      'Torneios com bracket e recompensas em baús',
+      'Participação ativa nas guildas e chats',
+      'Insígnias exclusivas por linguagem dominada'
+    ]
+  }
+];
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) this.startAutoplay();

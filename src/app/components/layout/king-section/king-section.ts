@@ -35,24 +35,24 @@ export class KingSection implements AfterViewInit, OnDestroy {
   readonly cards: DuelCard[] = [
     {
       mode: 'feat',
-      image: 'assets/king-section/card-feat.png',
+      image: '/assets/icons/feat_logo.png',
       title: 'Feat',
       description: 'Construa uma funcionalidade nova do zero, seguindo os requisitos do desafio.',
       kingQuote: 'Construa uma funcionalidade do zero, aventureiro.'
     },
     {
       mode: 'fix',
-      image: 'assets/king-section/card-fix.png',
+      image: '/assets/icons/fix_logo.png',
       title: 'Fix',
       description: 'Encontre e corrija o bug escondido no código antes que o tempo se esgote.',
       kingQuote: 'Encontre o erro escondido antes que o tempo acabe.'
     },
     {
       mode: 'style',
-      image: 'assets/king-section/card-style.png',
+      image: '/assets/icons/style_logo.png',
       title: 'Style',
       description: 'Refatore o código existente, mantendo a mesma função com mais elegância.',
-      kingQuote: 'Refatore com elegância — código limpo também é honra.'
+      kingQuote: 'Refatore com elegância! Uma tela linda também é honra.'
     }
   ];
 

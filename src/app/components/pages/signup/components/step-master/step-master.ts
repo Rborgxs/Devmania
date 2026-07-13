@@ -20,7 +20,7 @@ export class StepMaster {
       name: 'Cauã',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/caua_default.jpeg',
+      imageUrl: 'assets/characters/caua_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -28,7 +28,7 @@ export class StepMaster {
       name: 'Gabi',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/gabi_default.jpeg',
+      imageUrl: 'assets/characters/gabi_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -36,7 +36,7 @@ export class StepMaster {
       name: 'Kelly',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/kelly_default.jpeg',
+      imageUrl: 'assets/characters/kelly_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -44,7 +44,7 @@ export class StepMaster {
       name: 'Luiz',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/luiz_default.jpeg',
+      imageUrl: 'assets/characters/luiz_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -52,7 +52,7 @@ export class StepMaster {
       name: 'Marcelle',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/marcelle_default.jpeg',
+      imageUrl: 'assets/characters/marcelle_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -60,7 +60,7 @@ export class StepMaster {
       name: 'Marcelo',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/marcelo_default.jpeg',
+      imageUrl: 'assets/characters/marcelo_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -68,7 +68,7 @@ export class StepMaster {
       name: 'Ronald',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/ronald_default.jpeg',
+      imageUrl: 'assets/characters/ronald_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     },
     {
@@ -76,7 +76,7 @@ export class StepMaster {
       name: 'Tchan',
       title: 'Mestre a definir',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      imageUrl: 'assets/characters/tchan_default.jpeg',
+      imageUrl: 'assets/characters/tchan_default.png',
       traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
     }
   ];

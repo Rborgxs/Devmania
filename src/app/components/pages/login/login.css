@@ -12,8 +12,8 @@
 
 .login__back {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 2.5rem;
+  left: 3rem;
   z-index: 2;
   transition: transform 0.2s ease-out;
 }
@@ -22,10 +22,15 @@
   transform: translateX(-4px);
 }
 
+.login__back:active {
+  opacity: 0.7;
+}
+
 .login__back-icon {
-  width: 32px;
-  height: 32px;
+  width: 5rem;
+  height: auto;
   image-rendering: pixelated;
+  transform: rotate(180deg);
 }
 
 .login__pillar {
