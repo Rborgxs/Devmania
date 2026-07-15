@@ -3,7 +3,7 @@
   <p class="hero-journey__subtitle">{{ journeyService.currentModuleName() }}</p>
 
   <div class="hero-journey__map-wrapper">
-    <svg class="hero-journey__svg" [attr.viewBox]="'0 0 180 ' + svgHeight()" [attr.height]="svgHeight()">
+    <svg class="hero-journey__svg" [attr.viewBox]="'0 0 ' + svgWidth() + ' ' + svgHeight()" [attr.width]="svgWidth()" [attr.height]="svgHeight()">
       <path
         class="hero-journey__path"
         [attr.d]="pathData()"

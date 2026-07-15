@@ -125,3 +125,54 @@
   color: var(--color-yellow-secundary);
   font-size: 0.9rem;
 }
+
+.sidebar--collapsed .sidebar__brand-text,
+.sidebar--collapsed .sidebar__item-label {
+  display: none;
+}
+
+.sidebar__item--logout {
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  color: var(--color-danger-light);
+}
+
+.sidebar__item--logout:hover {
+  background: var(--color-danger-strong);
+}
+
+.sidebar__item--logout .sidebar__item-label {
+  color: var(--color-danger-light);
+}
+
+.sidebar__item-icon--logout {
+  opacity: 0.9;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+   Força modo ícone-only independente do toggle manual,
+   para não consumir a maior parte de telas estreitas.
+=========================== */
+@media (max-width: 700px) {
+  .sidebar {
+    width: 64px;
+  }
+
+  .sidebar__brand-text,
+  .sidebar__item-label {
+    display: none;
+  }
+
+  .sidebar__item {
+    justify-content: center;
+  }
+
+  .sidebar__toggle {
+    display: none;
+  }
+}

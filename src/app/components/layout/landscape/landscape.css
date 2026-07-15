@@ -7,7 +7,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-image: url('/assets/landscape_bg.png');
+  background-image: url('/assets/backgrounds/landscape_bg.png');
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 }
 
 .landscape__logo {
-  width: 30rem;
+  width: min(30rem, 70vw);
   height: auto;
   image-rendering: pixelated;
 }
@@ -33,7 +33,7 @@
 }
 
 .landscape__btn img {
-  width: 20rem;
+  width: min(20rem, 55vw);
   height: auto;
   image-rendering: pixelated;
   transition: 0.2s ease;
@@ -48,4 +48,30 @@
   content: url("/assets/icons/button_landscape_hover.png");
   filter: opacity(0.5);
   cursor: pointer;
+}
+
+/* ===========================
+   RESPONSIVO TABLET
+=========================== */
+@media (max-width: 768px) {
+  .landscape__content {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .landscape__content {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .landscape__logo {
+    width: min(20rem, 80vw);
+  }
+
+  .landscape__btn img {
+    width: min(14rem, 65vw);
+  }
 }

@@ -69,10 +69,11 @@
           (change)="lgpdAccepted.set($any($event.target).checked)"
         >
         <span class="login__lgpd-text">
-          Li e concordo com a
-          <a class="login__lgpd-link" href="https://exemplo.com/politica-de-privacidade" target="_blank" rel="noopener noreferrer">
-            Política de Privacidade (LGPD)
-          </a>
+          Estou ciente de que a Devmania coleta e trata meus dados pessoais em conformidade com a
+          Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), e declaro que li e concordo com a
+          <a class="login__lgpd-link" href="#" (click)="openPrivacyModal($event)">
+            Política de Privacidade e os Termos de Uso
+          </a>.
         </span>
       </label>
 
@@ -86,4 +87,8 @@
       <a class="login__signup-link" routerLink="/cadastro">Cadastre-se</a>
     </p>
   </div>
+
+  @if (privacyModalOpen()) {
+    <app-privacy-terms-modal (closed)="closePrivacyModal()"></app-privacy-terms-modal>
+  }
 </section>

@@ -8,6 +8,16 @@
   overflow-y: auto;
 }
 
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 900px) {
+  .duel-problem-panel {
+    border-right: none;
+    border-bottom: 2px solid var(--color-brown-second);
+  }
+}
+
 .duel-problem-panel__label {
   font-family: var(--fonte-std);
   color: var(--color-gray);
@@ -62,6 +72,6 @@
 
 .duel-problem-panel__done {
   font-family: var(--fonte-std);
-  color: #4caf7d;
+  color: var(--color-success);
   font-size: 0.95rem;
 }

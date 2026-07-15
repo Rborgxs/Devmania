@@ -1,6 +1,5 @@
 export type SignupStep =
   | 'welcome'
-  | 'email'
   | 'verification'
   | 'password'
   | 'master'

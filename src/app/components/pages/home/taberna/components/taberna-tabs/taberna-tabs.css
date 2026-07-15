@@ -33,3 +33,19 @@
 .taberna-tabs__icon {
   font-size: 1rem;
 }
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 560px) {
+  .taberna-tabs {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .taberna-tabs__tab {
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}

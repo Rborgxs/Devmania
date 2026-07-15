@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Guild } from './guild';
+import { GuildService } from './guild';
 
-describe('Guild', () => {
-  let service: Guild;
+describe('GuildService', () => {
+  let service: GuildService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Guild);
+    service = TestBed.inject(GuildService);
   });
 
   it('should be created', () => {

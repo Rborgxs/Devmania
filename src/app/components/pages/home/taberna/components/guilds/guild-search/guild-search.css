@@ -87,3 +87,20 @@
   color: var(--color-gray);
   font-size: 0.72rem;
 }
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .guild-search {
+    padding: 0.85rem;
+  }
+
+  .guild-search__toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .guild-search__item {
+    padding: 0.7rem;
+  }
+}

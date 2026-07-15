@@ -11,8 +11,10 @@
         <p class="master-card__message">
           Hoje há uma Quest Média disponível. Complete-a para manter sua sequência e ganhar moedas extras.
         </p>
-        <button class="master-card__hide" type="button" (click)="hideMasterCard()">Ocultar</button>
       </div>
+      <button class="master-card__hide" type="button" (click)="hideMasterCard()" aria-label="Ocultar mestre" title="Ocultar">
+        <span class="master-card__hide-icon">✕</span>
+      </button>
     </div>
   }
 
@@ -21,30 +23,57 @@
       <h2 class="challenges__title">Quests Diárias</h2>
 
       <div class="quest-card">
-        <button class="quest-card__nav quest-card__nav--prev" type="button" (click)="prevQuest()">‹</button>
-
-        <div class="quest-card__body">
-          <span class="quest-card__difficulty" [attr.data-level]="currentQuest().difficulty">
+        <div class="quest-card__top-diff">
+          <span class="quest-card__difficulty" [attr.data-level]="currentQuest().difficulty" title="Dificuldade">
             {{ difficultyLabel(currentQuest().difficulty) }}
           </span>
-          <span class="quest-card__reward">
-            <span class="quest-card__coin-icon"></span> {{ currentQuest().coinReward }}
-            <span class="quest-card__xp-icon"></span> {{ currentQuest().xpReward }}
-          </span>
+        </div>
 
-          <img class="quest-card__image" [src]="currentQuest().image" [alt]="currentQuest().title">
+        <div class="quest-carousel">
+          <div class="quest-carousel__viewport">
+            <div class="quest-carousel__track" [style.transform]="'translateX(' + (-currentQuestIndex() * 100) + '%)'">
+              @for (quest of dailyQuests; track quest.id) {
+                <div class="quest-carousel__slide">
+                  <div class="quest-card__body">
+                    <span class="quest-card__reward">
+                      <span class="quest-card__coin-icon" title="Moedas ao completar"></span> {{ quest.coinReward }}
+                    </span>
 
-          <h3 class="quest-card__title">{{ currentQuest().title }}</h3>
-          <p class="quest-card__description">{{ currentQuest().description }}</p>
+                    <img class="quest-card__image" [src]="quest.image" [alt]="quest.title">
 
-          <div class="quest-card__io">
-            <span class="quest-card__io-label">Entrada → Saída Esperada</span>
-            <code class="quest-card__io-line">{{ currentQuest().input }} → {{ currentQuest().output }}</code>
+                    <h3 class="quest-card__title">{{ quest.title }}</h3>
+                    <p class="quest-card__description">{{ quest.description }}</p>
+
+                    <div class="quest-card__io">
+                      <span class="quest-card__io-label">Entrada → Saída Esperada</span>
+                      <code class="quest-card__io-line">{{ quest.input }} → {{ quest.output }}</code>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="quest-carousel__dots">
+            @for (quest of dailyQuests; track quest.id; let i = $index) {
+              <button
+                class="quest-carousel__dot"
+                [class.quest-carousel__dot--active]="currentQuestIndex() === i"
+                type="button"
+                (click)="goToQuest(i)"
+                [attr.aria-label]="'Ir para quest ' + (i + 1)"
+              ></button>
+            }
+          </div>
+        </div>
+
+        <div class="quest-card__footer">
+          <div class="quest-card__arrows">
+            <button class="quest-card__nav" type="button" (click)="prevQuest()" aria-label="Quest anterior">‹</button>
+            <button class="quest-card__nav" type="button" (click)="nextQuest()" aria-label="Próxima quest">›</button>
           </div>
           <a class="quest-card__start" [routerLink]="['/batalha', currentQuest().id]">Lutar</a>
         </div>
-
-        <button class="quest-card__nav quest-card__nav--next" type="button" (click)="nextQuest()">›</button>
       </div>
     </section>
 
@@ -53,23 +82,29 @@
 
       <div class="weekly-card">
         <img class="weekly-card__image" [src]="weeklyChallenge.image" [alt]="weeklyChallenge.title">
+        <div class="weekly-card__scrim"></div>
 
         <div class="weekly-card__overlay">
-          <div class="weekly-card__top">
-            <span class="weekly-card__reward">
-              <span class="quest-card__coin-icon"></span> {{ weeklyChallenge.coinReward }}
-            </span>
-            <span class="weekly-card__bugs">🐛 {{ weeklyChallenge.bugCount }} bugs</span>
+          <div class="weekly-card__header">
+            <span class="weekly-card__week-badge">Semana #{{ weeklyChallenge.week }}</span>
+            <div class="weekly-card__chips">
+              <span class="weekly-card__chip weekly-card__chip--reward">
+                <span class="quest-card__coin-icon"></span> {{ weeklyChallenge.coinReward }}
+              </span>
+              <span class="weekly-card__chip weekly-card__chip--bugs">
+                🐛 {{ weeklyChallenge.bugCount }} bugs
+              </span>
+            </div>
           </div>
 
-          <span class="weekly-card__week">Semana #{{ weeklyChallenge.week }}</span>
-
-          <h3 class="weekly-card__title">{{ weeklyChallenge.title }}</h3>
-          <p class="weekly-card__description">{{ weeklyChallenge.description }}</p>
+          <div class="weekly-card__body">
+            <h3 class="weekly-card__title">{{ weeklyChallenge.title }}</h3>
+            <p class="weekly-card__description">{{ weeklyChallenge.description }}</p>
+          </div>
 
           <div class="weekly-card__actions">
             <a class="weekly-card__start" [routerLink]="['/desafio-semanal', weeklyChallenge.id]">Enfrentar Desafio</a>
-            <button class="weekly-card__history" type="button" (click)="openHistory()">↺</button>
+            <button class="weekly-card__history" type="button" (click)="openHistory()" title="Histórico da semana">↺</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,27 @@
 <div class="avatar-editor">
-  <app-avatar-preview></app-avatar-preview>
-  <app-appearance-options></app-appearance-options>
+  <section class="avatar-editor__hero">
+    <app-avatar-preview></app-avatar-preview>
+    <button class="avatar-editor__customize-btn" type="button" (click)="openCustomize()">
+      Customizar
+    </button>
+  </section>
+
+  <section class="avatar-editor__bottom">
+    <app-streak-calendar></app-streak-calendar>
+    <app-weekly-xp-chart></app-weekly-xp-chart>
+  </section>
+
+  @if (customizeModalOpen()) {
+    <div class="avatar-editor__modal-overlay" (click)="closeCustomize()">
+      <div class="avatar-editor__modal" (click)="$event.stopPropagation()">
+        <header class="avatar-editor__modal-header">
+          <h2 class="avatar-editor__modal-title">Customizar Avatar</h2>
+          <button class="avatar-editor__modal-close" type="button" (click)="closeCustomize()" aria-label="Fechar">✕</button>
+        </header>
+        <div class="avatar-editor__modal-body">
+          <app-appearance-options></app-appearance-options>
+        </div>
+      </div>
+    </div>
+  }
 </div>

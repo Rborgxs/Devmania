@@ -33,3 +33,17 @@
 .oficina-tabs__icon {
   font-size: 1rem;
 }
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .oficina-tabs {
+    flex-wrap: wrap;
+  }
+
+  .oficina-tabs__tab {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}

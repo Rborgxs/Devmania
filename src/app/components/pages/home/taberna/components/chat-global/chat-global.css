@@ -6,3 +6,8 @@
   border-radius: 8px;
   overflow: hidden;
 }
+
+.chat-global > app-channel-chat {
+  flex: 1;
+  min-width: 0;
+}

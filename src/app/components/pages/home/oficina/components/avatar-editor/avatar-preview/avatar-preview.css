@@ -8,6 +8,12 @@
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   overflow: hidden;
+  transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.avatar-preview:hover {
+  border-color: var(--color-yellow-primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .avatar-preview__pedestal {

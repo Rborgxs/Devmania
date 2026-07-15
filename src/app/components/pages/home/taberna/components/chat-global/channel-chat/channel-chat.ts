@@ -14,15 +14,22 @@ export class ChannelChat {
   chatService = inject(ChatService);
 
   draft = signal('');
+  emojiPickerOpen = signal(false);
 
-  quickEmojis = ['⚔️', '🛡️', '🔥', '😂', '👍', '🐉'];
+  quickEmojis = ['⚔️', '🛡️', '🔥', '😂', '👍', '🐉', '✨', '🏰', '📜', '🎯', '💀', '🍺'];
 
   send(): void {
     this.chatService.sendMessage(this.draft());
     this.draft.set('');
+    this.emojiPickerOpen.set(false);
+  }
+
+  toggleEmojiPicker(): void {
+    this.emojiPickerOpen.update(v => !v);
   }
 
   addEmoji(emoji: string): void {
     this.draft.update(d => d + emoji);
+    this.emojiPickerOpen.set(false);
   }
 }

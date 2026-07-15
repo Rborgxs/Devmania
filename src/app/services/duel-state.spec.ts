@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DuelState } from './duel-state';
+import { DuelStateService } from './duel-state';
 
-describe('DuelState', () => {
-  let service: DuelState;
+describe('DuelStateService', () => {
+  let service: DuelStateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DuelState);
+    service = TestBed.inject(DuelStateService);
   });
 
   it('should be created', () => {

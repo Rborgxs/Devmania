@@ -119,7 +119,7 @@
 
 .username-modal__error {
   font-family: var(--fonte-std);
-  color: #d16060;
+  color: var(--color-danger);
   font-size: 0.75rem;
 }
 

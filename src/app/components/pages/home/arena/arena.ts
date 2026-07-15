@@ -2,6 +2,7 @@ import { Component, signal, inject } from '@angular/core';
 import { ArenaSidebar } from './components/arena-sidebar/arena-sidebar';
 import { ChestPanel } from './components/chest-panel/chest-panel';
 import { ModeSelector } from './components/mode-selector/mode-selector';
+import { ArenaProfileBlock } from './components/arena-profile-block/arena-profile-block';
 import { DuelModeModal } from './components/duel-mode-modal/duel-mode-modal';
 import { DuelSearchModal } from './components/duel-search-modal/duel-search-modal';
 import { DuelStateService } from '../../../../services/duel-state';
@@ -11,7 +12,7 @@ import { DuelQueueType } from '../../../../models/duel';
 @Component({
   selector: 'app-arena',
   standalone: true,
-  imports: [ArenaSidebar, ChestPanel, ModeSelector, DuelModeModal, DuelSearchModal],
+  imports: [ArenaSidebar, ChestPanel, ModeSelector, ArenaProfileBlock, DuelModeModal, DuelSearchModal],
   host: { id: 'arena' },
   templateUrl: './arena.html',
   styleUrl: './arena.css'

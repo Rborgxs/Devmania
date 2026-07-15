@@ -17,22 +17,41 @@
   gap: 0.75rem;
 }
 
-.battle-navbar__logo {
+.battle-navbar__back {
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.2rem;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
   transition: transform 0.2s ease-out;
+  line-height: 0;
 }
 
-.battle-navbar__logo:hover {
-  transform: scale(1.08);
+.battle-navbar__back:hover {
+  transform: translateX(-4px);
 }
 
-.battle-navbar__logo img {
-  width: 32px;
-  height: 32px;
+.battle-navbar__back-icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   image-rendering: pixelated;
+  transition: opacity 0.2s ease-out;
+}
+
+.battle-navbar__back-icon--hover {
+  opacity: 0;
+}
+
+.battle-navbar__back:hover .battle-navbar__back-icon--default {
+  opacity: 0;
+}
+
+.battle-navbar__back:hover .battle-navbar__back-icon--hover {
+  opacity: 1;
 }
 
 .battle-navbar__nav-btn {
@@ -55,6 +74,33 @@
   cursor: not-allowed;
 }
 
+.battle-navbar__nav-btn--next {
+  position: relative;
+  padding: 0;
+}
+
+.battle-navbar__nav-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+  transition: opacity 0.2s ease-out;
+}
+
+.battle-navbar__nav-icon--hover {
+  opacity: 0;
+}
+
+.battle-navbar__nav-btn--next:hover:not(:disabled) .battle-navbar__nav-icon--default {
+  opacity: 0;
+}
+
+.battle-navbar__nav-btn--next:hover:not(:disabled) .battle-navbar__nav-icon--hover {
+  opacity: 1;
+}
+
 .battle-navbar__difficulty {
   font-family: var(--fonte-title);
   font-size: 0.95rem;
@@ -65,17 +111,17 @@
 }
 
 .battle-navbar__difficulty[data-level='facil'] {
-  background: #2f7a4d;
+  background: var(--color-success-strong);
   color: var(--color-yellow-secundary);
 }
 
 .battle-navbar__difficulty[data-level='medio'] {
-  background: #a1731f;
+  background: var(--color-warning);
   color: var(--color-yellow-secundary);
 }
 
 .battle-navbar__difficulty[data-level='dificil'] {
-  background: #8a2b2b;
+  background: var(--color-danger-strong);
   color: var(--color-yellow-secundary);
 }
 
@@ -117,4 +163,38 @@
   background: var(--color-gray);
   border-color: var(--color-gray);
   transform: none;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 700px) {
+  .battle-navbar {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .battle-navbar__center {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .battle-navbar__right {
+    gap: 0.4rem;
+  }
+
+  .battle-navbar__test-btn,
+  .battle-navbar__submit-btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .battle-navbar__difficulty {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    min-width: 4.5rem;
+  }
 }

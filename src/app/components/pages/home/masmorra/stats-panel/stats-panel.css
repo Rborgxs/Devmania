@@ -26,6 +26,17 @@
   background: var(--color-brown-primary);
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.25s ease-out;
+}
+
+.stats-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-yellow-primary);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.stats-card:hover .stats-card__icon {
+  transform: scale(1.15);
 }
 
 .stats-card__icon {
@@ -35,14 +46,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  transition: transform 0.25s ease-out;
 }
 
 .stats-card__icon--coin {
-  background-image: url('/assets/icons/header/coin.png');
+  background-image: url('/assets/icons/coin_icon.png');
 }
 
 .stats-card__icon--time {
-  background-image: url('/assets/icons/stats/time.png');
+  background-image: url('/assets/icons/time_icon.png');
 }
 
 .stats-card__icon--target {
@@ -77,6 +89,24 @@
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   padding: 1rem;
+  min-width: 0;
+  overflow: hidden;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.25s ease-out;
+}
+
+.chart-box:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-yellow-primary);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.chart-box:hover .chart-box__title {
+  color: var(--color-yellow-primary);
+}
+
+.chart-box > apx-chart {
+  display: block;
+  width: 100%;
 }
 
 .chart-box__title {
@@ -84,4 +114,29 @@
   color: var(--color-yellow-secundary);
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+  transition: color 0.2s ease-out;
+}
+
+/* ===========================
+   RESPONSIVO NOTEBOOK/TABLET
+=========================== */
+@media (max-width: 1024px) {
+  .stats-panel__charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-panel__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .stats-panel__cards {
+    grid-template-columns: 1fr;
+  }
 }

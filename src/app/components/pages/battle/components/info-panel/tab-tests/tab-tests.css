@@ -39,9 +39,9 @@
 }
 
 .test-card__value--pass {
-  color: #4caf7d;
+  color: var(--color-success);
 }
 
 .test-card__value--fail {
-  color: #d16060;
+  color: var(--color-danger);
 }

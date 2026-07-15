@@ -1,27 +1,4 @@
 <aside class="arena-sidebar">
-  <section class="arena-sidebar__profile">
-    <img class="arena-sidebar__avatar" src="/assets/avatars/default.png" alt="Jogador">
-    <span class="arena-sidebar__name">Aventureiro</span>
-
-    <select class="arena-sidebar__mode-select" [value]="selectedMode()" (change)="onModeChange($event)">
-      @for (option of modeOptions; track option.value) {
-        <option [value]="option.value">{{ option.label }}</option>
-      }
-    </select>
-  </section>
-
-  <section class="arena-sidebar__elo">
-    <img class="arena-sidebar__elo-icon" [src]="progress().tier.icon" [alt]="progress().tier.name">
-    <span class="arena-sidebar__elo-name">{{ progress().tier.name }}</span>
-
-    <app-elo-progress-bar
-      [progressPercent]="progress().progressPercent"
-      [currentXp]="progress().currentXp"
-      [xpIntoTier]="progress().xpIntoTier"
-      [xpNeededForNextTier]="progress().xpNeededForNextTier"
-    ></app-elo-progress-bar>
-  </section>
-
   <section class="arena-sidebar__tournaments">
     <button class="arena-sidebar__tournament-btn" type="button" (click)="openTournaments()">
       <span class="arena-sidebar__tournament-icon arena-sidebar__tournament-icon--tournaments"></span>
@@ -35,5 +12,29 @@
       <span class="arena-sidebar__tournament-icon arena-sidebar__tournament-icon--friends"></span>
       Amigos
     </button>
+  </section>
+
+  <section class="arena-friends">
+    <h3 class="arena-friends__title">Amigos Online</h3>
+
+    @if (onlineFriends().length === 0) {
+      <p class="arena-friends__empty">Nenhum amigo online agora.</p>
+    } @else {
+      <ul class="arena-friends__list">
+        @for (friend of onlineFriends(); track friend.id) {
+          <li class="arena-friends__item">
+            <div class="arena-friends__avatar-wrapper">
+              <img class="arena-friends__avatar" [src]="friend.avatar" [alt]="friend.name">
+              <span class="arena-friends__status" [attr.data-status]="friend.status"></span>
+            </div>
+            <div class="arena-friends__info">
+              <span class="arena-friends__name">{{ friend.name }}</span>
+              <span class="arena-friends__role">{{ friend.role }}</span>
+            </div>
+            <button class="arena-friends__challenge" type="button" title="Desafiar para duelo">⚔️</button>
+          </li>
+        }
+      </ul>
+    }
   </section>
 </aside>

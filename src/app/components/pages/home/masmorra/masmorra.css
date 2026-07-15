@@ -22,6 +22,7 @@
 }
 
 .master-card {
+  position: relative;
   display: flex;
   gap: 1rem;
   padding: 1rem;
@@ -29,6 +30,11 @@
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   animation: soft-rise 0.4s ease-out;
+  transition: border-color 0.2s ease-out;
+}
+
+.master-card:hover {
+  border-color: var(--color-yellow-primary);
 }
 
 @keyframes soft-rise {
@@ -59,26 +65,52 @@
 }
 
 .master-card__hide {
-  align-self: flex-start;
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 22px;
+  height: 22px;
   background: none;
-  border: 1px solid var(--color-brown-second);
+  border: none;
   color: var(--color-gray);
-  font-family: var(--fonte-std);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s ease-out;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-out, color 0.15s ease-out, transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.master-card:hover .master-card__hide,
+.master-card__hide:focus-visible {
+  opacity: 0.55;
 }
 
 .master-card__hide:hover {
-  background: var(--color-brown-second);
+  opacity: 1 !important;
+  color: var(--color-danger-light);
+  transform: scale(1.15);
+}
+
+.master-card__hide-icon {
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .challenges {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.challenges__column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .challenges__title {
@@ -88,14 +120,119 @@
   margin-bottom: 0.75rem;
 }
 
+.challenges__column > .quest-card,
+.challenges__column > .weekly-card {
+  flex: 1;
+}
+
+.quest-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.quest-carousel__viewport {
+  overflow: hidden;
+  border-radius: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.quest-carousel__track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.35, 1);
+  height: 100%;
+}
+
+.quest-carousel__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: flex;
+}
+
+.quest-carousel__dots {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.quest-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-brown-second);
+  cursor: pointer;
+  transition: background 0.2s ease-out, transform 0.15s ease-out, width 0.25s ease-out;
+  padding: 0;
+}
+
+.quest-carousel__dot:hover {
+  background: var(--color-purple);
+  transform: scale(1.2);
+}
+
+.quest-carousel__dot--active {
+  background: var(--color-yellow-primary);
+  width: 26px;
+  border-radius: 5px;
+}
+
 .quest-card {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
   background: var(--color-brown-primary);
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   padding: 1.25rem;
+  transition: border-color 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.quest-card:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.quest-card:hover .quest-card__image {
+  transform: scale(1.03);
+}
+
+.quest-card:hover .quest-card__title {
+  color: var(--color-yellow-primary);
+}
+
+.quest-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.quest-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+.quest-card__top-diff {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px dashed var(--color-brown-second);
+  margin-bottom: 0.15rem;
+}
+
+.quest-card__arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
 }
 
 .quest-card__nav {
@@ -107,33 +244,31 @@
   border-radius: 50%;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.15s ease-out;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.15s ease-out, background 0.15s ease-out, color 0.15s ease-out;
 }
 
 .quest-card__nav:hover {
   transform: scale(1.15);
-}
-
-.quest-card__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
 }
 
 .quest-card__difficulty {
-  align-self: flex-start;
   font-family: var(--fonte-std);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 4px;
   background: var(--color-purple);
   color: var(--color-yellow-secundary);
+  min-width: 4.5rem;
+  text-align: center;
 }
 
-.quest-card__difficulty[data-level='facil'] { background: #2f7a4d; }
-.quest-card__difficulty[data-level='medio'] { background: #a1731f; }
-.quest-card__difficulty[data-level='dificil'] { background: #8a2b2b; }
+.quest-card__difficulty[data-level='facil'] { background: var(--color-success-strong); }
+.quest-card__difficulty[data-level='medio'] { background: var(--color-warning); }
+.quest-card__difficulty[data-level='dificil'] { background: var(--color-danger-strong); }
 
 .quest-card__reward {
   display: flex;
@@ -153,7 +288,7 @@
 }
 
 .quest-card__coin-icon {
-  background: url('/assets/icons/header/coin.png') no-repeat center / contain;
+  background: url('/assets/icons/coin_icon.png') no-repeat center / contain;
 }
 
 .quest-card__xp-icon {
@@ -166,12 +301,14 @@
   object-fit: cover;
   image-rendering: pixelated;
   border-radius: 6px;
+  transition: transform 0.3s ease-out;
 }
 
 .quest-card__title {
   font-family: var(--fonte-title);
   color: var(--color-yellow-primary);
   font-size: 1.1rem;
+  transition: color 0.2s ease-out;
 }
 
 .quest-card__description {
@@ -201,19 +338,28 @@
 }
 
 .quest-card__start {
-  margin-top: 0.4rem;
-  padding: 0.7rem;
+  flex: 1;
+  padding: 0.7rem 1rem;
   border: 2px solid var(--color-yellow-primary);
   background: var(--color-yellow-primary);
   color: var(--color-brown-primary);
   font-family: var(--fonte-title);
   cursor: pointer;
   border-radius: 4px;
-  transition: transform 0.15s ease-out;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out, filter 0.2s ease-out;
 }
 
 .quest-card__start:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(236, 177, 88, 0.35);
+  filter: brightness(1.08);
+}
+
+.quest-card__start:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
 }
 
 .weekly-card {
@@ -222,6 +368,14 @@
   overflow: hidden;
   border: 2px solid var(--color-brown-second);
   min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.weekly-card:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateY(-2px);
 }
 
 .weekly-card__image {
@@ -233,83 +387,123 @@
   image-rendering: pixelated;
 }
 
+.weekly-card__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.92) 100%);
+}
+
 .weekly-card__overlay {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
   height: 100%;
   padding: 1.25rem;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
-  justify-content: flex-end;
+  gap: 1rem;
 }
 
-.weekly-card__top {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  right: 1.25rem;
+.weekly-card__header {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.weekly-card__reward,
-.weekly-card__bugs {
+.weekly-card__week-badge {
+  font-family: var(--fonte-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--color-brown-primary);
+  background: var(--color-yellow-primary);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.weekly-card__chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.weekly-card__chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: var(--fonte-std);
   color: var(--color-yellow-secundary);
-  font-size: 0.85rem;
-  background: rgba(0,0,0,0.5);
-  padding: 0.2rem 0.6rem;
+  font-size: 0.78rem;
+  background: rgba(20, 15, 10, 0.75);
+  border: 1px solid var(--color-brown-second);
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
 }
 
-.weekly-card__week {
-  align-self: flex-start;
-  font-family: var(--fonte-std);
-  font-size: 0.75rem;
-  color: var(--color-yellow-primary);
-  background: rgba(0,0,0,0.5);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+.weekly-card__chip--bugs {
+  color: var(--color-danger-light);
+}
+
+.weekly-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
 }
 
 .weekly-card__title {
   font-family: var(--fonte-title);
   color: var(--color-yellow-primary);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
 }
 
 .weekly-card__description {
   font-family: var(--fonte-std);
   color: var(--color-yellow-secundary);
   font-size: 0.85rem;
+  line-height: 1.45;
 }
 
 .weekly-card__actions {
   display: flex;
   gap: 0.6rem;
-  margin-top: 0.5rem;
 }
 
 .weekly-card__start {
   flex: 1;
-  padding: 0.7rem;
+  padding: 0.75rem 1rem;
   border: 2px solid var(--color-yellow-primary);
   background: var(--color-yellow-primary);
   color: var(--color-brown-primary);
   font-family: var(--fonte-title);
+  font-size: 0.9rem;
   cursor: pointer;
   border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.15s ease-out;
+}
+
+.weekly-card__start:hover {
+  transform: translateY(-2px);
 }
 
 .weekly-card__history {
   padding: 0.7rem 1rem;
   border: 2px solid var(--color-brown-second);
-  background: var(--color-black);
+  background: rgba(20, 15, 10, 0.75);
   color: var(--color-yellow-secundary);
   cursor: pointer;
   border-radius: 4px;
+  font-size: 1.1rem;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.weekly-card__history:hover {
+  background: var(--color-brown-second);
+  border-color: var(--color-yellow-primary);
 }
 
 .history-modal__overlay {
@@ -358,9 +552,9 @@
   color: var(--color-yellow-secundary);
 }
 
-.history-modal__status[data-status='concluido'] { color: #4caf7d; }
+.history-modal__status[data-status='concluido'] { color: var(--color-success); }
 .history-modal__status[data-status='pendente'] { color: var(--color-gray); }
-.history-modal__status[data-status='falhou'] { color: #d16060; }
+.history-modal__status[data-status='falhou'] { color: var(--color-danger); }
 
 .history-modal__start {
   background: var(--color-purple);
@@ -381,4 +575,58 @@
   color: var(--color-gray);
   cursor: pointer;
   border-radius: 4px;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE — só empilha em telas realmente pequenas
+=========================== */
+@media (max-width: 600px) {
+  .challenges {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-card {
+    min-height: 320px;
+  }
+
+  .masmorra {
+    gap: 1rem;
+  }
+
+  .masmorra__title {
+    font-size: 1.4rem;
+  }
+
+  .master-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quest-card {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .quest-card__image {
+    height: 110px;
+  }
+
+  .history-modal {
+    padding: 1rem;
+  }
+
+  .history-modal__item {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "day status"
+      "quest quest"
+      "coins start";
+    font-size: 0.75rem;
+  }
+
+  .history-modal__day { grid-area: day; }
+  .history-modal__quest { grid-area: quest; }
+  .history-modal__coins { grid-area: coins; }
+  .history-modal__status { grid-area: status; justify-self: end; }
+  .history-modal__start { grid-area: start; justify-self: end; }
 }

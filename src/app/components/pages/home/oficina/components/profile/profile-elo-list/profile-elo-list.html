@@ -1,0 +1,22 @@
+<section class="profile-elo-list">
+  <h3 class="profile-elo-list__title">Elo por Liga</h3>
+
+  <div class="profile-elo-list__rows">
+    @for (mode of modes; track mode.id) {
+      @let progress = progressFor(mode.id);
+      <div class="profile-elo-row">
+        <span class="profile-elo-row__mode">{{ mode.label }}</span>
+        <img class="profile-elo-row__icon" [src]="progress.tier.icon" [alt]="progress.tier.name">
+        <div class="profile-elo-row__info">
+          <span class="profile-elo-row__tier">{{ progress.tier.name }}</span>
+          <app-elo-progress-bar
+            [progressPercent]="progress.progressPercent"
+            [currentXp]="progress.currentXp"
+            [xpIntoTier]="progress.xpIntoTier"
+            [xpNeededForNextTier]="progress.xpNeededForNextTier"
+          ></app-elo-progress-bar>
+        </div>
+      </div>
+    }
+  </div>
+</section>

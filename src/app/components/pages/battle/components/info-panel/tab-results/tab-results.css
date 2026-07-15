@@ -41,13 +41,13 @@
 
 .results__entry {
   background: var(--color-black);
-  border-left: 3px solid #4caf7d;
+  border-left: 3px solid var(--color-success);
   border-radius: 4px;
   padding: 0.7rem;
 }
 
 .results__entry--fail {
-  border-left-color: #d16060;
+  border-left-color: var(--color-danger);
 }
 
 .results__entry-header {
@@ -69,7 +69,7 @@
 
 .results__entry-message {
   font-family: var(--fonte-code);
-  color: #d16060;
+  color: var(--color-danger);
   font-size: 0.75rem;
   margin-top: 0.4rem;
 }

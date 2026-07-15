@@ -1,0 +1,97 @@
+.profile-avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.profile-avatar-card__frame-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-avatar-card__frame {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--color-brown-second);
+  background: radial-gradient(circle at center, var(--color-purple) 0%, var(--color-black) 75%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out, transform 0.2s ease-out;
+}
+
+.profile-avatar-card__frame:hover {
+  border-color: var(--color-yellow-primary);
+  box-shadow: 0 0 16px rgba(236, 177, 88, 0.4);
+  transform: translateY(-2px);
+}
+
+.profile-avatar-card__sprite {
+  height: 130%;
+  width: auto;
+  image-rendering: pixelated;
+}
+
+.profile-avatar-card__xp-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  background: var(--color-black);
+  transition: border-color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.profile-avatar-card__xp-badge:hover {
+  border-color: var(--color-yellow-primary);
+  transform: translateY(-2px);
+}
+
+.profile-avatar-card__xp-badge-value {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1rem;
+}
+
+.profile-avatar-card__xp-badge-label {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.7rem;
+}
+
+.profile-avatar-card__name {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.profile-avatar-card__username {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.8rem;
+}
+
+.profile-avatar-card__customize-btn {
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.5rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+}
+
+.profile-avatar-card__customize-btn:hover {
+  transform: translateY(-2px);
+}

@@ -19,4 +19,19 @@
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   padding: 1.5rem;
+  transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.profile__card:hover {
+  border-color: var(--color-yellow-primary);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ===========================
+   RESPONSIVO TABLET/MOBILE
+=========================== */
+@media (max-width: 900px) {
+  .profile__top {
+    grid-template-columns: 1fr;
+  }
 }

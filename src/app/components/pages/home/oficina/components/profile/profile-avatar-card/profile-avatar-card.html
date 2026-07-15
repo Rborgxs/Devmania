@@ -1,0 +1,19 @@
+<div class="profile-avatar-card">
+  <div class="profile-avatar-card__frame-row">
+    <div class="profile-avatar-card__frame">
+      <img class="profile-avatar-card__sprite" [src]="avatarService.currentSpriteUrl()" alt="Seu avatar">
+    </div>
+
+    <div class="profile-avatar-card__xp-badge">
+      <span class="profile-avatar-card__xp-badge-value">{{ profileService.weeklyXpTotal() }} XP</span>
+      <span class="profile-avatar-card__xp-badge-label">essa semana</span>
+    </div>
+  </div>
+
+  <span class="profile-avatar-card__name">{{ profileService.profile().displayName }}</span>
+  <span class="profile-avatar-card__username">{{ profileService.profile().username }}</span>
+
+  <button class="profile-avatar-card__customize-btn" type="button" (click)="goToAvatarTab()">
+    Personalizar
+  </button>
+</div>

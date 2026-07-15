@@ -171,3 +171,25 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 700px) {
+  .friend-chat__header {
+    flex-wrap: wrap;
+  }
+
+  .friend-chat__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .friend-chat__gift-panel {
+    flex-wrap: wrap;
+  }
+
+  .friend-chat__share-row {
+    flex-direction: column;
+  }
+}

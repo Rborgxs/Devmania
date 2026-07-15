@@ -82,7 +82,7 @@
 }
 
 .performance-dashboard__recent-check {
-  color: #4caf7d;
+  color: var(--color-success);
   font-size: 0.9rem;
 }
 
@@ -97,4 +97,26 @@
   font-family: var(--fonte-code);
   color: var(--color-gray);
   font-size: 0.8rem;
+}
+
+/* ===========================
+   RESPONSIVO NOTEBOOK/TABLET
+=========================== */
+@media (max-width: 900px) {
+  .performance-dashboard__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .performance-dashboard__charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .performance-dashboard__cards {
+    grid-template-columns: 1fr;
+  }
 }

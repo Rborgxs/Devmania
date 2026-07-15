@@ -4,6 +4,12 @@
   gap: 1.25rem;
 }
 
+.mode-selector__title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-secundary);
+  font-size: 1.1rem;
+}
+
 .mode-selector__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -104,4 +110,13 @@
 
 .mode-selector__duel-btn:hover {
   transform: translateY(-2px);
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .mode-selector__cards {
+    grid-template-columns: 1fr;
+  }
 }

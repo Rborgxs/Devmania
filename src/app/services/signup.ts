@@ -2,7 +2,7 @@ import { Injectable, signal, computed } from '@angular/core';
 import { SignupStep, SignupData } from '../models/signup';
 
 const STEP_ORDER: SignupStep[] = [
-  'welcome', 'email', 'verification', 'password', 'master', 'confirmation'
+  'welcome', 'verification', 'password', 'master', 'confirmation'
 ];
 
 @Injectable({ providedIn: 'root' })
@@ -25,10 +25,10 @@ export class SignupService {
     STEP_ORDER.indexOf(this.currentStepSignal())
   );
 
-  readonly totalSteps = STEP_ORDER.length;
+  readonly totalSteps = computed(() => STEP_ORDER.length);
 
   readonly progressPercent = computed(() =>
-    Math.round(((this.currentStepIndex() + 1) / this.totalSteps) * 100)
+    Math.round(((this.currentStepIndex() + 1) / this.totalSteps()) * 100)
   );
 
   readonly canGoBack = computed(() => this.currentStepIndex() > 0);
@@ -49,6 +49,14 @@ export class SignupService {
     if (prevIndex >= 0) {
       this.currentStepSignal.set(STEP_ORDER[prevIndex]);
     }
+  }
+
+  /**
+   * Chamado na tela de boas-vindas — o e-mail já foi coletado ali, então avança direto para a verificação.
+   */
+  submitEmailFromWelcome(email: string): void {
+    this.updateData({ email, authProvider: null });
+    this.currentStepSignal.set('verification');
   }
 
   reset(): void {

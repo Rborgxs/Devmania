@@ -68,17 +68,17 @@
 }
 
 .password-strength[data-strength='fraca'] .password-strength__bar::after {
-  background: #d16060;
+  background: var(--color-danger);
   transform: scaleX(0.25);
 }
 
 .password-strength[data-strength='media'] .password-strength__bar::after {
-  background: #a1731f;
+  background: var(--color-warning);
   transform: scaleX(0.5);
 }
 
 .password-strength[data-strength='forte'] .password-strength__bar::after {
-  background: #4caf7d;
+  background: var(--color-success);
   transform: scaleX(0.75);
 }
 
@@ -109,6 +109,12 @@
   border-radius: 6px;
   cursor: pointer;
   align-self: flex-start;
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.security-panel__action-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
 }
 
 .security-panel__secondary-btn {
@@ -120,6 +126,12 @@
   font-size: 0.8rem;
   border-radius: 6px;
   cursor: pointer;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.security-panel__secondary-btn:hover {
+  border-color: var(--color-yellow-primary);
+  color: var(--color-yellow-secundary);
 }
 
 .security-panel__2fa-status {
@@ -132,6 +144,11 @@
   font-family: var(--fonte-std);
   color: var(--color-yellow-secundary);
   font-size: 0.85rem;
+  transition: box-shadow 0.25s ease-out;
+}
+
+.security-panel__2fa-status:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 .security-panel__2fa-details {
@@ -185,4 +202,28 @@
   color: var(--color-yellow-secundary);
   font-size: 0.78rem;
   text-align: center;
+  transition: background 0.2s ease-out;
+}
+
+.security-panel__code:hover {
+  background: var(--color-brown-second);
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 560px) {
+  .security-panel__actions-row {
+    flex-wrap: wrap;
+  }
+
+  .security-panel__2fa-status {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .security-panel__2fa-details {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }

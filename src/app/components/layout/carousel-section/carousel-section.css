@@ -137,7 +137,7 @@
   align-items: center;
   gap: 1.3rem;
   font-family: var(--fonte-std);
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.25rem;
   line-height: 1.5;
 }
@@ -147,4 +147,75 @@
   height: 42px;
   image-rendering: pixelated;
   flex-shrink: 0;
+}
+
+/* ===========================
+   RESPONSIVO NOTEBOOK/TABLET
+=========================== */
+@media (max-width: 1100px) {
+  .carousel {
+    height: auto;
+    min-height: 100vh;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .carousel__stage {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .carousel__dots {
+    flex-direction: row;
+    margin-right: 0;
+  }
+
+  .carousel__dot {
+    width: 46px;
+    height: 14px;
+  }
+
+  .carousel__dot--active {
+    width: 66px;
+    height: 14px;
+  }
+
+  .carousel__content {
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .carousel__features {
+    align-items: center;
+  }
+
+  .carousel__feature {
+    text-align: left;
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .carousel {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .flip-card {
+    width: min(280px, 80vw);
+    height: min(400px, 115vw);
+  }
+
+  .carousel__content-title {
+    font-size: 1.6rem;
+  }
+
+  .carousel__content-description {
+    font-size: 1rem;
+  }
+
+  .carousel__feature {
+    font-size: 1rem;
+  }
 }

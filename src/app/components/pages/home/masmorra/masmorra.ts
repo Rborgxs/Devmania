@@ -84,6 +84,10 @@ export class Masmorra {
     this.currentQuestIndex.update(i => (i === this.dailyQuests.length - 1 ? 0 : i + 1));
   }
 
+  goToQuest(index: number): void {
+    this.currentQuestIndex.set(index);
+  }
+
   hideMasterCard(): void {
     this.masterCardVisible.set(false);
   }

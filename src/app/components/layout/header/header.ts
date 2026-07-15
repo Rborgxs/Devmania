@@ -9,11 +9,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header {
-  notificationsOpen = signal(false);
   coins = signal(0);
   streak = signal(0);
-
-  toggleNotifications(): void {
-    this.notificationsOpen.update(v => !v);
-  }
 }

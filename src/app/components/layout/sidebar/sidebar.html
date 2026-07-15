@@ -2,9 +2,7 @@
   <div class="sidebar__top">
     <span class="sidebar__brand">
       <span class="sidebar__brand-icon"></span>
-      @if (!layout.sidebarCollapsed()) {
-        <span class="sidebar__brand-text">Devmania</span>
-      }
+      <span class="sidebar__brand-text">Devmania</span>
     </span>
 
     <button class="sidebar__toggle" type="button" (click)="layout.toggleSidebar()">
@@ -14,23 +12,29 @@
 
   <nav class="sidebar__nav">
     @for (item of mainItems; track item.route) {
-      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active">
-        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
-        @if (!layout.sidebarCollapsed()) {
-          <span class="sidebar__item-label">{{ item.label }}</span>
-        }
+      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active" [attr.title]="item.label">
+        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/' + item.icon + '.png)'"></span>
+        <span class="sidebar__item-label">{{ item.label }}</span>
       </a>
     }
   </nav>
 
   <nav class="sidebar__nav sidebar__nav--bottom">
     @for (item of bottomItems; track item.route) {
-      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active">
-        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/sidebar/' + item.icon + '.png)'"></span>
-        @if (!layout.sidebarCollapsed()) {
-          <span class="sidebar__item-label">{{ item.label }}</span>
-        }
+      <a class="sidebar__item" [routerLink]="item.route" routerLinkActive="sidebar__item--active" [attr.title]="item.label">
+        <span class="sidebar__item-icon" [style.background-image]="'url(assets/icons/' + item.icon + '.png)'"></span>
+        <span class="sidebar__item-label">{{ item.label }}</span>
       </a>
     }
+
+    <button
+      class="sidebar__item sidebar__item--logout"
+      type="button"
+      (click)="logout()"
+      title="Sair"
+    >
+      <span class="sidebar__item-icon sidebar__item-icon--logout" [style.background-image]="'url(assets/icons/sidebar/logout.png)'"></span>
+      <span class="sidebar__item-label">Sair</span>
+    </button>
   </nav>
 </aside>

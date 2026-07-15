@@ -6,10 +6,11 @@
       class="channel-list__item"
       [class.channel-list__item--active]="chatService.activeChannelId() === channel.id"
       type="button"
+      [attr.title]="channel.name"
       (click)="chatService.selectChannel(channel.id)"
     >
       <span class="channel-list__icon">{{ channel.icon }}</span>
-      {{ channel.name }}
+      <span class="channel-list__label">{{ channel.name }}</span>
     </button>
   }
 </aside>

@@ -1,4 +1,4 @@
-export interface ChatMessage {
+export interface MentorChatMessage {
   id: string;
   sender: 'user' | 'mentor';
   text: string;

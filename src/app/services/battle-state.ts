@@ -1,6 +1,6 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { Challenge, ExecutionLogEntry, FileNode, KnownBug } from '../models/battle';
-import { ChatMessage, Hint } from '../models/mentor-chat';
+import { MentorChatMessage, Hint } from '../models/mentor-chat';
 
 export type InfoTab = 'objetivo' | 'testes' | 'resultados' | 'mentor';
 
@@ -38,7 +38,17 @@ export class BattleStateService {
       { id: 't2', input: 'formatName("MERLIN", "AMBROSIUS")', expectedOutput: '"Merlin Ambrosius"' },
       { id: 't3', input: 'formatName("lancelot", "du lac")', expectedOutput: '"Lancelot Du Lac"' }
     ],
-    functionSignature: 'function formatName(firstName, lastName) {\n\n}'
+    functionSignature: `function formatName(firstName, lastName) {
+  // Capitalize a primeira letra de cada nome e retorne o nome completo.
+  // Exemplo: formatName("arthur", "pendragon") → "Arthur Pendragon"
+
+  const capitalize = (word) => {
+    // TODO: retorne a palavra com a primeira letra maiúscula e o resto minúsculo
+  };
+
+  // TODO: combine firstName e lastName usando o helper capitalize
+  return '';
+}`
   });
 
   allPublicTestsPassed = computed(() =>
@@ -81,7 +91,7 @@ export class BattleStateService {
     });
   }
 
-  mentorMessages = signal<ChatMessage[]>([
+  mentorMessages = signal<MentorChatMessage[]>([
     {
       id: 'm1',
       sender: 'mentor',
@@ -101,7 +111,7 @@ export class BattleStateService {
     this.activeTab.set(tab);
   }
 
-  addChatMessage(message: ChatMessage): void {
+  addChatMessage(message: MentorChatMessage): void {
     this.mentorMessages.update(msgs => [...msgs, message]);
   }
 

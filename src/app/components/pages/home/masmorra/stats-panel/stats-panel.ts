@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NgApexchartsModule, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexNonAxisChartSeries, ApexPlotOptions, ApexStroke, ApexFill, ApexDataLabels, ApexLegend } from 'ng-apexcharts';
+import { NgApexchartsModule, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexNonAxisChartSeries, ApexPlotOptions, ApexFill, ApexDataLabels, ApexLegend, ApexStroke, ApexResponsive } from 'ng-apexcharts';
 import { PlayerStatsCards } from '../../../../../models/player-stats';
+import { chartBase, chartCategoryAxis, CHART_DATA_LABELS_DISABLED, CHART_RESPONSIVE, CHART_ACCENT_COLOR, CHART_AXIS_LABEL_COLOR, CHART_SUCCESS_COLOR, CHART_DANGER_COLOR, CHART_PURPLE_COLOR } from '../../../../../shared/chart-theme';
 
 @Component({
   selector: 'app-stats-panel',
@@ -22,93 +23,43 @@ export class StatsPanel {
     { name: 'Quests Concluídas', data: [1, 2, 0, 3, 2, 1, 2] }
   ];
 
-  barChart: ApexChart = {
-    type: 'bar',
-    height: 260,
-    toolbar: { show: false },
-    background: 'transparent'
-  };
+  barChart: ApexChart = chartBase('bar', 260);
 
-  barXAxis: ApexXAxis = {
-    categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-    labels: { style: { colors: '#e9da9c' } }
-  };
+  barXAxis: ApexXAxis = chartCategoryAxis(['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']);
 
   barPlotOptions: ApexPlotOptions = {
     bar: { columnWidth: '50%', borderRadius: 3 }
   };
 
   barFill: ApexFill = {
-    colors: ['#ecb158']
+    colors: [CHART_ACCENT_COLOR]
   };
 
-  barDataLabels: ApexDataLabels = { enabled: false };
+  barDataLabels: ApexDataLabels = CHART_DATA_LABELS_DISABLED;
 
-  radarSeries: ApexAxisChartSeries = [
-    { name: 'Eficácia', data: [80, 65, 90, 55, 70] }
-  ];
-
-  radarChart: ApexChart = {
-    type: 'radar',
-    height: 280,
-    toolbar: { show: false },
-    background: 'transparent'
-  };
-
-  radarXAxis: ApexXAxis = {
-    categories: ['Arrays', 'Strings', 'Funções', 'Padrões', 'JavaScript'],
-    labels: { style: { colors: ['#e9da9c'] } }
-  };
-
-  radarFill: ApexFill = {
-    colors: ['#ecb158'],
-    opacity: 0.4
-  };
-
-  radarStroke: ApexStroke = {
-    colors: ['#ecb158'],
-    width: 2
-  };
+  chartResponsive: ApexResponsive[] = CHART_RESPONSIVE;
 
   pieSeries: ApexNonAxisChartSeries = [40, 25, 20, 15];
 
-  pieChart: ApexChart = {
-    type: 'pie',
-    height: 260,
-    background: 'transparent'
-  };
+  pieChart: ApexChart = chartBase('pie', 260);
 
   pieLabels: string[] = ['Fácil', 'Médio', 'Difícil', 'Especial'];
 
+  /**
+   * Cores oficiais do sistema: verde (sucesso/Fácil), amarelo (accent/Médio),
+   * vermelho (perigo/Difícil), roxo (púrpura/Especial).
+   */
   pieFill: ApexFill = {
-    colors: ['#4caf7d', '#ecb158', '#d16060', '#505169']
+    colors: [CHART_SUCCESS_COLOR, CHART_ACCENT_COLOR, CHART_DANGER_COLOR, CHART_PURPLE_COLOR]
+  };
+
+  pieStroke: ApexStroke = {
+    colors: ['#3c271b'],
+    width: 2
   };
 
   pieLegend: ApexLegend = {
-    labels: { colors: '#e9da9c' }
+    labels: { colors: CHART_AXIS_LABEL_COLOR },
+    position: 'bottom'
   };
-
-  lineSeries: ApexAxisChartSeries = [
-    { name: 'Acertos (%)', data: [50, 58, 62, 60, 70, 76, 80] }
-  ];
-
-  lineChart: ApexChart = {
-    type: 'line',
-    height: 260,
-    toolbar: { show: false },
-    background: 'transparent'
-  };
-
-  lineXAxis: ApexXAxis = {
-    categories: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7'],
-    labels: { style: { colors: '#e9da9c' } }
-  };
-
-  lineStroke: ApexStroke = {
-    curve: 'smooth',
-    colors: ['#ecb158'],
-    width: 3
-  };
-
-  lineDataLabels: ApexDataLabels = { enabled: false };
 }

@@ -65,8 +65,8 @@
   border: 2px solid var(--color-yellow-primary);
   border-radius: 8px;
   padding: 2rem;
-  width: 100%;
-  max-width: 28rem;
+  width: min(28rem, 90vw);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;

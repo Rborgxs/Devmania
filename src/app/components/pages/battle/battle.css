@@ -11,10 +11,42 @@
   grid-template-columns: 1fr 1.4fr;
   flex: 1;
   overflow: hidden;
+  min-height: 0;
+}
+
+/* Cada coluna com seu próprio scroll vertical, independente da outra. */
+.battle__body > app-info-panel,
+.battle__body > .battle__code-area {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .battle__code-area {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+}
+
+/* ===========================
+   RESPONSIVO NOTEBOOK/TABLET
+=========================== */
+@media (max-width: 900px) {
+  .battle {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .battle__body {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .battle__body > app-info-panel {
+    min-height: 40vh;
+  }
+
+  .battle__code-area {
+    min-height: 60vh;
+  }
 }

@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class KingDialogueLayout {
   @Input({ required: true }) speech = '';
+  @Input() image = 'assets/characters/rei_default.png';
 }

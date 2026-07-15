@@ -104,3 +104,28 @@
 .event-card__join-btn:hover {
   transform: translateY(-2px);
 }
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 560px) {
+  .guild-events-modal__overlay {
+    padding: 0.75rem;
+  }
+
+  .guild-events-modal {
+    padding: 1rem;
+  }
+
+  .event-card__image {
+    height: 120px;
+  }
+
+  .event-card__body {
+    padding: 1rem;
+  }
+
+  .event-card__meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

@@ -53,12 +53,19 @@
   background: var(--color-black);
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
 }
 
-.achievement-card[data-rarity='comum'] { border-left: 4px solid #9e9ea2; }
-.achievement-card[data-rarity='incomum'] { border-left: 4px solid #4caf7d; }
-.achievement-card[data-rarity='rara'] { border-left: 4px solid #4a7fd1; }
-.achievement-card[data-rarity='epica'] { border-left: 4px solid #a15fd1; }
+.achievement-card:not(.achievement-card--locked):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-yellow-primary);
+}
+
+.achievement-card[data-rarity='comum'] { border-left: 4px solid var(--color-gray); }
+.achievement-card[data-rarity='incomum'] { border-left: 4px solid var(--color-success); }
+.achievement-card[data-rarity='rara'] { border-left: 4px solid var(--color-info); }
+.achievement-card[data-rarity='epica'] { border-left: 4px solid var(--color-epic); }
 .achievement-card[data-rarity='lendaria'] { border-left: 4px solid var(--color-yellow-primary); }
 
 .achievement-card--locked {
@@ -112,7 +119,7 @@
 
 .achievement-card__collected {
   font-family: var(--fonte-std);
-  color: #4caf7d;
+  color: var(--color-success);
   font-size: 0.75rem;
   white-space: nowrap;
 }

@@ -1,0 +1,123 @@
+<div class="privacy-modal__overlay" (click)="close()">
+  <div class="privacy-modal" (click)="$event.stopPropagation()">
+    <header class="privacy-modal__header">
+      <div class="privacy-modal__tabs">
+        <button
+          class="privacy-modal__tab"
+          [class.privacy-modal__tab--active]="activeTab() === 'privacidade'"
+          type="button"
+          (click)="setTab('privacidade')"
+        >
+          Política de Privacidade
+        </button>
+        <button
+          class="privacy-modal__tab"
+          [class.privacy-modal__tab--active]="activeTab() === 'termos'"
+          type="button"
+          (click)="setTab('termos')"
+        >
+          Termos e Condições de Uso
+        </button>
+      </div>
+      <button class="privacy-modal__close" type="button" (click)="close()" aria-label="Fechar">✕</button>
+    </header>
+
+    <div class="privacy-modal__body">
+      @if (activeTab() === 'privacidade') {
+        <section class="privacy-modal__section">
+          <h2 class="privacy-modal__title">Política de Privacidade — Devmania</h2>
+          <p class="privacy-modal__paragraph">
+            A Devmania respeita a sua privacidade e está comprometida com a proteção dos seus dados pessoais,
+            em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).
+          </p>
+
+          <h3 class="privacy-modal__subtitle">1. Dados coletados</h3>
+          <p class="privacy-modal__paragraph">
+            Coletamos apenas os dados necessários para o funcionamento da plataforma: nome de usuário, e-mail,
+            avatar personalizado, progresso nas ligas (Feat, Fix, Style), XP acumulado, moedas, sequência diária
+            e interações públicas (mensagens em chat, participação em guildas e duelos).
+          </p>
+
+          <h3 class="privacy-modal__subtitle">2. Finalidade do tratamento</h3>
+          <p class="privacy-modal__paragraph">
+            Seus dados são utilizados para autenticação, personalização da experiência, matchmaking em duelos,
+            exibição de rankings, envio de notificações sobre sua jornada e melhoria contínua da plataforma.
+            Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins comerciais.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">3. Base legal</h3>
+          <p class="privacy-modal__paragraph">
+            O tratamento é realizado com base no seu consentimento livre e informado, na execução do contrato
+            de uso da plataforma e no legítimo interesse para a segurança e prevenção de fraudes.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">4. Seus direitos</h3>
+          <p class="privacy-modal__paragraph">
+            Você pode, a qualquer momento, solicitar: (i) acesso aos seus dados; (ii) correção de informações
+            incompletas ou desatualizadas; (iii) anonimização, bloqueio ou eliminação de dados desnecessários;
+            (iv) portabilidade; (v) revogação do consentimento; e (vi) exclusão definitiva da conta.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">5. Segurança</h3>
+          <p class="privacy-modal__paragraph">
+            Adotamos medidas técnicas e organizacionais apropriadas para proteger seus dados contra acesso não
+            autorizado, alteração indevida, perda ou destruição, incluindo criptografia em trânsito e em repouso.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">6. Contato do Encarregado (DPO)</h3>
+          <p class="privacy-modal__paragraph">
+            Dúvidas sobre esta política ou solicitações relativas aos seus dados podem ser enviadas para
+            <a href="mailto:dpo@devmania.com.br">dpo&#64;devmania.com.br</a>.
+          </p>
+        </section>
+      } @else {
+        <section class="privacy-modal__section">
+          <h2 class="privacy-modal__title">Termos e Condições de Uso — Devmania</h2>
+
+          <h3 class="privacy-modal__subtitle">1. Aceitação</h3>
+          <p class="privacy-modal__paragraph">
+            Ao criar uma conta e utilizar a Devmania, você declara ter lido, compreendido e concordado
+            integralmente com estes Termos e com a Política de Privacidade.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">2. Cadastro e conta</h3>
+          <p class="privacy-modal__paragraph">
+            Você é responsável por manter a confidencialidade das suas credenciais e por todas as atividades
+            realizadas em sua conta. Informações falsas, duplicadas ou de terceiros podem levar à suspensão.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">3. Conduta esperada</h3>
+          <p class="privacy-modal__paragraph">
+            É proibido o uso de linguagem ofensiva, discriminatória, discurso de ódio, assédio, trapaça em
+            duelos, exploração de bugs, automação não autorizada e compartilhamento de conteúdo ilegal em
+            chats, guildas ou comentários da comunidade.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">4. Progresso e recompensas</h3>
+          <p class="privacy-modal__paragraph">
+            XP, Elos, moedas, roupas e demais itens obtidos na plataforma são de uso interno, não possuem
+            valor monetário real e não podem ser trocados por dinheiro ou transferidos entre contas.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">5. Propriedade intelectual</h3>
+          <p class="privacy-modal__paragraph">
+            Marca, arte pixel art, código, mecânicas de jogo e conteúdo educacional são de propriedade da
+            Devmania. É proibida a reprodução sem autorização prévia por escrito.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">6. Alterações</h3>
+          <p class="privacy-modal__paragraph">
+            Estes Termos podem ser atualizados a qualquer momento para refletir mudanças legais, técnicas ou
+            operacionais. Alterações relevantes serão comunicadas pela plataforma antes de entrarem em vigor.
+          </p>
+
+          <h3 class="privacy-modal__subtitle">7. Foro</h3>
+          <p class="privacy-modal__paragraph">
+            Fica eleito o foro da Comarca de Salvador, Bahia, para dirimir quaisquer controvérsias
+            decorrentes destes Termos.
+          </p>
+        </section>
+      }
+    </div>
+  </div>
+</div>

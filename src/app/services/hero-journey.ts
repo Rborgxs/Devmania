@@ -12,7 +12,7 @@ export class HeroJourneyService {
     { id: 'm3', type: 'module', name: 'Matrizes', icon: '/assets/icons/journey/matrix.png', progressPercent: 0, route: '/academia/modulo/m3' },
     { id: 'm4', type: 'module', name: 'Stack', icon: '/assets/icons/journey/stack.png', progressPercent: 0, route: '/academia/modulo/m4' },
     { id: 'm5', type: 'module', name: 'Queue', icon: '/assets/icons/journey/queue.png', progressPercent: 0, route: '/academia/modulo/m5' },
-    { id: 'c1', type: 'chest', name: 'Baú de Recompensa', icon: '/assets/icons/chest/chest-closed.png' },
+    { id: 'c1', type: 'chest', name: 'Baú de Recompensa', icon: '/assets/icons/chest_icon_1.png' },
     { id: 'm6', type: 'module', name: 'Linked List', icon: '/assets/icons/journey/linked-list.png', progressPercent: 0, route: '/academia/modulo/m6' }
   ]);
 
@@ -20,8 +20,8 @@ export class HeroJourneyService {
     const nodes = this.modules();
     const currentIdx = this.currentModuleIndex();
 
-    const xPattern = [140, 70, 0, 70, 140];
-    const ySpacing = 110;
+    const xSpacing = 130;
+    const y = 40;
 
     return nodes.map((node, index) => {
       const moduleIndexAmongModules = nodes.slice(0, index + 1).filter(n => n.type === 'module').length - 1;
@@ -42,8 +42,8 @@ export class HeroJourneyService {
       return {
         ...node,
         status,
-        x: xPattern[index % xPattern.length],
-        y: index * ySpacing + 40
+        x: index * xSpacing + 40,
+        y
       };
     });
   });

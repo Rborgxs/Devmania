@@ -9,6 +9,6 @@ import { ProfileService } from '../../../../../../../services/profile';
   templateUrl: './profile-stats.html',
   styleUrl: './profile-stats.css'
 })
-export class ProfileStatsComponent {
+export class ProfileStats {
   profileService = inject(ProfileService);
 }

@@ -1,9 +1,115 @@
 .avatar-editor {
-  display: grid;
-  grid-template-columns: 360px 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+}
+
+.avatar-editor__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
   background: var(--color-brown-primary);
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   padding: 1.5rem;
+}
+
+.avatar-editor__hero app-avatar-preview {
+  width: 100%;
+  max-width: 360px;
+}
+
+.avatar-editor__customize-btn {
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-title);
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+}
+
+.avatar-editor__customize-btn:hover {
+  transform: translateY(-2px);
+}
+
+.avatar-editor__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.avatar-editor__bottom > * {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-brown-second);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+/* Modal Customizar */
+.avatar-editor__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: 1rem;
+}
+
+.avatar-editor__modal {
+  background: var(--color-brown-primary);
+  border: 2px solid var(--color-yellow-primary);
+  border-radius: 8px;
+  width: min(40rem, 100%);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.avatar-editor__modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid var(--color-brown-second);
+}
+
+.avatar-editor__modal-title {
+  font-family: var(--fonte-title);
+  color: var(--color-yellow-primary);
+  font-size: 1.05rem;
+}
+
+.avatar-editor__modal-close {
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.avatar-editor__modal-close:hover {
+  color: var(--color-yellow-primary);
+}
+
+.avatar-editor__modal-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media (max-width: 800px) {
+  .avatar-editor__bottom {
+    grid-template-columns: 1fr;
+  }
 }

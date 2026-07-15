@@ -10,8 +10,8 @@
 
 .purchase-modal {
   position: relative;
-  width: 100%;
-  max-width: 28rem;
+  width: min(28rem, 92vw);
+  box-sizing: border-box;
   background: var(--color-brown-primary);
   border: 2px solid var(--color-yellow-primary);
   border-radius: 8px;
@@ -59,6 +59,7 @@
 
 .purchase-modal__difficulty-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
@@ -83,6 +84,7 @@
 
 .purchase-modal__quantity-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
 }
@@ -173,4 +175,27 @@
   cursor: not-allowed;
   background: var(--color-gray);
   border-color: var(--color-gray);
+}
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .purchase-modal {
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .purchase-modal__title {
+    font-size: 1.1rem;
+  }
+
+  .purchase-modal__difficulty-btn {
+    flex: 1 1 45%;
+    min-width: 0;
+  }
+
+  .purchase-modal__start-btn {
+    font-size: 0.88rem;
+    padding: 0.75rem;
+  }
 }

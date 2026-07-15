@@ -16,7 +16,8 @@ export class HeroJourney {
 
   nodes = computed(() => this.journeyService.positionedNodes());
 
-  svgHeight = computed(() => this.nodes().length * 110 + 60);
+  svgWidth = computed(() => this.nodes().length * 130 + 60);
+  svgHeight = computed(() => 100);
 
   pathData = computed(() => {
     const points = this.nodes();
@@ -29,8 +30,8 @@ export class HeroJourney {
     for (let i = 1; i < points.length; i++) {
       const prev = points[i - 1];
       const curr = points[i];
-      const midY = (prev.y + curr.y) / 2 + 20;
-      d += ` Q ${prev.x + 20} ${midY}, ${curr.x + 20} ${curr.y + 20}`;
+      const midX = (prev.x + curr.x) / 2 + 20;
+      d += ` Q ${midX} ${prev.y + 20}, ${curr.x + 20} ${curr.y + 20}`;
     }
 
     return d;

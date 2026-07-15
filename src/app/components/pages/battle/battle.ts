@@ -3,14 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { BattleNavbar } from './components/battle-navbar/battle-navbar';
 import { InfoPanel } from './components/info-panel/info-panel';
 import { CodeEditor } from './components/code-editor/code-editor';
-import { GitTerminal } from './components/git-terminal/git-terminal';
+import { Terminal } from './components/terminal/terminal';
 import { SubmitFlow } from './components/submit-flow/submit-flow';
 import { BattleStateService } from '../../../services/battle-state';
 
 @Component({
   selector: 'app-battle',
   standalone: true,
-  imports: [BattleNavbar, InfoPanel, CodeEditor, GitTerminal, SubmitFlow],
+  imports: [BattleNavbar, InfoPanel, CodeEditor, Terminal, SubmitFlow],
   host: { id: 'battle' },
   templateUrl: './battle.html',
   styleUrl: './battle.css'

@@ -18,7 +18,7 @@
         <img class="guild-search__emblem" [src]="guild.emblem" [alt]="guild.name">
         <div class="guild-search__info">
           <span class="guild-search__name">{{ guild.name }}</span>
-          <span class="guild-search__meta">{{ guild.memberCount }} membros · Nível {{ guild.level }}</span>
+          <span class="guild-search__meta">{{ guild.memberCount }} membros · {{ guild.eloName }}</span>
         </div>
       </button>
     }

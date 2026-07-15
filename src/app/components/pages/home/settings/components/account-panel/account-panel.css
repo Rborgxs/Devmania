@@ -29,6 +29,12 @@
   padding: 0.75rem;
   background: var(--color-black);
   border-radius: 6px;
+  transition: transform 0.2s ease-out, box-shadow 0.25s ease-out;
+}
+
+.account-field:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 .account-field__label {
@@ -56,6 +62,12 @@
   padding: 0.85rem;
   background: var(--color-black);
   border-radius: 8px;
+  transition: transform 0.2s ease-out, box-shadow 0.25s ease-out;
+}
+
+.linked-account:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 .linked-account__icon {
@@ -77,7 +89,7 @@
 }
 
 .linked-account__status--connected {
-  color: #4caf7d;
+  color: var(--color-success);
 }
 
 .linked-account__action-btn {
@@ -90,10 +102,35 @@
   border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.linked-account__action-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
 }
 
 .linked-account__action-btn--disconnect {
   background: none;
-  border-color: #d16060;
-  color: #d16060;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.linked-account__action-btn--disconnect:hover {
+  background: var(--color-danger);
+  color: var(--color-black);
+  filter: none;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 560px) {
+  .account-panel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .linked-account {
+    flex-wrap: wrap;
+  }
 }

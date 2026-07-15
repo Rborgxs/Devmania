@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
+import { ProfileAvatarCard } from './profile-avatar-card/profile-avatar-card';
 import { ProfileEditor } from './profile-editor/profile-editor';
-import { BadgePicker } from './badge-picker/badge-picker';
-import { ProfileBackgroundPicker } from './profile-background-picker/profile-background-picker';
-import { ProfileStatsComponent } from './profile-stats/profile-stats';
-import { WeeklyXpChart } from './weekly-xp-chart/weekly-xp-chart';
-import { StreakCalendar } from './streak-calendar/streak-calendar';
+import { ProfileStats } from './profile-stats/profile-stats';
+import { ProfileEloList } from './profile-elo-list/profile-elo-list';
 import { AchievementsPanel } from './achievements-panel/achievements-panel';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [
+    ProfileAvatarCard,
     ProfileEditor,
-    BadgePicker,
-    ProfileBackgroundPicker,
-    ProfileStatsComponent,
-    WeeklyXpChart,
-    StreakCalendar,
+    ProfileStats,
+    ProfileEloList,
     AchievementsPanel
   ],
   host: { id: 'profile' },

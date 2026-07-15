@@ -1,33 +1,20 @@
-import { Component, inject, computed, signal } from '@angular/core';
-import { EloService } from '../../../../../../services/elo';
-import { BattleMode } from '../../../../../../models/elo';
-import { EloProgressBar } from '../elo-progress-bar/elo-progress-bar';
+import { Component, inject, computed } from '@angular/core';
+import { FriendsService } from '../../../../../../services/friends';
 
 @Component({
   selector: 'app-arena-sidebar',
   standalone: true,
-  imports: [EloProgressBar],
+  imports: [],
   host: { id: 'arena-sidebar' },
   templateUrl: './arena-sidebar.html',
   styleUrl: './arena-sidebar.css'
 })
 export class ArenaSidebar {
-  eloService = inject(EloService);
+  private readonly friendsService = inject(FriendsService);
 
-  selectedMode = signal<BattleMode>('feat');
-
-  modeOptions: { value: BattleMode; label: string }[] = [
-    { value: 'feat', label: 'Feat' },
-    { value: 'fix', label: 'Fix' },
-    { value: 'style', label: 'Style' }
-  ];
-
-  progress = computed(() => this.eloService.getProgress(this.selectedMode()));
-
-  onModeChange(event: Event): void {
-    const value = (event.target as HTMLSelectElement).value as BattleMode;
-    this.selectedMode.set(value);
-  }
+  onlineFriends = computed(() =>
+    this.friendsService.friends().filter(f => f.status === 'online' || f.status === 'em-duelo')
+  );
 
   openTournaments(): void {
     console.log('abrir torneios');

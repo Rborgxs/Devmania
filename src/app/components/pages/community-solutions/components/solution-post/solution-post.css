@@ -79,9 +79,9 @@
   border-radius: 50%;
 }
 
-.solution-post__dot--red { background: #d16060; }
-.solution-post__dot--yellow { background: #ecb158; }
-.solution-post__dot--green { background: #4caf7d; }
+.solution-post__dot--red { background: var(--color-danger); }
+.solution-post__dot--yellow { background: var(--color-yellow-primary); }
+.solution-post__dot--green { background: var(--color-success); }
 
 .solution-post__code {
   padding: 0.85rem;
@@ -112,7 +112,7 @@
 }
 
 .solution-post__like--active {
-  color: #d16060;
+  color: var(--color-danger);
 }
 
 .solution-post__comments {

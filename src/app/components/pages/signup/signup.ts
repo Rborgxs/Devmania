@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { SignupService } from '../../../services/signup';
 import { StepWelcome } from './components/step-welcome/step-welcome';
-import { StepEmail } from './components/step-email/step-email';
 import { StepVerification } from './components/step-verification/step-verification';
 import { StepPassword } from './components/step-password/step-password';
 import { StepMaster } from './components/step-master/step-master';
@@ -12,7 +11,7 @@ import { StepConfirmation } from './components/step-confirmation/step-confirmati
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [StepWelcome, StepEmail, StepVerification, StepPassword, StepMaster, StepConfirmation],
+  imports: [StepWelcome, StepVerification, StepPassword, StepMaster, StepConfirmation],
   templateUrl: './signup.html',
   styleUrl: './signup.css'
 })

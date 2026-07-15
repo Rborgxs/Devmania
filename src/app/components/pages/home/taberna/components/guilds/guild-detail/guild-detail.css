@@ -80,7 +80,7 @@
 .guild-detail__body {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 220px 1fr;
   overflow: hidden;
 }
 
@@ -175,7 +175,7 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  border-left: 2px solid var(--color-brown-second);
+  border-right: 2px solid var(--color-brown-second);
   overflow-y: auto;
 }
 
@@ -231,7 +231,7 @@
 }
 
 .guild-member__status--online {
-  background: #4caf7d;
+  background: var(--color-success);
 }
 
 .guild-member__challenge-btn {
@@ -245,4 +245,31 @@
   font-size: 0.7rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 700px) {
+  .guild-detail__header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .guild-detail__events-btn {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .guild-detail__body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    overflow-y: auto;
+  }
+
+  .guild-detail__members {
+    border-right: none;
+    border-bottom: 2px solid var(--color-brown-second);
+    max-height: 40vh;
+  }
 }

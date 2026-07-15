@@ -9,3 +9,12 @@
   font-family: var(--fonte-std);
   color: var(--color-gray);
 }
+
+/* ===========================
+   RESPONSIVO TABLET/MOBILE
+=========================== */
+@media (max-width: 900px) {
+  .lesson-page {
+    grid-template-columns: 1fr;
+  }
+}

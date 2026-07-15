@@ -15,14 +15,25 @@
 .signup__back {
   background: transparent;
   border: none;
-  color: var(--color-yellow-secundary);
-  font-family: var(--fonte-std);
+  padding: 0;
   cursor: pointer;
-  font-size: 0.95rem;
+  transition: transform 0.2s ease-out;
+  line-height: 0;
 }
 
 .signup__back:hover {
-  color: var(--color-yellow-primary);
+  transform: translateX(-4px);
+}
+
+.signup__back:active {
+  opacity: 0.7;
+}
+
+.signup__back-icon {
+  width: 5rem;
+  height: auto;
+  image-rendering: pixelated;
+  transform: rotate(180deg);
 }
 
 .signup__progress {
@@ -44,4 +55,36 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+}
+
+/* ===========================
+   RESPONSIVO TABLET
+=========================== */
+@media (max-width: 768px) {
+  .signup__topbar {
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .signup__stage {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .signup__topbar {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .signup__back-icon {
+    width: 3.5rem;
+  }
+
+  .signup__stage {
+    padding: var(--space-md) var(--space-sm);
+  }
 }

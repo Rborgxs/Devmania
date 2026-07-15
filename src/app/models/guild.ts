@@ -11,7 +11,7 @@ export interface Guild {
   name: string;
   emblem: string;
   memberCount: number;
-  level: number;
+  eloName: string;
   members: GuildMember[];
 }
 

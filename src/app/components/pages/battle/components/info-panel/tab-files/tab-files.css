@@ -43,7 +43,7 @@
 }
 
 .tab-files__bug--resolved {
-  border-left-color: #4caf7d;
+  border-left-color: var(--color-success);
   opacity: 0.6;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .tab-files__bug--resolved .tab-files__bug-check {
-  color: #4caf7d;
+  color: var(--color-success);
 }
 
 .tab-files__bug-text {

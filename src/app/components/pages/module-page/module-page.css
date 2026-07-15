@@ -51,7 +51,7 @@
 }
 
 .lesson-item--completed .lesson-item__status {
-  color: #4caf7d;
+  color: var(--color-success);
 }
 
 .lesson-item__title {

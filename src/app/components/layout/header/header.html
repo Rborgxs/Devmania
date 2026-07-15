@@ -1,12 +1,8 @@
 <header class="header">
   <div class="header__left">
-    <button class="header__pill">
+    <button class="header__pill" type="button">
       <span class="header__icon header__icon--inbox"></span>
       Inbox
-    </button>
-    <button class="header__pill">
-      <span class="header__icon header__icon--coin"></span>
-      0d
     </button>
   </div>
 
@@ -15,26 +11,14 @@
   </div>
 
   <div class="header__right">
-    <button class="header__bell" type="button" (click)="toggleNotifications()">
-      <span class="header__icon header__icon--bell"></span>
-    </button>
+    <div class="header__resource" title="Ofensiva diária">
+      <span class="header__icon header__icon--streak"></span>
+      <span class="header__resource-value">{{ streak() }}</span>
+    </div>
 
     <div class="header__resource" title="Moedas">
       <span class="header__icon header__icon--coin"></span>
       <span class="header__resource-value">{{ coins() }}</span>
     </div>
-
-    <div class="header__resource" title="Ofensiva diária">
-      <span class="header__icon header__icon--streak"></span>
-      <span class="header__resource-value">{{ streak() }}</span>
-    </div>
   </div>
-
-  @if (notificationsOpen()) {
-    <div class="header__overlay" (click)="toggleNotifications()">
-      <div class="header__popup" (click)="$event.stopPropagation()">
-        <p class="header__popup-empty">Nenhuma notificação por enquanto.</p>
-      </div>
-    </div>
-  }
 </header>

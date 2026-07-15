@@ -20,7 +20,13 @@ export class DuelStateService {
       description: 'Calcule a soma total de um array de moedas encontradas na masmorra.',
       examples: [{ input: 'sumTreasure([10, 20, 30])', output: '60' }],
       restrictions: ['1 <= array.length <= 100'],
-      functionSignature: 'function sumTreasure(coins) {\n\n}'
+      functionSignature: `function sumTreasure(coins) {
+  let total = 0;
+
+  // TODO: percorra o array e acumule cada valor em total
+
+  return total;
+}`
     },
     {
       id: 'd2',
@@ -28,7 +34,11 @@ export class DuelStateService {
       description: 'Inverta a ordem dos caracteres de um pergaminho antigo (string).',
       examples: [{ input: 'reverseScroll("magia")', output: '"aigam"' }],
       restrictions: ['1 <= scroll.length <= 200'],
-      functionSignature: 'function reverseScroll(scroll) {\n\n}'
+      functionSignature: `function reverseScroll(scroll) {
+  // Dica: você pode usar split, reverse e join.
+  // TODO: retorne a string com os caracteres em ordem inversa
+  return '';
+}`
     },
     {
       id: 'd3',
@@ -36,7 +46,13 @@ export class DuelStateService {
       description: 'Encontre o maior valor de dano dentre uma lista de espadas.',
       examples: [{ input: 'strongestSword([5, 12, 8])', output: '12' }],
       restrictions: ['1 <= swords.length <= 50'],
-      functionSignature: 'function strongestSword(swords) {\n\n}'
+      functionSignature: `function strongestSword(swords) {
+  let maior = swords[0];
+
+  // TODO: compare cada espada com "maior" e atualize quando encontrar uma mais forte
+
+  return maior;
+}`
     }
   ]);
 

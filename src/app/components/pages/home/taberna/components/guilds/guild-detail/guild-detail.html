@@ -7,7 +7,7 @@
 
       <div class="guild-detail__info">
         <span class="guild-detail__name">{{ guild.name }}</span>
-        <span class="guild-detail__meta">{{ guild.memberCount }} membros · Nível {{ guild.level }}</span>
+        <span class="guild-detail__meta">{{ guild.memberCount }} membros · {{ guild.eloName }}</span>
       </div>
 
       <button class="guild-detail__events-btn" type="button" (click)="isEventsModalOpen.set(true)">
@@ -20,6 +20,25 @@
     </header>
 
     <div class="guild-detail__body">
+      <aside class="guild-detail__members">
+        <span class="guild-detail__members-title">Membros</span>
+        @for (member of guild.members; track member.id) {
+          <div class="guild-member">
+            <img class="guild-member__avatar" [src]="member.avatar" [alt]="member.name">
+            <div class="guild-member__info">
+              <span class="guild-member__name">{{ member.name }}</span>
+              <span class="guild-member__elo">{{ member.eloName }}</span>
+            </div>
+            <span class="guild-member__status" [class.guild-member__status--online]="member.isOnline"></span>
+            @if (selectedDuelMode()) {
+              <button class="guild-member__challenge-btn" type="button" (click)="challengeMember(member.id)">
+                Desafiar
+              </button>
+            }
+          </div>
+        }
+      </aside>
+
       <div class="guild-detail__chat">
         <div class="guild-detail__messages">
           @for (message of guildService.guildMessages(); track message.id) {
@@ -48,25 +67,6 @@
           <button class="guild-detail__send-btn" type="submit">🪶</button>
         </form>
       </div>
-
-      <aside class="guild-detail__members">
-        <span class="guild-detail__members-title">Membros</span>
-        @for (member of guild.members; track member.id) {
-          <div class="guild-member">
-            <img class="guild-member__avatar" [src]="member.avatar" [alt]="member.name">
-            <div class="guild-member__info">
-              <span class="guild-member__name">{{ member.name }}</span>
-              <span class="guild-member__elo">{{ member.eloName }}</span>
-            </div>
-            <span class="guild-member__status" [class.guild-member__status--online]="member.isOnline"></span>
-            @if (selectedDuelMode()) {
-              <button class="guild-member__challenge-btn" type="button" (click)="challengeMember(member.id)">
-                Desafiar
-              </button>
-            }
-          </div>
-        }
-      </aside>
     </div>
   }
 

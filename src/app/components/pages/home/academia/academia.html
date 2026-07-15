@@ -1,17 +1,13 @@
 <div class="academia">
-  <div class="academia__main">
-    <app-search-filters></app-search-filters>
+  <app-search-filters></app-search-filters>
 
-    <div class="academia__subjects-grid">
-      @for (subject of academiaService.filteredSubjects(); track subject.id) {
-        <app-subject-card [subject]="subject" (select)="onSubjectSelect($event)"></app-subject-card>
-      }
-    </div>
-
-    <app-mentor-recommendation></app-mentor-recommendation>
-
-    <app-performance-dashboard></app-performance-dashboard>
+  <div class="academia__subjects-grid">
+    @for (subject of academiaService.filteredSubjects(); track subject.id) {
+      <app-subject-card [subject]="subject" (select)="onSubjectSelect($event)"></app-subject-card>
+    }
   </div>
+
+  <app-mentor-recommendation></app-mentor-recommendation>
 
   <app-hero-journey></app-hero-journey>
 

@@ -1,6 +1,22 @@
+.weekly-xp-chart {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: box-shadow 0.25s ease-out;
+}
+
+.weekly-xp-chart:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
 .weekly-xp-chart__title {
   font-family: var(--fonte-title);
   color: var(--color-yellow-secundary);
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+}
+
+.weekly-xp-chart > apx-chart {
+  display: block;
+  width: 100%;
 }

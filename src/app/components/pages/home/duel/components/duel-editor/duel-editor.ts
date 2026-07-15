@@ -1,7 +1,5 @@
-import { Component, inject, signal, computed, effect, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { DuelStateService } from '../../../../../../services/duel-state';
 
 interface ConsoleEntry {
@@ -13,35 +11,49 @@ interface ConsoleEntry {
 @Component({
   selector: 'app-duel-editor',
   standalone: true,
-  imports: [FormsModule, MonacoEditorModule],
+  imports: [FormsModule],
   host: { id: 'duel-editor' },
   templateUrl: './duel-editor.html',
   styleUrl: './duel-editor.css'
 })
 export class DuelEditor {
   duelState = inject(DuelStateService);
-  private readonly platformId = inject(PLATFORM_ID);
-
-  isBrowser = isPlatformBrowser(this.platformId);
 
   currentProblem = computed(() => this.duelState.problems()[this.duelState.player().problemsSolved]);
-  code = signal('');
-  consoleEntries = signal<ConsoleEntry[]>([]);
 
-  editorOptions = {
-    theme: 'vs-dark',
-    language: 'javascript',
-    minimap: { enabled: false },
-    fontSize: 14,
-    lineNumbers: 'on',
-    automaticLayout: true,
-    scrollBeyondLastLine: false
-  };
+  /**
+   * Buffer local editado pela textarea.
+   * Reset SÓ quando o problema muda de ID (troca de desafio),
+   * nunca a cada keystroke — evita perda de caret.
+   */
+  localCode = '';
+  private lastProblemId: string | null = null;
+
+  consoleEntries = signal<ConsoleEntry[]>([]);
 
   constructor() {
     effect(() => {
       const problem = this.currentProblem();
-      this.code.set(problem ? problem.functionSignature : '');
+      const newId = problem?.id ?? null;
+      if (newId !== this.lastProblemId) {
+        this.localCode = problem ? problem.functionSignature : '';
+        this.lastProblemId = newId;
+      }
+    });
+  }
+
+  onCodeChange(newCode: string): void {
+    this.localCode = newCode;
+  }
+
+  onTab(event: Event): void {
+    event.preventDefault();
+    const textarea = event.target as HTMLTextAreaElement;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    this.localCode = this.localCode.slice(0, start) + '  ' + this.localCode.slice(end);
+    queueMicrotask(() => {
+      textarea.selectionStart = textarea.selectionEnd = start + 2;
     });
   }
 
@@ -50,7 +62,7 @@ export class DuelEditor {
       return;
     }
 
-    const success = this.code().trim().length > 10;
+    const success = this.localCode.trim().length > 10;
 
     this.consoleEntries.update(entries => [
       ...entries,

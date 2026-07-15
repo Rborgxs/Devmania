@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CodeExecution } from './code-execution';
+import { CodeExecutionService } from './code-execution';
 
-describe('CodeExecution', () => {
-  let service: CodeExecution;
+describe('CodeExecutionService', () => {
+  let service: CodeExecutionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CodeExecution);
+    service = TestBed.inject(CodeExecutionService);
   });
 
   it('should be created', () => {

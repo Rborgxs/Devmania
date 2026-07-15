@@ -48,3 +48,17 @@
   color: var(--color-brown-primary);
   border-color: var(--color-yellow-primary);
 }
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .search-filters__input {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .search-filters__chip {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
+}

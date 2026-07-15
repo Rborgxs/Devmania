@@ -1,7 +1,8 @@
 <nav class="battle-navbar">
   <div class="battle-navbar__left">
-    <button class="battle-navbar__logo" type="button" (click)="exitBattle()">
-      <img src="/assets/logo_simbolo_devmania.png" alt="Devmania">
+    <button class="battle-navbar__back" type="button" (click)="exitBattle()" aria-label="Voltar">
+      <img class="battle-navbar__back-icon battle-navbar__back-icon--default" src="/assets/icons/back_icon.png" alt="">
+      <img class="battle-navbar__back-icon battle-navbar__back-icon--hover" src="/assets/icons/back_icon_hover.png" alt="">
     </button>
   </div>
 
@@ -20,12 +21,14 @@
     </span>
 
     <button
-      class="battle-navbar__nav-btn"
+      class="battle-navbar__nav-btn battle-navbar__nav-btn--next"
       type="button"
       [disabled]="isLastDifficulty()"
       (click)="battleState.goToNextDifficulty()"
+      aria-label="Próxima dificuldade"
     >
-      ›
+      <img class="battle-navbar__nav-icon battle-navbar__nav-icon--default" src="/assets/icons/next_icon.png" alt="">
+      <img class="battle-navbar__nav-icon battle-navbar__nav-icon--hover" src="/assets/icons/next_icon_hover.png" alt="">
     </button>
   </div>
 

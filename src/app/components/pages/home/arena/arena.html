@@ -7,13 +7,13 @@
   </header>
 
   <div class="arena__body">
-    <div class="arena__left">
+    <div class="arena__main">
       <app-mode-selector
         (duelRequested)="onDuelRequested($event)"
       ></app-mode-selector>
-    </div>
 
-    <div class="arena__right">
+      <app-arena-profile-block></app-arena-profile-block>
+
       <app-chest-panel></app-chest-panel>
     </div>
 

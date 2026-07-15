@@ -41,3 +41,18 @@
   overflow-y: auto;
   padding: 1.25rem;
 }
+
+/* ===========================
+   RESPONSIVO TABLET/MOBILE
+=========================== */
+@media (max-width: 900px) {
+  .info-panel {
+    border-right: none;
+    border-bottom: 2px solid var(--color-brown-second);
+  }
+
+  .info-panel__tab {
+    padding: 0.65rem 0.4rem;
+    font-size: 0.75rem;
+  }
+}

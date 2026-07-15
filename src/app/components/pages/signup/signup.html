@@ -1,6 +1,8 @@
 <div class="signup">
   <div class="signup__topbar">
-    <button class="signup__back" type="button" (click)="handleBack()">← Voltar</button>
+    <button class="signup__back" type="button" (click)="handleBack()" aria-label="Voltar">
+      <img class="signup__back-icon" src="assets/icons/arrow.png" alt="">
+    </button>
 
     <div class="signup__progress">
       <div class="signup__progress-fill" [style.width.%]="signupService.progressPercent()"></div>
@@ -10,7 +12,6 @@
   <div class="signup__stage">
     @switch (signupService.currentStep()) {
       @case ('welcome') { <app-step-welcome /> }
-      @case ('email') { <app-step-email /> }
       @case ('verification') { <app-step-verification /> }
       @case ('password') { <app-step-password /> }
       @case ('master') { <app-step-master /> }

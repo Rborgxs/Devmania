@@ -17,6 +17,8 @@
   flex-direction: column;
   gap: 1.25rem;
   align-items: center;
+  width: min(28rem, 90vw);
+  box-sizing: border-box;
 }
 
 .duel-mode-modal__title {
@@ -27,6 +29,8 @@
 
 .duel-mode-modal__options {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 

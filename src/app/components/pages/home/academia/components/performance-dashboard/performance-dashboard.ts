@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgApexchartsModule, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexFill, ApexDataLabels, ApexPlotOptions } from 'ng-apexcharts';
 import { AcademiaService } from '../../../../../../services/academia';
+import { chartBase, chartCategoryAxis, chartAccentStroke, CHART_DATA_LABELS_DISABLED, CHART_ACCENT_COLOR } from '../../../../../../shared/chart-theme';
 
 @Component({
   selector: 'app-performance-dashboard',
@@ -27,49 +28,29 @@ export class PerformanceDashboard {
     { name: 'Precisão (%)', data: [58, 65, 70, 74, 79, 84] }
   ];
 
-  evolutionChart: ApexChart = {
-    type: 'line',
-    height: 220,
-    toolbar: { show: false },
-    background: 'transparent'
-  };
+  evolutionChart: ApexChart = chartBase('line', 220);
 
-  evolutionXAxis: ApexXAxis = {
-    categories: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'],
-    labels: { style: { colors: '#e9da9c' } }
-  };
+  evolutionXAxis: ApexXAxis = chartCategoryAxis(['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6']);
 
-  evolutionStroke: ApexStroke = {
-    curve: 'smooth',
-    colors: ['#ecb158'],
-    width: 3
-  };
+  evolutionStroke: ApexStroke = chartAccentStroke();
 
-  evolutionDataLabels: ApexDataLabels = { enabled: false };
+  evolutionDataLabels: ApexDataLabels = CHART_DATA_LABELS_DISABLED;
 
   subjectsSeries: ApexAxisChartSeries = [
     { name: 'Precisão (%)', data: [92, 84, 61, 98] }
   ];
 
-  subjectsChart: ApexChart = {
-    type: 'bar',
-    height: 220,
-    toolbar: { show: false },
-    background: 'transparent'
-  };
+  subjectsChart: ApexChart = chartBase('bar', 220);
 
-  subjectsXAxis: ApexXAxis = {
-    categories: ['Arrays', 'Functions', 'Recursion', 'Stack'],
-    labels: { style: { colors: '#e9da9c' } }
-  };
+  subjectsXAxis: ApexXAxis = chartCategoryAxis(['Arrays', 'Functions', 'Recursion', 'Stack']);
 
   subjectsFill: ApexFill = {
-    colors: ['#ecb158']
+    colors: [CHART_ACCENT_COLOR]
   };
 
   subjectsPlotOptions: ApexPlotOptions = {
     bar: { columnWidth: '50%', borderRadius: 3 }
   };
 
-  subjectsDataLabels: ApexDataLabels = { enabled: false };
+  subjectsDataLabels: ApexDataLabels = CHART_DATA_LABELS_DISABLED;
 }

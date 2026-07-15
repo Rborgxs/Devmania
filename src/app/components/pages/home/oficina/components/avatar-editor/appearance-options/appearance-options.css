@@ -77,3 +77,16 @@
 .appearance-options__reset-btn:hover {
   background: var(--color-brown-second);
 }
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 560px) {
+  .appearance-options__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appearance-options__actions {
+    flex-direction: column;
+  }
+}

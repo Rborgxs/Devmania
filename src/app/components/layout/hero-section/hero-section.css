@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background-image: url('/assets/hero_bg.png');
+  background-image: url('/assets/backgrounds/hero_bg.png');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100% auto;
@@ -62,10 +62,10 @@
 
 @keyframes drift-1 {
   0%,100% {
-    transform: translate(-50%, -50%) translate(0, -340px);
+    transform: translate(-50%, -50%) translate(0, -260px);
   }
   50% {
-    transform: translate(-50%, -50%) translate(12px, -330px);
+    transform: translate(-50%, -50%) translate(12px, -250px);
   }
 }
 
@@ -80,19 +80,19 @@
 
 @keyframes drift-3 {
   0%,100% {
-    transform: translate(-50%, -50%) translate(410px, 260px);
+    transform: translate(-50%, -50%) translate(410px, 60px);
   }
   50% {
-    transform: translate(-50%, -50%) translate(425px, 248px);
+    transform: translate(-50%, -50%) translate(425px, 48px);
   }
 }
 
 @keyframes drift-4 {
   0%,100% {
-    transform: translate(-50%, -50%) translate(-410px, 260px);
+    transform: translate(-50%, -50%) translate(-410px, 60px);
   }
   50% {
-    transform: translate(-50%, -50%) translate(-395px, 272px);
+    transform: translate(-50%, -50%) translate(-395px, 72px);
   }
 }
 
@@ -129,4 +129,42 @@
   color: var(--color-gray);
   margin-top: 1.5rem;
   line-height: 1.6;
+}
+
+/* ===========================
+   RESPONSIVO TABLET
+=========================== */
+@media (max-width: 900px) {
+  .hero {
+    top: -60px;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .hero__stage {
+    margin-top: 10rem;
+  }
+
+  .hero__floats {
+    display: none;
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .hero {
+    top: -30px;
+    height: auto;
+    min-height: 100vh;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .hero__stage {
+    margin-top: 7rem;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
 }

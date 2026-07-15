@@ -60,3 +60,18 @@
 .about__socials a:hover .about__social-icon {
   transform: translateY(-3px);
 }
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .about {
+    height: auto;
+    min-height: 100vh;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .about__bg-frame {
+    padding: var(--space-lg) var(--space-sm);
+  }
+}

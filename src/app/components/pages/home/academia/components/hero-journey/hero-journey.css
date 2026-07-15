@@ -2,38 +2,41 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 260px;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   background: var(--color-brown-primary);
   border: 2px solid var(--color-brown-second);
   border-radius: 8px;
   padding: 1.25rem;
+  overflow: hidden;
 }
 
 .hero-journey__title {
   font-family: var(--fonte-title);
   color: var(--color-yellow-primary);
   font-size: 1.05rem;
-  text-align: center;
 }
 
 .hero-journey__subtitle {
   font-family: var(--fonte-std);
   color: var(--color-gray);
   font-size: 0.8rem;
-  text-align: center;
   margin-bottom: 0.75rem;
 }
 
 .hero-journey__map-wrapper {
   position: relative;
-  overflow-y: auto;
-  max-height: 65vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2.5rem;
+  max-width: 100%;
 }
 
 .hero-journey__svg {
-  width: 100%;
   display: block;
+  height: 100px;
 }
 
 .hero-journey__path {
@@ -44,6 +47,16 @@
 
 .hero-journey__node {
   cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.hero-journey__node:hover {
+  transform: translate(0, -2px);
+}
+
+.hero-journey__node:hover .hero-journey__node-circle {
+  stroke: var(--color-yellow-primary);
+  filter: drop-shadow(0 0 6px rgba(236, 177, 88, 0.4));
 }
 
 .hero-journey__node-circle {
@@ -82,6 +95,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
@@ -90,8 +104,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90px;
+  width: 100px;
   text-align: center;
+  transform: translateX(-30px);
 }
 
 .hero-journey__label-name {
@@ -113,4 +128,17 @@
   font-family: var(--fonte-code);
   font-size: 0.6rem;
   color: var(--color-gray);
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .hero-journey {
+    padding: 1rem 0.85rem;
+  }
+
+  .hero-journey__title {
+    font-size: 0.95rem;
+  }
 }

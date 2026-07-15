@@ -5,7 +5,7 @@ export interface OnlinePlayer {
   name: string;
   avatar: string;
   role: string;
-  level: number;
+  eloName: string;
   status: 'online' | 'ausente' | 'em-duelo' | 'programando';
 }
 

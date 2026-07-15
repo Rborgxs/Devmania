@@ -1,21 +1,5 @@
 <div class="community-panel">
   <section class="community-panel__section">
-    <h3 class="community-panel__title">Jogadores Online</h3>
-    <div class="community-panel__players">
-      @for (player of communityService.onlinePlayers(); track player.id) {
-        <div class="online-player">
-          <img class="online-player__avatar" [src]="player.avatar" [alt]="player.name">
-          <div class="online-player__info">
-            <span class="online-player__name">{{ player.name }}</span>
-            <span class="online-player__meta">{{ player.role }} · Nv. {{ player.level }}</span>
-          </div>
-          <span class="online-player__status">{{ statusIcons[player.status] }}</span>
-        </div>
-      }
-    </div>
-  </section>
-
-  <section class="community-panel__section">
     <h3 class="community-panel__title">Eventos Ativos</h3>
     <div class="community-panel__events">
       @for (event of guildService.events(); track event.id) {
@@ -24,21 +8,6 @@
           <div class="mini-event-card__meta">
             <span>⏳ {{ event.timeRemaining }}</span>
             <span>👥 {{ event.participantCount }}</span>
-          </div>
-        </div>
-      }
-    </div>
-  </section>
-
-  <section class="community-panel__section">
-    <h3 class="community-panel__title">Ranking da Semana</h3>
-    <div class="community-panel__ranking">
-      @for (entry of communityService.ranking(); track entry.position) {
-        <div class="ranking-entry">
-          <span class="ranking-entry__medal">{{ entry.medal }}</span>
-          <div class="ranking-entry__info">
-            <span class="ranking-entry__name">{{ entry.playerName }}</span>
-            <span class="ranking-entry__title">{{ entry.title }}</span>
           </div>
         </div>
       }

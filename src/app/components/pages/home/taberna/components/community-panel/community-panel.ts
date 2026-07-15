@@ -14,13 +14,6 @@ export class CommunityPanel {
   communityService = inject(CommunityService);
   guildService = inject(GuildService);
 
-  statusIcons: Record<string, string> = {
-    'online': '🟢',
-    'ausente': '🌙',
-    'em-duelo': '⚔️',
-    'programando': '💻'
-  };
-
   categoryIcons: Record<string, string> = {
     'evento': '🎉',
     'atualizacao': '🔧',

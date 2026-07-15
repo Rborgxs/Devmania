@@ -15,3 +15,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .chest-panel__slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

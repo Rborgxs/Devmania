@@ -28,17 +28,17 @@ export class ShopService {
     { id: 'i11', name: 'Raposa Ágil', category: 'pets', subcategory: 'Raposa', rarity: 'incomum', price: 200, description: 'Rápida como um algoritmo otimizado.', image: '/assets/shop/pet-fox.png' },
     { id: 'i12', name: 'Coruja Arcana', category: 'pets', subcategory: 'Coruja Arcana', rarity: 'epica', price: 600, description: 'Sábia em todas as linguagens.', image: '/assets/shop/pet-owl.png' },
     { id: 'i13', name: 'Golem de Pedra', category: 'pets', subcategory: 'Golem', rarity: 'lendaria', price: 850, description: 'Construído com blocos de código robusto.', image: '/assets/shop/pet-golem.png' },
-    { id: 'i14', name: 'Chapéu do Mago Sênior', category: 'cosmeticos', subcategory: 'Chapéus', rarity: 'rara', price: 180, description: 'Aumenta sua sabedoria aparente em code review.', image: '/assets/shop/hat.png' },
-    { id: 'i15', name: 'Asas de Merge', category: 'cosmeticos', subcategory: 'Asas', rarity: 'epica', price: 400, description: 'Voa direto para produção sem conflitos.', image: '/assets/shop/wings.png' },
-    { id: 'i16', name: 'Emote: Deploy de Sexta', category: 'cosmeticos', subcategory: 'Emotes', rarity: 'comum', price: 50, description: 'Um gesto de coragem questionável.', image: '/assets/shop/emote.png' },
-    { id: 'i17', name: 'Aura de Código Limpo', category: 'cosmeticos', subcategory: 'Auras', rarity: 'mitica', price: 1500, description: 'Um brilho que só aparece em código bem formatado.', image: '/assets/shop/aura.png' }
+    { id: 'i14', name: 'Manto do Mago Sênior', category: 'roupas', subcategory: 'Mantos', rarity: 'rara', price: 180, description: 'Aumenta sua sabedoria aparente em code review.', image: '/assets/shop/hat.png' },
+    { id: 'i15', name: 'Túnica do Merge Tranquilo', category: 'roupas', subcategory: 'Túnicas', rarity: 'epica', price: 400, description: 'Veste-se para produção sem conflitos.', image: '/assets/shop/wings.png' },
+    { id: 'i16', name: 'Colete do Deploy de Sexta', category: 'roupas', subcategory: 'Coletes', rarity: 'comum', price: 50, description: 'Para quem tem coragem questionável.', image: '/assets/shop/emote.png' },
+    { id: 'i17', name: 'Vestes do Código Limpo', category: 'roupas', subcategory: 'Vestes', rarity: 'mitica', price: 1500, description: 'Um brilho que só aparece em código bem formatado.', image: '/assets/shop/aura.png' }
   ]);
 
   categories: { id: ShopCategory; label: string; icon: string }[] = [
     { id: 'armas', label: 'Armas', icon: '⚔️' },
     { id: 'armaduras', label: 'Armaduras', icon: '🛡️' },
     { id: 'pets', label: 'Pets', icon: '🐉' },
-    { id: 'cosmeticos', label: 'Cosméticos', icon: '✨' }
+    { id: 'roupas', label: 'Roupas', icon: '👕' }
   ];
 
   rarityOptions: { id: ItemRarity | 'todas'; label: string }[] = [

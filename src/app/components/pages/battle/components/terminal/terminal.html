@@ -1,0 +1,27 @@
+<div class="terminal">
+  <div class="terminal__header">Terminal</div>
+
+  <div class="terminal__lines">
+    @for (line of terminalService.lines(); track line.id) {
+      @if (line.type === 'command') {
+        <div class="terminal__command">
+          <span class="terminal__prompt">$</span> {{ line.text }}
+        </div>
+      } @else {
+        <pre class="terminal__output">{{ line.text }}</pre>
+      }
+    }
+  </div>
+
+  <form class="terminal__input-row" (ngSubmit)="runCommand()">
+    <span class="terminal__prompt">$</span>
+    <input
+      class="terminal__input"
+      type="text"
+      [ngModel]="draft()"
+      (ngModelChange)="draft.set($event)"
+      name="terminalDraft"
+      placeholder="Digite um comando..."
+    >
+  </form>
+</div>

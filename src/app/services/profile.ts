@@ -1,5 +1,5 @@
-import { Injectable, signal, inject } from '@angular/core';
-import { UserProfile, ProfileBadge, ProfileBackground, ProfileStats, CalendarDay } from '../models/profile';
+import { Injectable, signal, inject, computed } from '@angular/core';
+import { UserProfile, ProfileStats, CalendarDay } from '../models/profile';
 import { WalletService } from './wallet';
 
 const USERNAME_CHANGE_COST = 200;
@@ -12,26 +12,8 @@ export class ProfileService {
     displayName: 'Aventureiro',
     username: '@aventureiro_dev',
     bio: 'Explorando os reinos do código, uma quest por vez.',
-    backgroundId: 'bg1',
-    selectedBadgeIds: ['b1', 'b3'],
     eloVisibility: { feat: true, fix: true, style: false }
   });
-
-  availableBadges = signal<ProfileBadge[]>([
-    { id: 'b1', name: 'Type é meu tipo', icon: '/assets/badges/typescript.png' },
-    { id: 'b2', name: 'Club Anti Frontend', icon: '/assets/badges/anti-frontend.png' },
-    { id: 'b3', name: 'Top One Form Brazil', icon: '/assets/badges/top-form.png' },
-    { id: 'b4', name: 'Club Anti Backend', icon: '/assets/badges/anti-backend.png' },
-    { id: 'b5', name: 'Engenheiro de Prompt', icon: '/assets/badges/prompt-engineer.png' },
-    { id: 'b6', name: 'Uma Cobra na Minha Bota', icon: '/assets/badges/python.png' }
-  ]);
-
-  backgrounds = signal<ProfileBackground[]>([
-    { id: 'bg1', name: 'Crepúsculo Dourado', gradient: 'linear-gradient(135deg, #ecb158, #3c271b)' },
-    { id: 'bg2', name: 'Névoa Arcana', gradient: 'linear-gradient(135deg, #505169, #201e1a)' },
-    { id: 'bg3', name: 'Fogueira da Taberna', gradient: 'linear-gradient(135deg, #6d4a27, #8a2b2b)' },
-    { id: 'bg4', name: 'Floresta Sombria', gradient: 'linear-gradient(135deg, #2f7a4d, #201e1a)' }
-  ]);
 
   stats = signal<ProfileStats>({
     totalXp: 8420,
@@ -50,23 +32,6 @@ export class ProfileService {
 
   updateBio(bio: string): void {
     this.profile.update(p => ({ ...p, bio }));
-  }
-
-  setBackground(backgroundId: string): void {
-    this.profile.update(p => ({ ...p, backgroundId }));
-  }
-
-  toggleBadge(badgeId: string): void {
-    this.profile.update(p => {
-      const isSelected = p.selectedBadgeIds.includes(badgeId);
-      if (isSelected) {
-        return { ...p, selectedBadgeIds: p.selectedBadgeIds.filter(id => id !== badgeId) };
-      }
-      if (p.selectedBadgeIds.length >= 5) {
-        return p;
-      }
-      return { ...p, selectedBadgeIds: [...p.selectedBadgeIds, badgeId] };
-    });
   }
 
   toggleEloVisibility(mode: 'feat' | 'fix' | 'style'): void {
@@ -97,6 +62,7 @@ export class ProfileService {
   usernameChangeCost = USERNAME_CHANGE_COST;
 
   weeklyXp = signal([320, 480, 210, 600, 390, 720, 540]);
+  weeklyXpTotal = computed(() => this.weeklyXp().reduce((sum, v) => sum + v, 0));
 
   currentStreak = signal(6);
   bestStreak = signal(14);

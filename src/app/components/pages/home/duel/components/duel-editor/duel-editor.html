@@ -16,27 +16,29 @@
       </button>
     </div>
 
-    <div class="duel-editor__monaco-wrapper">
-      @if (isBrowser) {
-        <ngx-monaco-editor
-          class="duel-editor__monaco"
-          [options]="editorOptions"
-          [ngModel]="code()"
-          (ngModelChange)="code.set($event)"
-        ></ngx-monaco-editor>
-      } @else {
-        <div class="duel-editor__ssr-placeholder">Carregando editor...</div>
-      }
+    <div class="duel-editor__textarea-wrapper">
+      <textarea
+        class="duel-editor__textarea"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        [(ngModel)]="localCode"
+        (ngModelChange)="onCodeChange($event)"
+        (keydown.Tab)="onTab($event)"
+      ></textarea>
     </div>
   </div>
 
   <div class="duel-editor__console">
-    <span class="duel-editor__console-header">Console</span>
+    <span class="duel-editor__console-header">Saída</span>
     <div class="duel-editor__console-lines">
       @for (entry of consoleEntries(); track entry.id) {
         <p class="duel-editor__console-line" [class.duel-editor__console-line--fail]="!entry.success">
           {{ entry.message }}
         </p>
+      } @empty {
+        <p class="duel-editor__console-empty">Envie sua solução para ver o resultado aqui.</p>
       }
     </div>
   </div>

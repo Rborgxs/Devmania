@@ -51,9 +51,9 @@
   text-transform: capitalize;
 }
 
-.exercise-item__difficulty[data-level='facil'] { background: #2f7a4d; color: var(--color-yellow-secundary); }
-.exercise-item__difficulty[data-level='medio'] { background: #a1731f; color: var(--color-yellow-secundary); }
-.exercise-item__difficulty[data-level='dificil'] { background: #8a2b2b; color: var(--color-yellow-secundary); }
+.exercise-item__difficulty[data-level='facil'] { background: var(--color-success-strong); color: var(--color-yellow-secundary); }
+.exercise-item__difficulty[data-level='medio'] { background: var(--color-warning); color: var(--color-yellow-secundary); }
+.exercise-item__difficulty[data-level='dificil'] { background: var(--color-danger-strong); color: var(--color-yellow-secundary); }
 
 .exercise-item__reward {
   font-family: var(--fonte-code);
@@ -63,7 +63,7 @@
 
 .exercise-item__status {
   font-family: var(--fonte-std);
-  color: #4caf7d;
+  color: var(--color-success);
   font-size: 0.8rem;
   white-space: nowrap;
 }

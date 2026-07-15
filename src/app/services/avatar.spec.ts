@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Avatar } from './avatar';
+import { AvatarService } from './avatar';
 
-describe('Avatar', () => {
-  let service: Avatar;
+describe('AvatarService', () => {
+  let service: AvatarService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Avatar);
+    service = TestBed.inject(AvatarService);
   });
 
   it('should be created', () => {

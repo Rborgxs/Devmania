@@ -12,3 +12,27 @@
   flex: 1;
   overflow: hidden;
 }
+
+/* ===========================
+   RESPONSIVO TABLET/MOBILE
+=========================== */
+@media (max-width: 900px) {
+  .duel {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .duel__body {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .duel__body > app-duel-problem-panel {
+    min-height: 35vh;
+  }
+
+  .duel__body > app-duel-editor {
+    min-height: 65vh;
+  }
+}

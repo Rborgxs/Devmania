@@ -34,17 +34,7 @@
         [plotOptions]="barPlotOptions"
         [fill]="barFill"
         [dataLabels]="barDataLabels"
-      ></apx-chart>
-    </div>
-
-    <div class="chart-box">
-      <h3 class="chart-box__title">Habilidades</h3>
-      <apx-chart
-        [series]="radarSeries"
-        [chart]="radarChart"
-        [xaxis]="radarXAxis"
-        [fill]="radarFill"
-        [stroke]="radarStroke"
+        [responsive]="chartResponsive"
       ></apx-chart>
     </div>
 
@@ -55,18 +45,9 @@
         [chart]="pieChart"
         [labels]="pieLabels"
         [fill]="pieFill"
+        [stroke]="pieStroke"
         [legend]="pieLegend"
-      ></apx-chart>
-    </div>
-
-    <div class="chart-box">
-      <h3 class="chart-box__title">Evolução de Acertos</h3>
-      <apx-chart
-        [series]="lineSeries"
-        [chart]="lineChart"
-        [xaxis]="lineXAxis"
-        [stroke]="lineStroke"
-        [dataLabels]="lineDataLabels"
+        [responsive]="chartResponsive"
       ></apx-chart>
     </div>
   </div>

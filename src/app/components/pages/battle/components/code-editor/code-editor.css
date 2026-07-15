@@ -50,19 +50,29 @@
 
 .code-editor__body {
   flex: 1;
+  min-height: 240px;
   overflow: hidden;
+  position: relative;
 }
 
-.code-editor__monaco {
+.code-editor__textarea {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-code);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  tab-size: 2;
+  -moz-tab-size: 2;
 }
 
-.code-editor__ssr-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: var(--color-gray);
-  font-family: var(--fonte-std);
+.code-editor__textarea:focus {
+  outline: none;
 }

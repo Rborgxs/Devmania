@@ -2,12 +2,15 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
+  height: 100%;
 }
 
 .duel-editor__code-area {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 300px;
   overflow: hidden;
   background: var(--color-black);
 }
@@ -19,6 +22,7 @@
   padding: 0.5rem 1rem;
   background: var(--color-brown-primary);
   border-bottom: 2px solid var(--color-brown-second);
+  flex-shrink: 0;
 }
 
 .duel-editor__function-name {
@@ -36,11 +40,13 @@
   font-size: 0.85rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.15s ease-out;
+  transition: transform 0.15s ease-out, filter 0.15s ease-out, box-shadow 0.2s ease-out;
 }
 
 .duel-editor__submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 16px rgba(236, 177, 88, 0.35);
 }
 
 .duel-editor__submit-btn:disabled {
@@ -48,23 +54,29 @@
   cursor: not-allowed;
 }
 
-.duel-editor__monaco-wrapper {
+.duel-editor__textarea-wrapper {
   flex: 1;
+  min-height: 240px;
   overflow: hidden;
+  position: relative;
 }
 
-.duel-editor__monaco {
+.duel-editor__textarea {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.duel-editor__ssr-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: var(--color-gray);
-  font-family: var(--fonte-std);
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-code);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  tab-size: 2;
+  -moz-tab-size: 2;
 }
 
 .duel-editor__console {
@@ -74,6 +86,15 @@
   background: var(--color-black);
   border-top: 2px solid var(--color-brown-second);
   flex-shrink: 0;
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 700px) {
+  .duel-editor__console {
+    height: 110px;
+  }
 }
 
 .duel-editor__console-header {
@@ -95,10 +116,17 @@
 
 .duel-editor__console-line {
   font-family: var(--fonte-code);
-  color: #4caf7d;
+  color: var(--color-success);
   font-size: 0.8rem;
 }
 
 .duel-editor__console-line--fail {
-  color: #d16060;
+  color: var(--color-danger);
+}
+
+.duel-editor__console-empty {
+  font-family: var(--fonte-std);
+  color: var(--color-gray);
+  font-size: 0.78rem;
+  font-style: italic;
 }

@@ -4,7 +4,7 @@ export interface Channel {
   icon: string;
 }
 
-export interface ChatMessage {
+export interface TabernaChatMessage {
   id: string;
   channelId: string;
   authorName: string;
@@ -12,4 +12,5 @@ export interface ChatMessage {
   authorEloName: string;
   text: string;
   timestamp: string;
+  isSelf?: boolean;
 }

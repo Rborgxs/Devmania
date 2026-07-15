@@ -1,5 +1,5 @@
 import { Injectable, signal, inject, computed } from '@angular/core';
-import { Channel, ChatMessage } from '../models/channel';
+import { Channel, TabernaChatMessage } from '../models/channel';
 import { EloService } from './elo';
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +23,7 @@ export class ChatService {
     this.channels().find(c => c.id === this.activeChannelId())
   );
 
-  messagesByChannel = signal<Record<string, ChatMessage[]>>({
+  messagesByChannel = signal<Record<string, TabernaChatMessage[]>>({
     geral: [
       {
         id: 'msg1',
@@ -60,14 +60,15 @@ export class ChatService {
 
     const channelId = this.activeChannelId();
 
-    const newMessage: ChatMessage = {
+    const newMessage: TabernaChatMessage = {
       id: crypto.randomUUID(),
       channelId,
       authorName: 'Você',
       authorAvatar: '/assets/avatars/default.png',
       authorEloName: 'Iniciante',
       text: trimmed,
-      timestamp: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+      isSelf: true
     };
 
     this.messagesByChannel.update(current => ({

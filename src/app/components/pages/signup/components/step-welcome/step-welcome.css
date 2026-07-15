@@ -28,3 +28,72 @@
   flex-shrink: 0;
   border: 1px dashed var(--color-gray);
 }
+
+.step-welcome__divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.step-welcome__divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-brown-second);
+}
+
+.step-welcome__divider-text {
+  font-family: var(--fonte-std);
+  font-size: 0.75rem;
+  color: var(--color-gray);
+}
+
+.step-welcome__email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.step-welcome__email-label {
+  font-family: var(--fonte-std);
+  color: var(--color-yellow-secundary);
+  font-size: 0.9rem;
+}
+
+.step-welcome__email-input {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-brown-second);
+  background: var(--color-black);
+  color: var(--color-yellow-secundary);
+  font-family: var(--fonte-std);
+}
+
+.step-welcome__email-input:focus {
+  outline: none;
+  border-color: var(--color-yellow-primary);
+}
+
+.step-welcome__email-error {
+  color: var(--color-danger-light);
+  font-family: var(--fonte-std);
+  font-size: 0.8rem;
+}
+
+.step-welcome__email-continue {
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  border: 2px solid var(--color-yellow-primary);
+  background: var(--color-yellow-primary);
+  color: var(--color-brown-primary);
+  font-family: var(--fonte-std);
+  cursor: pointer;
+}
+
+.step-welcome__email-continue:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--color-brown-second);
+  border-color: var(--color-brown-second);
+  color: var(--color-gray);
+}

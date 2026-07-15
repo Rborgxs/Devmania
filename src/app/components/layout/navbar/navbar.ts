@@ -23,6 +23,7 @@ export class Navbar implements AfterViewInit, OnDestroy {
   private scrollHandler = () => this.onScroll();
 
   readonly isFilled = signal(false);
+  readonly isMenuOpen = signal(false);
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
@@ -41,8 +42,17 @@ export class Navbar implements AfterViewInit, OnDestroy {
     this.isFilled.set(window.scrollY > SCROLL_TRIGGER_PX);
   }
 
+  toggleMenu(): void {
+    this.isMenuOpen.update(v => !v);
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen.set(false);
+  }
+
   scrollToSection(event: Event, sectionId: string): void {
     event.preventDefault();
+    this.closeMenu();
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }

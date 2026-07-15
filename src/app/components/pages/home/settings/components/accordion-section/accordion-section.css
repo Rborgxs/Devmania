@@ -15,6 +15,11 @@
   border: none;
   cursor: pointer;
   text-align: left;
+  transition: background 0.2s ease-out;
+}
+
+.accordion-section__header:hover {
+  background: var(--color-brown-second);
 }
 
 .accordion-section--open .accordion-section__header {

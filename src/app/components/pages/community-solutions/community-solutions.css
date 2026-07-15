@@ -18,3 +18,13 @@
   color: var(--color-yellow-primary);
   font-size: 1.5rem;
 }
+
+/* ===========================
+   RESPONSIVO TABLET/MOBILE
+=========================== */
+@media (max-width: 1000px) {
+  .community-solutions {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

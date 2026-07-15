@@ -43,3 +43,43 @@
 .king-layout__content {
   flex: 1;
 }
+
+/* ===========================
+   RESPONSIVO TABLET
+=========================== */
+@media (max-width: 768px) {
+  .king-layout {
+    gap: var(--space-lg);
+  }
+
+  .king-layout__image {
+    width: 16rem;
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 600px) {
+  .king-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .king-layout__image {
+    width: 10rem;
+  }
+
+  .king-layout__speech {
+    max-width: 100%;
+  }
+
+  .king-layout__speech::after {
+    left: 50%;
+  }
+
+  .king-layout__content {
+    width: 100%;
+  }
+}

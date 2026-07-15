@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KingDialogue } from './king-dialogue';
+import { KingDialogueLayout } from './king-dialogue';
 
-describe('KingDialogue', () => {
-  let component: KingDialogue;
-  let fixture: ComponentFixture<KingDialogue>;
+describe('KingDialogueLayout', () => {
+  let component: KingDialogueLayout;
+  let fixture: ComponentFixture<KingDialogueLayout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KingDialogue],
+      imports: [KingDialogueLayout],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(KingDialogue);
+    fixture = TestBed.createComponent(KingDialogueLayout);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

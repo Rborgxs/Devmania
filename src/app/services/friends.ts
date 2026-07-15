@@ -7,9 +7,7 @@ export class FriendsService {
 
   friends = signal<Friend[]>([
     { id: 'f1', name: 'Aldric_dev', avatar: '/assets/avatars/avatar1.png', role: 'Arquimago', status: 'online' },
-    { id: 'f2', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', role: 'Cavaleiro', status: 'em-duelo' },
-    { id: 'f3', name: 'Draven', avatar: '/assets/avatars/default.png', role: 'Guardião', status: 'programando' },
-    { id: 'f4', name: 'Serafina', avatar: '/assets/avatars/avatar2.png', role: 'Sentinela', status: 'ausente' }
+    { id: 'f2', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', role: 'Cavaleiro', status: 'em-duelo' }
   ]);
 
   selectedFriend = signal<Friend | null>(null);
@@ -21,7 +19,7 @@ export class FriendsService {
   });
 
   giftItems = signal<GiftItem[]>([
-    { id: 'gift1', name: '50 Moedas', icon: '/assets/icons/header/coin.png' },
+    { id: 'gift1', name: '50 Moedas', icon: '/assets/icons/coin_icon.png' },
     { id: 'gift2', name: 'Poção de XP', icon: '/assets/icons/gift/xp-potion.png' },
     { id: 'gift3', name: 'Pergaminho Raro', icon: '/assets/icons/gift/scroll.png' }
   ]);

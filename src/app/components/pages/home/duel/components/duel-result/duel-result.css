@@ -23,8 +23,8 @@
   border: 2px solid var(--color-yellow-primary);
   border-radius: 8px;
   padding: 2rem;
-  width: 100%;
-  max-width: 32rem;
+  width: min(32rem, 92vw);
+  box-sizing: border-box;
   animation: victory-pop 0.4s ease-out;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .duel-result__title--defeat {
-  color: #d16060;
+  color: var(--color-danger);
 }
 
 .duel-result__table {
@@ -74,7 +74,7 @@
 .duel-result__chest-icon {
   width: 64px;
   height: 64px;
-  background: url('/assets/icons/chest/chest-open.png') no-repeat center / contain;
+  background: url('/assets/icons/chest_icon_2.png') no-repeat center / contain;
   image-rendering: pixelated;
   animation: chest-pop 0.5s ease-out;
 }
@@ -85,7 +85,7 @@
 }
 
 .duel-result__chest-icon[data-rarity='lendario'] { filter: drop-shadow(0 0 10px var(--color-yellow-primary)); }
-.duel-result__chest-icon[data-rarity='raro'] { filter: drop-shadow(0 0 8px #4a7fd1); }
+.duel-result__chest-icon[data-rarity='raro'] { filter: drop-shadow(0 0 8px var(--color-info)); }
 
 .duel-result__chest-label {
   font-family: var(--fonte-std);
@@ -119,4 +119,25 @@
   border: 2px solid var(--color-brown-second);
   background: var(--color-black);
   color: var(--color-yellow-secundary);
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .duel-result {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .duel-result__title {
+    font-size: 1.5rem;
+  }
+
+  .duel-result__table {
+    font-size: 0.75rem;
+  }
+
+  .duel-result__actions {
+    flex-direction: column;
+  }
 }

@@ -3,10 +3,18 @@
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  background-image: url('/assets/wall_bg.jpeg');
+  background-image: url('/assets/backgrounds/wall_bg.jpeg');
   background-repeat: repeat;
   background-position: top center;
   image-rendering: pixelated;
+}
+
+.landing__section-gap {
+  height: 3rem;
+}
+
+@media (max-width: 700px) {
+  .landing__section-gap {
+    height: 1.5rem;
+  }
 }

@@ -26,13 +26,29 @@
 
 .arena__body {
   display: grid;
-  grid-template-columns: 1fr 1fr 280px;
+  grid-template-columns: 1fr 280px;
   gap: 1.5rem;
   align-items: start;
 }
 
-.arena__left,
-.arena__right {
+.arena__main {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media (max-width: 1100px) {
+  .arena__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .arena__title {
+    font-size: 1.4rem;
+  }
 }

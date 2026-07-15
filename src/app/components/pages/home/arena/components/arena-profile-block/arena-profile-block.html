@@ -1,0 +1,25 @@
+<section class="arena-profile-block">
+  <div class="arena-profile-block__identity">
+    <div class="arena-profile-block__avatar-wrap">
+      <img class="arena-profile-block__avatar" src="assets/icons/mainavatar.png" alt="Jogador">
+      <img class="arena-profile-block__avatar-frame" src="assets/icons/mainavatar_frame.png" alt="">
+    </div>
+    <div class="arena-profile-block__meta">
+      <span class="arena-profile-block__name">Aventureiro</span>
+      <span class="arena-profile-block__mode">Liga {{ modeLabel() }}</span>
+    </div>
+  </div>
+
+  <div class="arena-profile-block__elo">
+    <img class="arena-profile-block__elo-icon" [src]="progress().tier.icon" [alt]="progress().tier.name">
+    <div class="arena-profile-block__elo-info">
+      <span class="arena-profile-block__elo-name">{{ progress().tier.name }}</span>
+      <app-elo-progress-bar
+        [progressPercent]="progress().progressPercent"
+        [currentXp]="progress().currentXp"
+        [xpIntoTier]="progress().xpIntoTier"
+        [xpNeededForNextTier]="progress().xpNeededForNextTier"
+      ></app-elo-progress-bar>
+    </div>
+  </div>
+</section>

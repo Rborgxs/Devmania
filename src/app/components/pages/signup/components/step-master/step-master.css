@@ -117,3 +117,50 @@
   flex-shrink: 0;
   border: 1px dashed var(--color-gray);
 }
+
+/* ===========================
+   RESPONSIVO TABLET
+=========================== */
+@media (max-width: 768px) {
+  .step-master {
+    gap: var(--space-lg);
+  }
+
+  .step-master__stage {
+    gap: var(--space-lg);
+  }
+
+  .step-master__portrait {
+    width: 170px;
+  }
+}
+
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 600px) {
+  .step-master__king-image {
+    width: 90px;
+  }
+
+  .step-master__stage {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .step-master__portrait {
+    width: 140px;
+  }
+
+  .step-master__speech {
+    max-width: 100%;
+  }
+
+  .step-master__info {
+    text-align: center;
+  }
+
+  .step-master__controls {
+    gap: var(--space-md);
+  }
+}

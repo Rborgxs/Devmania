@@ -4,10 +4,10 @@ import { OnlinePlayer, RankingEntry, RealmAnnouncement } from '../models/communi
 @Injectable({ providedIn: 'root' })
 export class CommunityService {
   onlinePlayers = signal<OnlinePlayer[]>([
-    { id: 'op1', name: 'Aldric_dev', avatar: '/assets/avatars/avatar1.png', role: 'Arquimago', level: 42, status: 'online' },
-    { id: 'op2', name: 'Serafina', avatar: '/assets/avatars/avatar2.png', role: 'Sentinela', level: 28, status: 'programando' },
-    { id: 'op3', name: 'Draven', avatar: '/assets/avatars/default.png', role: 'Guardião', level: 35, status: 'em-duelo' },
-    { id: 'op4', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', role: 'Cavaleiro', level: 19, status: 'online' }
+    { id: 'op1', name: 'Aldric_dev', avatar: '/assets/avatars/avatar1.png', role: 'Arquimago', eloName: 'Arquimago', status: 'online' },
+    { id: 'op2', name: 'Serafina', avatar: '/assets/avatars/avatar2.png', role: 'Sentinela', eloName: 'Sentinela', status: 'programando' },
+    { id: 'op3', name: 'Draven', avatar: '/assets/avatars/default.png', role: 'Guardião', eloName: 'Guardião', status: 'em-duelo' },
+    { id: 'op4', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', role: 'Cavaleiro', eloName: 'Cavaleiro', status: 'online' }
   ]);
 
   ranking = signal<RankingEntry[]>([

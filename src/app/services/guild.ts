@@ -11,7 +11,7 @@ export class GuildService {
       name: 'Ordem do Código Sagrado',
       emblem: '/assets/icons/guild/emblem1.png',
       memberCount: 24,
-      level: 8,
+      eloName: 'Veterano',
       members: [
         { id: 'u1', name: 'Aldric_dev', avatar: '/assets/avatars/avatar1.png', eloName: 'Arquimago', isOnline: true },
         { id: 'u2', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', eloName: 'Cavaleiro', isOnline: true },
@@ -23,7 +23,7 @@ export class GuildService {
       name: 'Guilda dos Bugs Caçados',
       emblem: '/assets/icons/guild/emblem2.png',
       memberCount: 12,
-      level: 4,
+      eloName: 'Guerreiro',
       members: [
         { id: 'u4', name: 'Serafina', avatar: '/assets/avatars/avatar2.png', eloName: 'Sentinela', isOnline: true }
       ]

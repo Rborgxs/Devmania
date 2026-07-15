@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CommunitySolutions } from './community-solutions';
+import { CommunitySolutionsService } from './community-solutions';
 
-describe('CommunitySolutions', () => {
-  let service: CommunitySolutions;
+describe('CommunitySolutionsService', () => {
+  let service: CommunitySolutionsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CommunitySolutions);
+    service = TestBed.inject(CommunitySolutionsService);
   });
 
   it('should be created', () => {

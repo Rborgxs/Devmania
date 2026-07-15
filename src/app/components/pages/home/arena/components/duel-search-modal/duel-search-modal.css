@@ -19,6 +19,9 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  width: min(24rem, 88vw);
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .duel-search-modal__icon {

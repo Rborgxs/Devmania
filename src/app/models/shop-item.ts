@@ -1,4 +1,4 @@
-export type ShopCategory = 'armas' | 'armaduras' | 'pets' | 'cosmeticos';
+export type ShopCategory = 'armas' | 'armaduras' | 'pets' | 'roupas';
 export type ItemRarity = 'comum' | 'incomum' | 'rara' | 'epica' | 'lendaria' | 'mitica';
 export type OwnershipFilter = 'todos' | 'possuidos' | 'nao-possuidos';
 

@@ -96,3 +96,26 @@
   color: var(--color-gray);
   white-space: nowrap;
 }
+/* ===========================
+   RESPONSIVO MOBILE
+=========================== */
+@media (max-width: 480px) {
+  .friends-list {
+    padding: 0.85rem;
+  }
+
+  .friends-list__toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .friend-card {
+    padding: 0.7rem;
+    gap: 0.65rem;
+  }
+
+  .friend-card__avatar {
+    width: 38px;
+    height: 38px;
+  }
+}

@@ -12,15 +12,15 @@
   </div>
 
   <div class="code-editor__body">
-    @if (isBrowser) {
-      <ngx-monaco-editor
-        class="code-editor__monaco"
-        [options]="editorOptions"
-        [ngModel]="battleState.currentCode()"
-        (ngModelChange)="battleState.updateCode($event)"
-      ></ngx-monaco-editor>
-    } @else {
-      <div class="code-editor__ssr-placeholder">Carregando editor...</div>
-    }
+    <textarea
+      class="code-editor__textarea"
+      spellcheck="false"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      [(ngModel)]="localCode"
+      (ngModelChange)="onCodeChange($event)"
+      (keydown.Tab)="onTab($event)"
+    ></textarea>
   </div>
 </div>

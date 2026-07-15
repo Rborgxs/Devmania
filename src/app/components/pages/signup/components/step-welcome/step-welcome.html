@@ -1,5 +1,6 @@
 <app-king-dialogue-layout
-  speech="Bem-vindo ao Reino! Antes de iniciar sua jornada, precisamos preparar seu pergaminho de aventureiro. Vamos começar?">
+  speech="Bem-vindo ao Reino! Antes de iniciar sua jornada, precisamos preparar seu pergaminho de aventureiro. Vamos começar?"
+  image="assets/characters/rei_hello.png">
 
   <div class="step-welcome__actions">
     <button class="auth-btn auth-btn--google" type="button" (click)="continueWith('google')">
@@ -11,5 +12,35 @@
       <span class="icon-placeholder"></span>
       Continuar com GitHub
     </button>
+
+    <div class="step-welcome__divider">
+      <span class="step-welcome__divider-line"></span>
+      <span class="step-welcome__divider-text">ou</span>
+      <span class="step-welcome__divider-line"></span>
+    </div>
+
+    <div class="step-welcome__email">
+      <label class="step-welcome__email-label" for="welcomeEmail">Continuar com e-mail</label>
+      <input
+        id="welcomeEmail"
+        class="step-welcome__email-input"
+        type="email"
+        [(ngModel)]="email"
+        (blur)="onEmailBlur()"
+        placeholder="seuemail@exemplo.com"
+        autocomplete="email">
+
+      @if (showEmailError()) {
+        <span class="step-welcome__email-error">Insira um email válido</span>
+      }
+
+      <button
+        class="step-welcome__email-continue"
+        type="button"
+        [disabled]="!isEmailValid()"
+        (click)="continueWithEmail()">
+        Continuar com e-mail
+      </button>
+    </div>
   </div>
 </app-king-dialogue-layout>

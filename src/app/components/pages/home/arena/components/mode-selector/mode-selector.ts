@@ -1,5 +1,6 @@
-import { Component, signal, output } from '@angular/core';
+import { Component, signal, output, inject } from '@angular/core';
 import { BattleMode } from '../../../../../../models/elo';
+import { ArenaStateService } from '../../../../../../services/arena-state';
 
 interface ModeOption {
   id: BattleMode;
@@ -17,10 +18,12 @@ interface ModeOption {
   styleUrl: './mode-selector.css'
 })
 export class ModeSelector {
+  private readonly arenaState = inject(ArenaStateService);
+
   modeSelected = output<BattleMode>();
   duelRequested = output<BattleMode>();
 
-  selectedMode = signal<BattleMode>('feat');
+  selectedMode = this.arenaState.selectedMode;
   hoveredTooltip = signal<BattleMode | null>(null);
 
   modes: ModeOption[] = [
@@ -45,7 +48,7 @@ export class ModeSelector {
   ];
 
   selectMode(mode: BattleMode): void {
-    this.selectedMode.set(mode);
+    this.arenaState.setMode(mode);
     this.modeSelected.emit(mode);
   }
 

@@ -8,6 +8,12 @@ const TIER_NAMES = [
   'Dragão', 'Titã', 'Supremo', 'Mítico', 'Deus da Arena'
 ];
 
+function tierIcon(index: number): string {
+  if (index < 7) return '/assets/icons/liga_aprendiz.png';
+  if (index < 14) return '/assets/icons/liga_escudeiro.png';
+  return '/assets/icons/liga_guerreiro.png';
+}
+
 function buildTiers(): EloTier[] {
   const tiers: EloTier[] = [];
   let requiredXp = 0;
@@ -17,7 +23,7 @@ function buildTiers(): EloTier[] {
     tiers.push({
       id: `tier-${index}`,
       name,
-      icon: `/assets/icons/elo/${index}.png`,
+      icon: tierIcon(index),
       minXp: requiredXp
     });
     requiredXp += increment;
