@@ -3,9 +3,6 @@
     <img class="login__back-icon" src="assets/icons/arrow.png" alt="Voltar">
   </a>
 
-  <img class="login__pillar login__pillar--left" src="assets/pillar-left.png" alt="">
-  <img class="login__pillar login__pillar--right" src="assets/pillar-right.png" alt="">
-
   <div class="login__content">
     <img class="login__logo login__anim" style="--delay: 0" src="assets/logo_nome_devmania.png" alt="Logo Devmania">
 
@@ -30,7 +27,6 @@
 
     <form class="login__form" (ngSubmit)="onSubmit()">
       <div class="login__field login__anim" style="--delay: 4">
-        <span class="login__icon login__icon--user"></span>
         <input
           class="login__input"
           type="text"
@@ -42,7 +38,6 @@
       </div>
 
       <div class="login__field login__anim" style="--delay: 5">
-        <span class="login__icon login__icon--lock"></span>
         <input
           class="login__input"
           [type]="showPassword() ? 'text' : 'password'"
@@ -78,7 +73,7 @@
       </label>
 
       <button class="login__submit login__anim" style="--delay: 7" type="submit" [disabled]="!lgpdAccepted()">
-        Entrar
+        <img class="login__submit-img" src="/assets/icons/entrar_button.png" alt="Entrar">
       </button>
     </form>
 

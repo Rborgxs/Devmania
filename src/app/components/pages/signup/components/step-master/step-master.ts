@@ -18,66 +18,66 @@ export class StepMaster {
     {
       id: 'caua',
       name: 'Cauã',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Ninja',
+      description: 'Um jovem hábil e veloz em eliminar bugs e frio em suas execuções.',
       imageUrl: 'assets/characters/caua_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Calmo' }, { icon: '', label: 'Direto' }, { icon: '', label: 'Detalhista' }]
     },
     {
       id: 'gabi',
       name: 'Gabi',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Mago',
+      description: 'Possui um vasto conhecimento em codificação e costuma frequentar lugares públicos para falar sobre imersões',
       imageUrl: 'assets/characters/gabi_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Prestativo' }, { icon: '', label: 'Apoiador' }, { icon: '', label: 'Simpático' }]
     },
     {
       id: 'kelly',
       name: 'Kelly',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Valquíria',
+      description: 'Não se engane. O que ela tem de tamanho, ela tem de poder. Não a irrite!',
       imageUrl: 'assets/characters/kelly_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Otimista' }, { icon: '', label: 'Divertida' }, { icon: '', label: 'Ombro-amigo' }]
     },
     {
       id: 'luiz',
       name: 'Luiz',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Monge',
+      description: 'Mente fria, coração quente... Esse cara sabe como encarar erros de código sem dar um chute no PC',
       imageUrl: 'assets/characters/luiz_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Calmo' }, { icon: '', label: 'Investigativo' }, { icon: '', label: 'Criativo' }]
     },
     {
       id: 'marcelle',
       name: 'Marcelle',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Arqueira',
+      description: 'Tão dócil! Tem uma ótima precisão nos códigos e um bom papo caso queria conversar do seu projeto.',
       imageUrl: 'assets/characters/marcelle_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Ombro-amigo' }, { icon: '', label: 'Otimista' }, { icon: '', label: 'Empolgada' }]
     },
     {
       id: 'marcelo',
       name: 'Marcelo',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Elfo Mágico',
+      description: 'Um grande mestre que já guiou vários grandes aventureiros em suas jornadas. Pode ser a sua vez!',
       imageUrl: 'assets/characters/marcelo_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Sério' }, { icon: '', label: 'Prestativo' }, { icon: '', label: 'Investigativo' }]
     },
     {
       id: 'ronald',
       name: 'Ronald',
-      title: 'Mestre a definir',
+      title: 'Cavaleiro Real',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       imageUrl: 'assets/characters/ronald_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Divertido' }, { icon: '', label: 'Simpático' }, { icon: '', label: 'Otimista' }]
     },
     {
       id: 'tchan',
       name: 'Tchan',
-      title: 'Mestre a definir',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      title: 'Bárbaro',
+      description: 'Durante muitos anos viajou por vastas terras, possuiu muitos reinos, travou muitas batalhas e adquiriu o nome "Tchan" como nome de guerra',
       imageUrl: 'assets/characters/tchan_default.png',
-      traits: [{ icon: '', label: 'Traço 1' }, { icon: '', label: 'Traço 2' }, { icon: '', label: 'Traço 3' }]
+      traits: [{ icon: '', label: 'Divertido' }, { icon: '', label: 'Apoiador' }, { icon: '', label: 'Empolgado' }]
     }
   ];
 

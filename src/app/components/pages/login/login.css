@@ -6,7 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-black);
+  background-image: url(/assets/backgrounds/stonewall_bg.jpeg);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  background-position: center;
   overflow: hidden;
 }
 
@@ -31,25 +34,6 @@
   height: auto;
   image-rendering: pixelated;
   transform: rotate(180deg);
-}
-
-.login__pillar {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: auto;
-  image-rendering: pixelated;
-  z-index: 0;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 12px rgba(236, 177, 88, 0.15));
-}
-
-.login__pillar--left {
-  left: 0;
-}
-
-.login__pillar--right {
-  right: 0;
 }
 
 .login__content {
@@ -103,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
   padding: 0.55rem;
   border: 2px solid var(--color-brown-second);
   background: var(--color-purple);
@@ -159,36 +143,42 @@
   border-color: var(--color-yellow-primary);
 }
 
-.login__icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 0.75rem;
+.login__icon--github {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
   image-rendering: pixelated;
   flex-shrink: 0;
-}
-
-.login__icon--user {
-  background: url('/assets/icons/user-icon.png') no-repeat center / contain;
-}
-
-.login__icon--lock {
-  background: url('/assets/icons/lock_icon.png') no-repeat center / contain;
-}
-
-.login__icon--eye {
-  background: url('/assets/icons/eye_on_icon.png') no-repeat center / contain;
-}
-
-.login__icon--eye-off {
-  background: url('/assets/icons/eye_off_icon.png') no-repeat center / contain;
-}
-
-.login__icon--github {
   background: url('/assets/icons/github_icon.png') no-repeat center / contain;
 }
 
 .login__icon--google {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  image-rendering: pixelated;
+  flex-shrink: 0;
   background: url('/assets/icons/google_icon.png') no-repeat center / contain;
+}
+
+.login__icon--eye,
+.login__icon--eye-off {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.login__icon--eye {
+  background-image: url('/assets/icons/eye_on_icon.png');
+}
+
+.login__icon--eye-off {
+  background-image: url('/assets/icons/eye_off_icon.png');
 }
 
 .login__input {
@@ -247,26 +237,39 @@
 
 .login__submit {
   margin-top: 0.5rem;
-  padding: 0.85rem;
-  border: 2px solid var(--color-yellow-primary);
-  background: linear-gradient(90deg, var(--color-purple), var(--color-yellow-primary));
-  color: var(--color-black);
-  font-family: var(--fonte-title);
-  font-size: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.2s ease-out;
+}
+
+.login__submit-img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  image-rendering: pixelated;
+  opacity: 0.35;
+  transition: opacity 0.2s ease-out;
+}
+
+.login__submit-img img:hover {
+  opacity: 0.35;
+}
+
+.login__submit:not(:disabled) .login__submit-img {
+  opacity: 1;
 }
 
 .login__submit:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(236, 177, 88, 0.3);
 }
 
 .login__submit:disabled {
-  opacity: 0.4;
   cursor: not-allowed;
-  background: var(--color-gray);
-  border-color: var(--color-gray);
 }
 
 .login__signup {
@@ -286,9 +289,6 @@
   opacity: 0.7;
 }
 
-/* ===========================
-   RESPONSIVO TABLET
-=========================== */
 @media (max-width: 768px) {
   .login__pillar {
     opacity: 0.35;
@@ -309,9 +309,6 @@
   }
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 480px) {
   .login__pillar {
     display: none;

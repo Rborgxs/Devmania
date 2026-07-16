@@ -16,6 +16,7 @@ interface DuelCard {
   title: string;
   description: string;
   kingQuote: string;
+  kingImage: string;
 }
 
 @Component({
@@ -38,21 +39,24 @@ export class KingSection implements AfterViewInit, OnDestroy {
       image: '/assets/icons/feat_logo.png',
       title: 'Feat',
       description: 'Construa uma funcionalidade nova do zero, seguindo os requisitos do desafio.',
-      kingQuote: 'Construa uma funcionalidade do zero, aventureiro.'
+      kingQuote: 'Construa uma funcionalidade do zero, aventureiro.',
+      kingImage: '/assets/characters/rei_desafio.png'
     },
     {
       mode: 'fix',
       image: '/assets/icons/fix_logo.png',
       title: 'Fix',
       description: 'Encontre e corrija o bug escondido no código antes que o tempo se esgote.',
-      kingQuote: 'Encontre o erro escondido antes que o tempo acabe.'
+      kingQuote: 'Encontre o erro escondido antes que o tempo acabe.',
+      kingImage: '/assets/characters/rei_fix.png'
     },
     {
       mode: 'style',
       image: '/assets/icons/style_logo.png',
       title: 'Style',
       description: 'Refatore o código existente, mantendo a mesma função com mais elegância.',
-      kingQuote: 'Refatore com elegância! Uma tela linda também é honra.'
+      kingQuote: 'Refatore com elegância! Uma tela linda também é honra.',
+      kingImage: '/assets/characters/rei_hello.png'
     }
   ];
 

@@ -38,11 +38,12 @@
   image-rendering: pixelated;
 }
 
-.sidebar__brand-text {
-  font-family: var(--fonte-title);
-  color: var(--color-yellow-secundary);
-  font-size: 1rem;
-  white-space: nowrap;
+.sidebar__brand-logo {
+  width: 8rem;
+  height: auto;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  display: block;
 }
 
 .sidebar__toggle {

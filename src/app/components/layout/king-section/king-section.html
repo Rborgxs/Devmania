@@ -1,8 +1,8 @@
 <section class="king-section" id="desafiosSecao" #sectionRef>
   <div class="king-section__intro">
-    <h2 class="king-section__title">Mestres da Jornada</h2>
+    <h2 class="king-section__title">Ligas para se divertir</h2>
     <p class="king-section__subtitle">
-      Receba orientações, descubra novas estratégias e aprenda a vencer seus duelos.
+      Duele com outros jogadores, descubra novas estratégias e aprenda a vencer seus duelos.
     </p>
   </div>
 
@@ -19,10 +19,11 @@
             [class.king-section__card--behind-2]="cardState(i) === 'behind-2'">
             <div class="king-section__card-frame">
               <img class="king-section__card-image" [src]="card.image" [alt]="card.title">
-            </div>
-            <div class="king-section__card-info">
-              <h3 class="king-section__card-title">{{ card.title }}</h3>
-              <p class="king-section__card-description">{{ card.description }}</p>
+
+              <div class="king-section__card-info">
+                <h3 class="king-section__card-title">{{ card.title }}</h3>
+                <p class="king-section__card-description">{{ card.description }}</p>
+              </div>
             </div>
           </button>
         </div>
@@ -33,7 +34,7 @@
       <div class="king-section__speech">
         {{ cards[activeCard()].kingQuote }}
       </div>
-      <img class="king-section__king-image" src="assets/characters/rei_default.png" alt="Rei mestre">
+      <img class="king-section__king-image" [src]="cards[activeCard()].kingImage" alt="Rei mestre">
     </div>
   </div>
 </section>

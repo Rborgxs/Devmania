@@ -23,7 +23,7 @@
   font-family: var(--fonte-std);
   color: var(--color-gray);
   margin-top: .75rem;
-  max-width: 560px;
+  max-width: 800px;
   margin-inline: auto;
   line-height: 1.6;
 }
@@ -42,8 +42,8 @@
 
 .king-section__cards {
   position: relative;
-  width: 360px;
-  height: 460px;
+  width: 250px;
+  height: 300px;
   flex-shrink: 0;
 }
 
@@ -141,15 +141,17 @@
 }
 
 .king-section__card-frame {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 255px;
+  height: 100%;
 
-  padding: 14px;
   box-sizing: border-box;
+  padding: 16px 14px 14px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   background-image: url("/assets/king-section/card-frame.png");
   background-size: 100% 100%;
@@ -159,24 +161,24 @@
 }
 
 .king-section__card-image {
-  max-width: 72%;
-  max-height: 72%;
+  max-width: 90%;
+  max-height: 55%;
+
+  margin-top: 0.5rem;
 
   object-fit: contain;
   image-rendering: pixelated;
 }
 
 .king-section__card-info {
-  flex: 1;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  gap: 1rem;
+  gap: 0.5rem;
 
-  padding: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 0 0.85rem;
 
   text-align: center;
 }
@@ -195,10 +197,10 @@
   font-family: var(--fonte-std);
   color: var(--color-gray);
 
-  font-size: .95rem;
-  line-height: 1.6;
+  font-size: .85rem;
+  line-height: 1.5;
 
-  max-width: 90%;
+  text-align: justify;
 }
 
 .king-section__king-wrapper {
@@ -208,12 +210,11 @@
   justify-content: center;
   flex-shrink: 0;
 
-  width: 620px;
+  width: 30rem;
 }
 
 .king-section__speech {
-  width: 100%;
-  min-height: 145px;
+  width: auto;
 
   display: flex;
   align-items: center;
@@ -221,7 +222,7 @@
 
   box-sizing: border-box;
 
-  padding: 1.8rem 2.3rem;
+  padding: 1rem 2rem;
 
   position: relative;
 
@@ -232,7 +233,7 @@
 
   font-family: var(--fonte-code);
   font-size: 1.05rem;
-  line-height: 1.9;
+  line-height: 1;
 
   text-align: center;
 
@@ -368,24 +369,22 @@
 
   .king-section__card-frame{
 
-    height:210px;
-
-    padding:12px;
+    padding:12px 10px 10px;
 
   }
 
   .king-section__card-image{
 
-    max-width:70%;
-    max-height:70%;
+    max-width:88%;
+    max-height:52%;
 
   }
 
   .king-section__card-info{
 
-    padding:1.2rem;
+    padding: 0 0.6rem;
 
-    gap:.8rem;
+    gap:.4rem;
 
   }
 
@@ -397,8 +396,8 @@
 
   .king-section__card-description{
 
-    font-size:.86rem;
-    line-height:1.5;
+    font-size:.8rem;
+    line-height:1.45;
 
   }
 

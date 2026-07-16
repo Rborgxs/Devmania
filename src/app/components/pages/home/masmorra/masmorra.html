@@ -6,15 +6,15 @@
 
   @if (masterCardVisible()) {
     <div class="master-card">
-      <img class="master-card__avatar" src="assets/master-avatar.png" alt="Mestre">
+      <img class="master-card__avatar" src="/assets/icons/mentor_frame.png" alt="Mestre">
       <div class="master-card__body">
         <p class="master-card__message">
           Hoje há uma Quest Média disponível. Complete-a para manter sua sequência e ganhar moedas extras.
         </p>
+        <button class="master-card__hide" type="button" (click)="hideMasterCard()" aria-label="Ocultar mestre" title="Ocultar">
+          <span class="master-card__hide-icon">✕</span>
+        </button>
       </div>
-      <button class="master-card__hide" type="button" (click)="hideMasterCard()" aria-label="Ocultar mestre" title="Ocultar">
-        <span class="master-card__hide-icon">✕</span>
-      </button>
     </div>
   }
 
@@ -23,56 +23,60 @@
       <h2 class="challenges__title">Quests Diárias</h2>
 
       <div class="quest-card">
-        <div class="quest-card__top-diff">
-          <span class="quest-card__difficulty" [attr.data-level]="currentQuest().difficulty" title="Dificuldade">
-            {{ difficultyLabel(currentQuest().difficulty) }}
-          </span>
-        </div>
+        <img class="quest-card__bg" [src]="currentQuest().image" [alt]="currentQuest().title">
+        <div class="quest-card__scrim"></div>
 
-        <div class="quest-carousel">
-          <div class="quest-carousel__viewport">
-            <div class="quest-carousel__track" [style.transform]="'translateX(' + (-currentQuestIndex() * 100) + '%)'">
-              @for (quest of dailyQuests; track quest.id) {
-                <div class="quest-carousel__slide">
-                  <div class="quest-card__body">
-                    <span class="quest-card__reward">
-                      <span class="quest-card__coin-icon" title="Moedas ao completar"></span> {{ quest.coinReward }}
-                    </span>
+        <div class="quest-card__content">
+          <div class="quest-card__header">
+            <span class="quest-card__difficulty" [attr.data-level]="currentQuest().difficulty" title="Dificuldade">
+              {{ difficultyLabel(currentQuest().difficulty) }}
+            </span>
+            <span class="quest-card__reward">
+              <span class="quest-card__coin-icon" title="Moedas ao completar"></span> {{ currentQuest().coinReward }}
+            </span>
+          </div>
 
-                    <img class="quest-card__image" [src]="quest.image" [alt]="quest.title">
+          <div class="quest-carousel">
+            <div class="quest-carousel__viewport">
+              <div class="quest-carousel__track" [style.transform]="'translateX(' + (-currentQuestIndex() * 100) + '%)'">
+                @for (quest of dailyQuests; track quest.id) {
+                  <div class="quest-carousel__slide">
+                    <div class="quest-card__body">
+                      <h3 class="quest-card__title">{{ quest.title }}</h3>
+                      <p class="quest-card__description">{{ quest.description }}</p>
 
-                    <h3 class="quest-card__title">{{ quest.title }}</h3>
-                    <p class="quest-card__description">{{ quest.description }}</p>
-
-                    <div class="quest-card__io">
-                      <span class="quest-card__io-label">Entrada → Saída Esperada</span>
-                      <code class="quest-card__io-line">{{ quest.input }} → {{ quest.output }}</code>
+                      <div class="quest-card__io">
+                        <span class="quest-card__io-label">Entrada → Saída Esperada</span>
+                        <code class="quest-card__io-line">{{ quest.input }} → {{ quest.output }}</code>
+                      </div>
                     </div>
                   </div>
-                </div>
+                }
+              </div>
+            </div>
+
+            <div class="quest-carousel__dots">
+              @for (quest of dailyQuests; track quest.id; let i = $index) {
+                <button
+                  class="quest-carousel__dot"
+                  [class.quest-carousel__dot--active]="currentQuestIndex() === i"
+                  type="button"
+                  (click)="goToQuest(i)"
+                  [attr.aria-label]="'Ir para quest ' + (i + 1)"
+                ></button>
               }
             </div>
           </div>
 
-          <div class="quest-carousel__dots">
-            @for (quest of dailyQuests; track quest.id; let i = $index) {
-              <button
-                class="quest-carousel__dot"
-                [class.quest-carousel__dot--active]="currentQuestIndex() === i"
-                type="button"
-                (click)="goToQuest(i)"
-                [attr.aria-label]="'Ir para quest ' + (i + 1)"
-              ></button>
-            }
+          <div class="quest-card__footer">
+            <div class="quest-card__arrows">
+              <button class="quest-card__nav" type="button" (click)="prevQuest()" aria-label="Quest anterior">‹</button>
+              <button class="quest-card__nav" type="button" (click)="nextQuest()" aria-label="Próxima quest">›</button>
+            </div>
+            <a class="quest-card__start" [routerLink]="['/batalha', currentQuest().id]">
+              <img class="quest-card__start-img" src="/assets/icons/lutar_button.png" alt="Lutar">
+            </a>
           </div>
-        </div>
-
-        <div class="quest-card__footer">
-          <div class="quest-card__arrows">
-            <button class="quest-card__nav" type="button" (click)="prevQuest()" aria-label="Quest anterior">‹</button>
-            <button class="quest-card__nav" type="button" (click)="nextQuest()" aria-label="Próxima quest">›</button>
-          </div>
-          <a class="quest-card__start" [routerLink]="['/batalha', currentQuest().id]">Lutar</a>
         </div>
       </div>
     </section>
@@ -103,7 +107,9 @@
           </div>
 
           <div class="weekly-card__actions">
-            <a class="weekly-card__start" [routerLink]="['/desafio-semanal', weeklyChallenge.id]">Enfrentar Desafio</a>
+            <a class="weekly-card__start" [routerLink]="['/desafio-semanal', weeklyChallenge.id]">
+              <img class="weekly-card__start-img" src="/assets/icons/enfrentar_button.png" alt="Enfrentar Desafio">
+            </a>
             <button class="weekly-card__history" type="button" (click)="openHistory()" title="Histórico da semana">↺</button>
           </div>
         </div>

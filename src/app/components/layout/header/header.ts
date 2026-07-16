@@ -9,6 +9,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header {
-  coins = signal(0);
-  streak = signal(0);
+  coins = signal(349);
+  streak = signal(5);
 }

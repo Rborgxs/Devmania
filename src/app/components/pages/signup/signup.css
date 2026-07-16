@@ -1,15 +1,21 @@
 .signup {
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--color-black);
+  background-image: url(/assets/backgrounds/stonewall_bg.jpeg);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  background-position: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .signup__topbar {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1rem 8rem;
 }
 
 .signup__back {
@@ -38,7 +44,7 @@
 
 .signup__progress {
   flex: 1;
-  height: 10px;
+  height: 8px;
   background: var(--color-brown-second);
   border: 2px solid var(--color-brown-primary);
 }
@@ -51,15 +57,14 @@
 
 .signup__stage {
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
+  overflow: hidden;
 }
 
-/* ===========================
-   RESPONSIVO TABLET
-=========================== */
 @media (max-width: 768px) {
   .signup__topbar {
     padding: var(--space-md) var(--space-lg);
@@ -71,9 +76,6 @@
   }
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 480px) {
   .signup__topbar {
     padding: var(--space-sm) var(--space-md);

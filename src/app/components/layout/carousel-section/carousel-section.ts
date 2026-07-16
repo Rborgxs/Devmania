@@ -59,7 +59,7 @@ readonly slides: CarouselSlide[] = [
     title: 'Dev Sênior',
     description: 'Domina a arte do código? Lidere torneios, compartilhe conhecimento na Guilda e conquiste o topo das ligas mais disputadas da Devmania.',
     features: [
-      'Torneios com bracket e recompensas em baús',
+      'Torneios e recompensas para se divertir',
       'Participação ativa nas guildas e chats',
       'Insígnias exclusivas por linguagem dominada'
     ]
