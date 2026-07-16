@@ -1,7 +1,10 @@
 <div class="profile-avatar-card">
   <div class="profile-avatar-card__frame-row">
     <div class="profile-avatar-card__frame">
-      <img class="profile-avatar-card__sprite" [src]="avatarService.currentSpriteUrl()" alt="Seu avatar">
+      <img class="profile-avatar-card__frame-img" src="assets/icons/mainavatar_frame.png" alt="">
+      @if (avatarService.currentSpriteUrl()) {
+        <img class="profile-avatar-card__sprite" [src]="avatarService.currentSpriteUrl()" alt="Seu avatar">
+      }
     </div>
 
     <div class="profile-avatar-card__xp-badge">

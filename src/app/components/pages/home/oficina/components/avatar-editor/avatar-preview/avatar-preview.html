@@ -1,4 +1,7 @@
 <div class="avatar-preview">
   <div class="avatar-preview__pedestal"></div>
-  <img class="avatar-preview__sprite" [src]="avatarService.currentSpriteUrl()" alt="Seu avatar">
+  <img class="avatar-preview__mainavatar" src="assets/icons/mainavatar.png" alt="">
+  @if (avatarService.currentSpriteUrl()) {
+    <img class="avatar-preview__sprite" [src]="avatarService.currentSpriteUrl()" alt="Seu avatar">
+  }
 </div>

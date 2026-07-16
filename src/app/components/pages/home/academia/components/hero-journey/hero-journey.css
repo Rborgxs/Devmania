@@ -47,23 +47,12 @@
 
 .hero-journey__node {
   cursor: pointer;
-  transition: transform 0.2s ease-out;
-}
-
-.hero-journey__node:hover {
-  transform: translate(0, -2px);
-}
-
-.hero-journey__node:hover .hero-journey__node-circle {
-  stroke: var(--color-yellow-primary);
-  filter: drop-shadow(0 0 6px rgba(236, 177, 88, 0.4));
 }
 
 .hero-journey__node-circle {
   fill: var(--color-black);
   stroke: var(--color-gray);
   stroke-width: 2;
-  transition: stroke 0.2s ease-out, fill 0.2s ease-out;
 }
 
 .hero-journey__node[data-status='completed'] .hero-journey__node-circle {
@@ -75,18 +64,9 @@
   fill: var(--color-purple);
   stroke: var(--color-yellow-primary);
   stroke-width: 3;
-  filter: drop-shadow(0 0 6px var(--color-yellow-primary));
 }
 
 .hero-journey__node[data-status='locked'] .hero-journey__node-circle {
-  opacity: 0.4;
-}
-
-.hero-journey__node-icon {
-  image-rendering: pixelated;
-}
-
-.hero-journey__node[data-status='locked'] .hero-journey__node-icon {
   opacity: 0.4;
 }
 
@@ -130,9 +110,6 @@
   color: var(--color-gray);
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 480px) {
   .hero-journey {
     padding: 1rem 0.85rem;
