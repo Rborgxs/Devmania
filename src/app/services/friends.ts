@@ -6,8 +6,8 @@ export class FriendsService {
   searchTerm = signal('');
 
   friends = signal<Friend[]>([
-    { id: 'f1', name: 'Aldric_dev', avatar: '/assets/avatars/avatar1.png', role: 'Arquimago', status: 'online' },
-    { id: 'f2', name: 'Morwenna', avatar: '/assets/avatars/avatar2.png', role: 'Cavaleiro', status: 'em-duelo' }
+    { id: 'f1', name: 'Aldric_dev', avatar: '/assets/icons/avatar1.jpeg', role: 'Arquimago', status: 'online' },
+    { id: 'f2', name: 'Morwenna', avatar: '/assets/icons/avatar2.jpeg', role: 'Cavaleiro', status: 'em-duelo' }
   ]);
 
   selectedFriend = signal<Friend | null>(null);
