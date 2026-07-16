@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 60px;
   background-color: var(--color-brown-primary);
   padding: 0 1.5rem;
   border-bottom: 2px solid var(--color-brown-second);
@@ -16,7 +16,7 @@
   inset: 0;
   z-index: -1;
   background-image: url(/assets/backgrounds/sidebar_bg.jpeg);
-  background-size: 15rem;
+  background-size: 25rem;
   background-position: center;
   opacity: 0.6;
 }
@@ -77,8 +77,8 @@
 }
 
 .header__icon {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -90,20 +90,22 @@
 }
 
 .header__icon--coin {
-  background-image: url('/assets/icons/coin_icon.png');
+  background-image: url('/assets/icons/coinbag_icon.png');
 }
 
 .header__icon--streak {
   background-image: url('/assets/icons/streak_icon.png');
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 700px) {
   .header {
     padding: 0 0.85rem;
     gap: 0.5rem;
+  }
+
+  .header__icon {
+    width: 24px;
+    height: 24px;
   }
 
   .header__pill {

@@ -1,5 +1,5 @@
 <section class="mode-selector">
-  <h2 class="mode-selector__title">Escolha sua Liga</h2>
+  <h2 class="mode-selector__title">Escolha seu Modo</h2>
   <div class="mode-selector__cards">
     @for (mode of modes; track mode.id) {
       <button
@@ -8,7 +8,7 @@
         type="button"
         (click)="selectMode(mode.id)"
       >
-        <span class="mode-card__icon" [style.background-image]="'url(' + mode.icon + ')'"></span>
+        <img class="mode-card__image" [src]="mode.icon" [alt]="mode.label">
         <div class="mode-card__header">
           <span class="mode-card__name">{{ mode.label }}</span>
           <span

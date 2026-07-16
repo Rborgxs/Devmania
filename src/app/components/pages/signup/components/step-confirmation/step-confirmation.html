@@ -1,6 +1,5 @@
 @if (phase() === 'form') {
   <div class="step-confirmation">
-    <img class="step-confirmation__illustration" src="assets/icons/confirmation-illustration.png" alt="">
 
     <p class="step-confirmation__speech">
       Tudo está pronto! Agora posso saber como devo chamá-lo?
@@ -16,12 +15,37 @@
         placeholder="Seu nome">
 
       <label class="step-confirmation__label" for="username">Nome de usuário</label>
-      <input
-        id="username"
-        class="step-confirmation__input"
-        type="text"
-        [(ngModel)]="username"
-        placeholder="Como quer ser chamado no reino">
+      <div class="step-confirmation__username-wrapper" [class.step-confirmation__username-wrapper--taken]="usernameStatus() === 'taken'" [class.step-confirmation__username-wrapper--available]="usernameStatus() === 'available'">
+        <span class="step-confirmation__at">@</span>
+        <input
+          id="username"
+          class="step-confirmation__input step-confirmation__input--username"
+          type="text"
+          [ngModel]="username()"
+          (ngModelChange)="onUsernameInput($event)"
+          placeholder="nome_de_usuario">
+
+        <span class="step-confirmation__username-status">
+          @switch (usernameStatus()) {
+            @case ('checking') {
+              <span class="step-confirmation__spinner"></span>
+            }
+            @case ('available') {
+              <span class="step-confirmation__icon step-confirmation__icon--ok">✔</span>
+            }
+            @case ('taken') {
+              <span class="step-confirmation__icon step-confirmation__icon--fail">✕</span>
+            }
+          }
+        </span>
+      </div>
+
+      @if (usernameStatus() === 'taken') {
+        <span class="step-confirmation__username-message step-confirmation__username-message--error">Esse nome de usuário já está em uso</span>
+      }
+      @if (usernameStatus() === 'available') {
+        <span class="step-confirmation__username-message step-confirmation__username-message--ok">Nome de usuário disponível</span>
+      }
     </div>
 
     <button

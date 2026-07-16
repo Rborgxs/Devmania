@@ -30,19 +30,19 @@ export class ModeSelector {
     {
       id: 'feat',
       label: 'Feat',
-      icon: '/assets/icons/arena/mode-feat.png',
+      icon: '/assets/icons/feat_logo.png',
       description: 'Crie funções, classes e funcionalidades do zero'
     },
     {
       id: 'fix',
       label: 'Fix',
-      icon: '/assets/icons/arena/mode-fix.png',
+      icon: '/assets/icons/fix_logo.png',
       description: 'Debugue códigos e encontre bugs'
     },
     {
       id: 'style',
       label: 'Style',
-      icon: '/assets/icons/arena/mode-style.png',
+      icon: '/assets/icons/style_logo.png',
       description: 'Centralize divs e mexa com estilização'
     }
   ];

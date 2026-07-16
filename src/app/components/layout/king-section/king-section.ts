@@ -56,7 +56,7 @@ export class KingSection implements AfterViewInit, OnDestroy {
       title: 'Style',
       description: 'Refatore o código existente, mantendo a mesma função com mais elegância.',
       kingQuote: 'Refatore com elegância! Uma tela linda também é honra.',
-      kingImage: '/assets/characters/rei_hello.png'
+      kingImage: '/assets/characters/rei_default.png'
     }
   ];
 

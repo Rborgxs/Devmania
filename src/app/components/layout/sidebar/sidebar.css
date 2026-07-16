@@ -31,8 +31,8 @@
 }
 
 .sidebar__brand-icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   background: url('/assets/icons/sidebar/brand.png') no-repeat center / contain;
   image-rendering: pixelated;
@@ -95,6 +95,7 @@
 
 .sidebar--collapsed .sidebar__item {
   justify-content: center;
+  padding: 0.5rem 0.25rem;
 }
 
 .sidebar__item:hover {
@@ -112,8 +113,8 @@
 }
 
 .sidebar__item-icon {
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-position: center;
@@ -154,14 +155,14 @@
   opacity: 0.9;
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-   Força modo ícone-only independente do toggle manual,
-   para não consumir a maior parte de telas estreitas.
-=========================== */
 @media (max-width: 700px) {
   .sidebar {
     width: 64px;
+  }
+
+  .sidebar__item-icon {
+    width: 30px;
+    height: 30px;
   }
 
   .sidebar__brand-text,
@@ -171,6 +172,7 @@
 
   .sidebar__item {
     justify-content: center;
+    padding: 0.5rem 0.25rem;
   }
 
   .sidebar__toggle {

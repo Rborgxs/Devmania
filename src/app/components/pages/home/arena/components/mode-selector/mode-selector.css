@@ -38,12 +38,10 @@
   background: var(--color-purple);
 }
 
-.mode-card__icon {
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.mode-card__image {
+  width: 10rem;
+  height: auto;
+  object-fit: contain;
   image-rendering: pixelated;
 }
 
@@ -112,9 +110,6 @@
   transform: translateY(-2px);
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 480px) {
   .mode-selector__cards {
     grid-template-columns: 1fr;

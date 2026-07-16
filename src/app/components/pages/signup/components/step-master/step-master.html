@@ -1,36 +1,42 @@
 <div class="step-master">
-  <div class="step-master__king">
-    <img class="step-master__king-image" src="assets/characters/rei_default.png" alt="Rei">
-  </div>
-
   <div class="step-master__stage" [attr.data-direction]="slideDirection()">
+    <div class="step-master__king">
+      <img class="step-master__king-image" src="assets/characters/rei_sorriso.png" alt="Rei">
+    </div>
+
     <div class="step-master__main">
       <img class="step-master__portrait" [src]="currentMaster.imageUrl" [alt]="currentMaster.name">
       <div class="step-master__speech">{{ currentMaster.description }}</div>
     </div>
 
-    <div class="step-master__info">
-      <h3 class="step-master__name">{{ currentMaster.name }}</h3>
+    <div class="step-master__details">
+      <div class="step-master__name-row">
+        <button class="step-master__arrow" type="button" (click)="previousMaster()" aria-label="Mestre anterior">
+          <img class="step-master__arrow-img step-master__arrow-img--default" src="assets/icons/back_icon.png" alt="">
+          <img class="step-master__arrow-img step-master__arrow-img--hover" src="assets/icons/back_icon_hover.png" alt="">
+        </button>
+
+        <h3 class="step-master__name">{{ currentMaster.name }}</h3>
+
+        <button class="step-master__arrow step-master__arrow--next" type="button" (click)="nextMaster()" aria-label="Próximo mestre">
+          <img class="step-master__arrow-img step-master__arrow-img--default" src="assets/icons/next_icon.png" alt="">
+          <img class="step-master__arrow-img step-master__arrow-img--hover" src="assets/icons/next_icon_hover.png" alt="">
+        </button>
+      </div>
+
       <p class="step-master__title">{{ currentMaster.title }}</p>
+
+      <div class="step-master__traits">
+        @for (trait of currentMaster.traits; track trait.label) {
+          <div class="step-master__trait">
+            <span>{{ trait.label }}</span>
+          </div>
+        }
+      </div>
+
+      <button class="step-master__choose" type="button" (click)="chooseMaster()">
+        <img src="assets/icons/escolher_button.png" alt="Escolher">
+      </button>
     </div>
-
-    <div class="step-master__traits">
-      @for (trait of currentMaster.traits; track trait.label) {
-        <div class="step-master__trait">
-          <span class="icon-placeholder"></span>
-          <span>{{ trait.label }}</span>
-        </div>
-      }
-    </div>
-  </div>
-
-  <div class="step-master__controls">
-    <button class="step-master__arrow" type="button" (click)="previousMaster()" aria-label="Mestre anterior">←</button>
-
-    <button class="step-master__choose" type="button" (click)="chooseMaster()">
-      <img src="assets/icons/button_choose.png" alt="Escolher">
-    </button>
-
-    <button class="step-master__arrow" type="button" (click)="nextMaster()" aria-label="Próximo mestre">→</button>
   </div>
 </div>

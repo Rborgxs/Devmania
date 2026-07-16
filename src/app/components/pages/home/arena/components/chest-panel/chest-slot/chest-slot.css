@@ -23,9 +23,9 @@
 }
 
 .chest-slot__chest-icon {
-  width: 56px;
-  height: 56px;
-  background: url('/assets/icons/chest_icon_1.png') no-repeat center / contain;
+  width: 12rem;
+  height: 12rem;
+  background: url('/assets/icons/chest_icon_3.png') no-repeat center / contain;
   image-rendering: pixelated;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .chest-slot__chest-icon--open {
-  background-image: url('/assets/icons/chest_icon_2.png');
+  background-image: url('/assets/icons/chest_icon_1.png');
   animation: chest-pop 0.4s ease-out;
 }
 

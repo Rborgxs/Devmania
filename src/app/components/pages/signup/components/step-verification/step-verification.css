@@ -1,8 +1,15 @@
 .step-verification {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-verification__icon {
+  width: 8rem;
+  height: 8rem;
+  image-rendering: pixelated;
+  object-fit: contain;
 }
 
 .step-verification__digits {

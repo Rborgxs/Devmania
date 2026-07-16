@@ -32,8 +32,8 @@
 }
 
 .arena-sidebar__tournament-icon {
-  width: 22px;
-  height: 22px;
+  width: 2rem;
+  height: 2rem;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-position: center;

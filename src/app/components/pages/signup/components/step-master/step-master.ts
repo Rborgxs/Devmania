@@ -67,7 +67,7 @@ export class StepMaster {
       id: 'ronald',
       name: 'Ronald',
       title: 'Cavaleiro Real',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+      description: '"A seu serviço!", com certeza será um companheiro leal em sua jornada.',
       imageUrl: 'assets/characters/ronald_default.png',
       traits: [{ icon: '', label: 'Divertido' }, { icon: '', label: 'Simpático' }, { icon: '', label: 'Otimista' }]
     },

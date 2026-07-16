@@ -35,36 +35,6 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
-.stats-card:hover .stats-card__icon {
-  transform: scale(1.15);
-}
-
-.stats-card__icon {
-  width: 28px;
-  height: 28px;
-  image-rendering: pixelated;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  transition: transform 0.25s ease-out;
-}
-
-.stats-card__icon--coin {
-  background-image: url('/assets/icons/coin_icon.png');
-}
-
-.stats-card__icon--time {
-  background-image: url('/assets/icons/time_icon.png');
-}
-
-.stats-card__icon--target {
-  background-image: url('/assets/icons/stats/target.png');
-}
-
-.stats-card__icon--code {
-  background-image: url('/assets/icons/stats/code.png');
-}
-
 .stats-card__value {
   font-family: var(--fonte-title);
   color: var(--color-yellow-primary);
@@ -117,9 +87,6 @@
   transition: color 0.2s ease-out;
 }
 
-/* ===========================
-   RESPONSIVO NOTEBOOK/TABLET
-=========================== */
 @media (max-width: 1024px) {
   .stats-panel__charts {
     grid-template-columns: 1fr;
@@ -132,9 +99,6 @@
   }
 }
 
-/* ===========================
-   RESPONSIVO MOBILE
-=========================== */
 @media (max-width: 480px) {
   .stats-panel__cards {
     grid-template-columns: 1fr;

@@ -18,16 +18,16 @@
   font-family: var(--fonte-std);
   color: var(--color-gray);
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .master-card {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
   padding: 0.5rem;
+  justify-content: center;
 }
 
 .master-card:hover {
@@ -43,6 +43,7 @@
   width: 9rem;
   height: 9rem;
   flex-shrink: 0;
+  align-self: center;
   image-rendering: pixelated;
 }
 
@@ -52,6 +53,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  align-self: center;
   flex: 0 1 auto;
   max-width: 80%;
   padding: 0.5rem 2.5rem 0.5rem 1.25rem;
@@ -264,21 +266,27 @@
 .quest-card__nav {
   background: var(--color-purple);
   border: none;
-  color: var(--color-yellow-secundary);
   width: 32px;
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
   flex-shrink: 0;
-  font-size: 1.1rem;
-  line-height: 1;
-  transition: transform 0.15s ease-out, background 0.15s ease-out, color 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.15s ease-out, background 0.15s ease-out;
 }
 
 .quest-card__nav:hover {
   transform: scale(1.15);
   background: var(--color-yellow-primary);
-  color: var(--color-brown-primary);
+}
+
+.quest-card__nav-icon {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
 }
 
 .quest-card__reward {
@@ -296,8 +304,8 @@
 
 .quest-card__coin-icon,
 .quest-card__xp-icon {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
   image-rendering: pixelated;
 }
@@ -372,11 +380,12 @@
 }
 
 .quest-card__start-img {
+  display: block;
   width: 20rem;
   height: auto;
   image-rendering: pixelated;
-  opacity: 0.70;
-  transition: opacity 0.5s ease-out;
+  opacity: 0.85;
+  transition: opacity 0.2s ease-out;
 }
 
 .quest-card__start:hover .quest-card__start-img {
@@ -470,6 +479,14 @@
   color: var(--color-danger-light);
 }
 
+.weekly-card__bug-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  image-rendering: pixelated;
+  background: url('/assets/icons/bug_icon.png') no-repeat center / contain;
+}
+
 .weekly-card__body {
   display: flex;
   flex-direction: column;
@@ -510,11 +527,12 @@
 }
 
 .weekly-card__start-img {
+  display: block;
   width: 20rem;
   height: auto;
   image-rendering: pixelated;
-  opacity: 0.70;
-  transition: opacity 0.5s ease-out;
+  opacity: 0.85;
+  transition: opacity 0.2s ease-out;
 }
 
 .weekly-card__start:hover .weekly-card__start-img {
@@ -585,6 +603,21 @@
   font-family: var(--fonte-std);
   font-size: 0.8rem;
   color: var(--color-yellow-secundary);
+}
+
+.history-modal__day {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.history-modal__history-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: inline-block;
+  image-rendering: pixelated;
+  background: url('/assets/icons/history_icon.png') no-repeat center / contain;
 }
 
 .history-modal__status[data-status='concluido'] { color: var(--color-success); }

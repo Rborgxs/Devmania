@@ -70,11 +70,15 @@
 
           <div class="quest-card__footer">
             <div class="quest-card__arrows">
-              <button class="quest-card__nav" type="button" (click)="prevQuest()" aria-label="Quest anterior">‹</button>
-              <button class="quest-card__nav" type="button" (click)="nextQuest()" aria-label="Próxima quest">›</button>
+              <button class="quest-card__nav" type="button" (click)="prevQuest()" aria-label="Quest anterior">
+                <img class="quest-card__nav-icon" src="assets/icons/back_icon.png" alt="">
+              </button>
+              <button class="quest-card__nav" type="button" (click)="nextQuest()" aria-label="Próxima quest">
+                <img class="quest-card__nav-icon" src="assets/icons/next_icon.png" alt="">
+              </button>
             </div>
             <a class="quest-card__start" [routerLink]="['/batalha', currentQuest().id]">
-              <img class="quest-card__start-img" src="/assets/icons/lutar_button.png" alt="Lutar">
+              <img class="quest-card__start-img" src="assets/icons/lutar_button.png" alt="Lutar">
             </a>
           </div>
         </div>
@@ -96,7 +100,7 @@
                 <span class="quest-card__coin-icon"></span> {{ weeklyChallenge.coinReward }}
               </span>
               <span class="weekly-card__chip weekly-card__chip--bugs">
-                🐛 {{ weeklyChallenge.bugCount }} bugs
+                <span class="weekly-card__bug-icon"></span> {{ weeklyChallenge.bugCount }} bugs
               </span>
             </div>
           </div>
@@ -108,7 +112,7 @@
 
           <div class="weekly-card__actions">
             <a class="weekly-card__start" [routerLink]="['/desafio-semanal', weeklyChallenge.id]">
-              <img class="weekly-card__start-img" src="/assets/icons/enfrentar_button.png" alt="Enfrentar Desafio">
+              <img class="weekly-card__start-img" src="assets/icons/enfrentar_button.png" alt="Enfrentar Desafio">
             </a>
             <button class="weekly-card__history" type="button" (click)="openHistory()" title="Histórico da semana">↺</button>
           </div>
@@ -127,7 +131,10 @@
         <ul class="history-modal__list">
           @for (day of weekHistory; track day.day) {
             <li class="history-modal__item">
-              <span class="history-modal__day">{{ day.day }}</span>
+              <span class="history-modal__day">
+                <span class="history-modal__time-icon"></span>
+                {{ day.day }}
+              </span>
               <span class="history-modal__quest">{{ day.questTitle }}</span>
               <span class="history-modal__coins">{{ day.coins }} moedas</span>
               <span class="history-modal__status" [attr.data-status]="day.status">{{ day.status }}</span>
